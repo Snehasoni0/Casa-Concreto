@@ -58,3 +58,57 @@ $(document).ready(function () {
     }
   });
 });
+
+
+
+// console.log("hello")
+
+const galleryItem = document.querySelectorAll(".gallery-item");
+const modal = document.getElementById("galleryModal");
+const modalImg = document.getElementById("modalImage");
+const closeModal = document.querySelector(".close-modal");
+
+galleryItem.forEach((item) => {
+
+  item.addEventListener("click", () => {
+    const img = item.querySelector("img");
+    modal.classList.add("active");
+    modalImg.src = img.src;
+  });
+
+});
+
+// close icon
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+// overlay click
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+  }
+});
+
+$(".testimonial-carousel").owlCarousel({
+  loop: true,
+  margin: 20,
+  nav: true,
+  dots: true,
+  dotsEach: true, 
+  autoplay: true,
+  autoplayTimeout: 2000,
+  responsive: {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 2
+    },
+    1000: {
+      items: 4
+    }
+  }
+});
+
+

@@ -21,6 +21,7 @@
   .menu {
     position: fixed;
     inset: 0;
+    height: 100%;
     background: #cfdcdc;
     transform: translateX(100%);
     transition: .4s;
@@ -99,6 +100,35 @@
   .rooms-grid {
     display: grid;
     grid-template-columns: 1fr;
+    /* single column */
+    grid-auto-rows: auto;
+    /* let row height adjust automatically */
+    gap: 20px;
+    /* consistent gap between cards */
+  }
+
+  .room-col-grid-first,
+  .room-col-grid-second {
+    grid-template-columns: 1fr;
+    /* nested grids also single column */
+    grid-auto-rows: auto;
+    /* each card takes its own height */
+    height: auto;
+    /* full height of content */
+    gap: 20px;
+    /* gap between nested cards */
+  }
+
+  .room-card-large {
+    grid-row: auto;
+    /* large card behaves like normal card */
+  }
+
+  .room-card {
+    height: auto;
+    /* card height adjusts to content */
+    margin-bottom: 0;
+    /* gaps handled by grid gap */
   }
 
   .room-card {
@@ -115,6 +145,24 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 45px 15px;
   }
+
+  .gallery-title {
+    font-size: 32px;
+  }
+
+  .footer-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #image-banner {
+    height: 60vh;
+  }
+
+  
+  .cuisine-text h2 {
+    font-size: 36px;
+  }
+
 }
 
 @media (max-width: 575px) {
@@ -175,4 +223,88 @@
     font-size: 24px;
     margin-bottom: 40px;
   }
+
+  .gallery-title {
+    font-size: 26px;
+  }
+
+  #galleryModal img {
+    max-width: 95%;
+  }
+
+  .reels-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+
+@media(max-width:768px) {
+  #lux-gallery {
+    padding: 60px 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+
+  .gallery-item.tall {
+    height: 260px;
+  }
+
+  .gallery-item.wide {
+    grid-column: auto;
+  }
+
+  #site-footer {
+    padding: 50px 20px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    text-align: center;
+  }
+
+  /* Logo column full width */
+  .footer-col:first-child {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  /* Map full width */
+  .footer-col:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand {
+    font-size: 45px;
+    bottom: -6px;
+  }
+
+  .cuisine-section {
+    padding: 80px 25px;
+  }
+
+  .cuisine-gallery{
+    margin-top: 30px;
+  }
+
+  .cuisine-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .reels-grid{
+    grid-template-columns: 1fr;
+    padding: 0px 20px;
+  }
+
 }
