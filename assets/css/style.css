@@ -6,20 +6,33 @@
   text-decoration: none;
 }
 
+
+.home .custom-navbar {
+  background: transparent;
+}
+
 .custom-navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;
-  background: transparent;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  z-index: 999;
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.3s ease;
 }
 
+/* On scroll */
+
 .custom-navbar.scrolled {
-  background: rgba(59, 59, 59, 0.9);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 
 nav {
   display: grid;
@@ -424,7 +437,7 @@ nav {
 }
 
 
-.experience-btn {
+.hover-btn {
   margin-top: 40px;
   padding: 15px 40px;
   background: black;
@@ -437,7 +450,7 @@ nav {
   transition: color .4s ease;
 }
 
-.experience-btn::after {
+.hover-btn::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -447,16 +460,17 @@ nav {
   z-index: -1;
 }
 
-#Experience button:hover::after {
+.hover-btn:hover::after {
   transform: translateX(0);
 }
 
-#Experience button:not(:hover)::after {
+.hover-btn:not(:hover)::after {
   transform: translateX(-100%);
 }
 
-#Experience button:hover {
+.hover-btn:hover {
   color: black;
+  font-weight: bold;
 }
 
 #amenities {
@@ -744,34 +758,36 @@ nav {
 
 
 .reels-section {
-  padding:60px 0px;
+  padding: 60px 0px;
   text-align: center;
 }
 
-.reels-inner{
+.reels-inner {
   max-width: 1170px;
   margin: auto;
 }
 
-.reels-headings{
+.reels-headings {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.reels-headings h2{
+.reels-headings h2 {
   font-size: 35px;
   margin-bottom: 10px;
 }
 
-.reels-headings p{
+.reels-headings p {
   margin-top: 12px;
 }
 
 .reels-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
 }
 
 .reel-card {
@@ -789,12 +805,13 @@ nav {
   object-fit: cover;
 }
 
+
 /* Overlay */
 
 .reel-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.4);
+  background: rgba(0, 0, 0, .4);
   opacity: 0;
   transition: .3s ease;
 }
@@ -809,7 +826,7 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: white;
   font-size: 18px;
   display: flex;
@@ -828,31 +845,20 @@ nav {
 
 .testimonial-section {
   width: 100%;
-  padding:60px;
+  padding: 60px;
   text-align: center;
+  background-image: url('https://casaconcreto.in/wp-content/uploads/2024/04/IBA00739-scaled.jpg');
+  color: white;
 }
 
-.testimonial-inner{
+.testimonial-inner {
   max-width: 1170px;
   margin: auto;
 }
 
 .testimonial-section h2 {
   font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.testimonial-sub {
-  color: #777;
   margin-bottom: 50px;
-}
-
-.testimonial-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: left;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
 }
 
 .review-top {
@@ -860,9 +866,9 @@ nav {
   display: flex;
   align-items: center;
   gap: 150px;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
-
 
 .review-avatar {
   width: 45px;
@@ -873,13 +879,13 @@ nav {
 
 
 .review-top svg {
-  width: 18px;
-  height: 18px;
+  width: 23px;
+  height: 23px;
   flex-shrink: 0;
 }
 
 
-.testimonial-card h4 {
+.t-card h4 {
   margin-bottom: 5px;
 }
 
@@ -888,55 +894,96 @@ nav {
   margin-bottom: 15px;
 }
 
-.testimonial-card p {
+.t-card p {
   font-size: 14px;
   line-height: 1.6;
   color: #555;
 }
 
-/* Owl arrows */
+.testimonial-rotator {
+  position: relative;
+  width: 900px;
+  height: 420px;
+  margin: auto;
+}
 
-.testimonial-carousel .owl-nav button {
+.t-card {
+  width: 400px;
+  border-radius: 10px;
   position: absolute;
-  top: 40%;
-  font-size: 30px !important;
+  background: #fff;
+  color: black;
+  padding: 20px;
+  animation: spin 20s infinite ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-.testimonial-carousel .owl-prev {
-  left: -40px;
+
+.c1 {
+  animation-delay: 0s;
 }
 
-.testimonial-carousel .owl-next {
-  right: -40px;
+.c2 {
+  animation-delay: -5s;
 }
 
-.testimonial-carousel .owl-dots {
-  margin-top: 30px;
+.c3 {
+  animation-delay: -10s;
 }
 
-.owl-dots {
-  display: flex !important;
-  justify-content: center;
+.c4 {
+  animation-delay: -15s;
 }
 
-.owl-dot {
-  margin: 0 3px !important;
-}
 
-.owl-dot span {
-  width: 10px;
-  height: 10px;
-  background: #ccc !important;
-  border-radius: 50%;
-  display: block;
-  transition: 0.3s ease;
-}
+@keyframes spin {
 
-.owl-dot.active span {
-  background: #000 !important;
-  transform: scale(1.3);
-}
+  0% {
+    top: 0;
+    left: 0;
+  }
 
+  10% {
+    top: 0;
+    left: 0;
+  }
+
+  25% {
+    top: 0;
+    left: 460px;
+  }
+
+  35% {
+    top: 0;
+    left: 460px;
+  }
+
+  50% {
+    top: 220px;
+    left: 460px;
+  }
+
+  60% {
+    top: 220px;
+    left: 460px;
+  }
+
+  75% {
+    top: 220px;
+    left: 0;
+  }
+
+  85% {
+    top: 220px;
+    left: 0;
+  }
+
+  100% {
+    top: 0;
+    left: 0;
+  }
+
+}
 
 
 /* ===== FOOTER ===== */

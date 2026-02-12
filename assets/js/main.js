@@ -90,19 +90,21 @@ modal.addEventListener("click", (e) => {
   }
 });
 
-$(".testimonial-carousel").owlCarousel({
+
+$('.reels-grid').owlCarousel({
   loop: true,
   margin: 20,
-  nav: true,
-  dots: true,
-  dotsEach: true, 
   autoplay: true,
-  autoplayTimeout: 2000,
+  autoplayTimeout: 3000,
+  autoplayHoverPause: true,
+  nav: false,
+  dots: false,
+
   responsive: {
     0: {
       items: 1
     },
-    768: {
+    600: {
       items: 2
     },
     1000: {

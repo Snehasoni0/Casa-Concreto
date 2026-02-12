@@ -1,0 +1,274 @@
+.about .custom-navbar {
+  background: transparent;
+}
+
+.about-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url("https://casaconcreto.in/wp-content/uploads/2024/04/casa-concreto-e29558.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay using pseudo element */
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+}
+
+.about-hero h1::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: white;
+  margin: 5px auto 0;
+}
+
+/* Title */
+
+.about-hero h1 {
+  position: relative;
+  color: white;
+  font-size: 5rem;
+  letter-spacing: 2px;
+}
+
+
+.villa-info {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.villa-info h2 {
+  font-size: 46px;
+  font-family: serif;
+  margin-bottom: 25px;
+}
+
+.villa-info p {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  line-height: 1.7;
+  font-size: 15px;
+  color: #444;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+}
+
+.stat h3 {
+  font-size: 70px;
+  font-family: serif;
+  margin-bottom: 5px;
+}
+
+.stat span {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.escape-section {
+  background: #000;
+  padding: 100px 0;
+}
+
+.escape-container {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  padding: 0 60px;
+}
+
+.escape-content h2 {
+  color: white;
+  font-size: 48px;
+  font-family: serif;
+  margin-bottom: 25px;
+}
+
+.escape-content p {
+  color: #ccc;
+  max-width: 450px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.escape-btn {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.escape-btn:hover {
+  background: white;
+  color: black;
+}
+
+.escape-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-location {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("https://cdn.prod.website-files.com/64494cd12854f84809b1f4d1/64c1909e081759e48277c57e_about-photo-2-min.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding: 0 20px;
+}
+
+.hero-content h2 {
+  font-size: 48px;
+  color: #fff;
+  font-family: serif;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  color: #ddd;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 13px;
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #fff;
+  color: #000;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.video-hero {
+  width: 100%;
+  height: 100vh;
+}
+
+
+.video-hero iframe {
+ width: 100%; 
+ height: 100%;
+}
+
+
+.guest-section{
+  position:relative;
+  width:100%;
+  height:100vh;
+  background:url("https://casaconcreto.in/wp-content/uploads/2024/01/7.-Kids-friendly.jpeg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* subtle overlay */
+.guest-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+}
+
+.guest-box{
+  position:relative;
+  background:white;
+  padding:60px 70px;
+  max-width:520px;
+  z-index:2;
+  border-radius: 10px;
+}
+
+.line{
+  width:40px;
+  height:1px;
+  background:black;
+  display:block;
+  margin-bottom:25px;
+}
+
+.guest-box h2{
+  font-family:serif;
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.guest-box p{
+  font-size:14px;
+  line-height:1.7;
+  color:#222;
+}
+
+.guest-box button{
+  background:black;
+  color:white;
+  border:none;
+  padding:15px 40px;
+  letter-spacing:2px;
+  cursor:pointer;
+}
+
+/* hover */
+
+.guest-box button:hover{
+  opacity:.8;
+}
+
+

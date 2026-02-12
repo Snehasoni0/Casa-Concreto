@@ -158,10 +158,91 @@
     height: 60vh;
   }
 
-  
+
   .cuisine-text h2 {
     font-size: 36px;
   }
+
+  .villa-info h2 {
+    font-size: 36px !important;
+  }
+
+  .escape-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 0 30px;
+  }
+
+  .escape-content h2 {
+    font-size: 36px;
+  }
+
+  .hero-content h2 {
+    font-size: 36px;
+  }
+
+  .testimonial-rotator {
+    width: 100%;
+    height: 260px;
+    position: relative;
+    perspective: 1000px;
+  }
+
+  .t-card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    animation: mobileFlip 20s infinite;
+    backface-visibility: hidden;
+  }
+
+  /* stagger timing */
+  .c1 {
+    animation-delay: 0s;
+  }
+
+  .c2 {
+    animation-delay: 5s;
+  }
+
+  .c3 {
+    animation-delay: 10s;
+  }
+
+  .c4 {
+    animation-delay: 15s;
+  }
+
+  @keyframes mobileFlip {
+
+    0% {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+
+    8% {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+
+    30% {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+
+    38% {
+      opacity: 0;
+      transform: scale(.95);
+    }
+
+    100% {
+      opacity: 0;
+    }
+
+  }
+
+
 
 }
 
@@ -232,9 +313,42 @@
     max-width: 95%;
   }
 
-  .reels-grid{
-    grid-template-columns: repeat(2,1fr);
+  .reels-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .stats {
+    gap: 30px !important;
+  }
+
+  .villa-info h2 {
+    font-size: 26px !important;
+  }
+
+  .stat h3 {
+    font-size: 40px !important;
+  }
+
+  .escape-section {
+    padding: 60px 0;
+  }
+
+  .escape-content h2 {
+    font-size: 26px;
+  }
+
+  .escape-btn {
+    padding: 12px 30px;
+  }
+
+  .hero-content h2 {
+    font-size: 26px;
+  }
+
+  .hero-btn {
+    padding: 12px 30px;
+  }
+
 }
 
 
@@ -294,7 +408,7 @@
     padding: 80px 25px;
   }
 
-  .cuisine-gallery{
+  .cuisine-gallery {
     margin-top: 30px;
   }
 
@@ -302,9 +416,51 @@
     grid-template-columns: 1fr;
   }
 
-  .reels-grid{
+  .reels-grid {
     grid-template-columns: 1fr;
     padding: 0px 20px;
   }
+
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .villa-info h2 {
+    font-size: 32px !important;
+  }
+
+  .stat h3 {
+    font-size: 55px !important;
+  }
+
+  .escape-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .escape-content h2 {
+    font-size: 32px;
+  }
+
+  .hero-content h2 {
+    font-size: 32px;
+  }
+
+  .video-hero {
+    width: 100%;
+    height: 29vh;
+  }
+
+  .guest-box {
+    padding: 40px 30px;
+    margin: 20px;
+  }
+
+  .guest-box h2 {
+    font-size: 32px;
+  }
+
 
 }
