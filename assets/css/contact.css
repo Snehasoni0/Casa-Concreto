@@ -1,0 +1,38 @@
+.contact-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url("https://casaconcreto.in/wp-content/uploads/2023/10/Contact-Us-copy-scaled.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+}
+
+.contact-hero h1::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: white;
+  margin: 5px auto 0;
+}
+
+/* Title */
+
+.contact-hero h1 {
+  position: relative;
+  color: white;
+  font-size: 5rem;
+  letter-spacing: 2px;
+}

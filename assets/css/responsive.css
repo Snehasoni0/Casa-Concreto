@@ -21,7 +21,7 @@
   .menu {
     position: fixed;
     inset: 0;
-    height: 100%;
+    height: 100vh;
     background: #cfdcdc;
     transform: translateX(100%);
     transition: .4s;
@@ -31,6 +31,7 @@
 
   .menu.active {
     transform: translateX(0);
+    height: 100vh;
   }
 
   .menu,
@@ -52,8 +53,8 @@
   }
 
   .menu>ul>li:hover {
-    background: #3e474b;
-    color: white !important;
+    background: #848686;
+    /* color: white !important; */
   }
 
   .dropdown {
@@ -85,8 +86,11 @@
   .dropdown li {
     font-size: 11px;
     padding: 10px 0;
-    color: #fff !important;
     display: block;
+  }
+
+  .dropdown li:hover {
+    color: white;
   }
 
   .all-for-you {
@@ -242,7 +246,17 @@
 
   }
 
+  .situ-grid {
+    grid-template-columns: 1fr;
+  }
 
+  .situ-content h2 {
+    font-size: 34px;
+  }
+
+  .situ-card {
+    padding: 30px;
+  }
 
 }
 
@@ -421,7 +435,7 @@
     padding: 0px 20px;
   }
 
-  .about-hero h1 {
+  .about-hero h1, .contact-hero h1 {
     font-size: 2.5rem;
   }
 
