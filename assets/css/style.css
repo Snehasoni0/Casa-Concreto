@@ -771,6 +771,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .reels-headings h2 {
@@ -780,6 +781,8 @@ nav {
 
 .reels-headings p {
   margin-top: 12px;
+  color: rgb(77, 75, 75);
+  letter-spacing: 1px;
 }
 
 .reels-grid {
