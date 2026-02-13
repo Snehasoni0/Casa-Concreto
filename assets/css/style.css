@@ -6,7 +6,7 @@
   text-decoration: none;
 }
 
-body{
+body {
   font-family: sans-serif;
 }
 
@@ -1080,4 +1080,14 @@ nav {
   white-space: nowrap;
   z-index: 1;
   pointer-events: none;
+}
+
+
+.fa-solid,
+.fa-regular {
+  font-family: "Font Awesome 6 Free";
+}
+
+.fa-brands {
+  font-family: "Font Awesome 6 Brands";
 }
