@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("https://casaconcreto.in/wp-content/uploads/2023/10/Contact-Us-copy-scaled.jpg");
+  background-image: url("../images/contactus/contact-hero-bg.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -37,7 +37,184 @@
   letter-spacing: 2px;
 }
 
-.contact-main{
+.contact-wrapper {
+  background: url("../images/contactus/contact-main-bg.jpg") center/cover;
+  padding: 50px 8%;
+  position: relative;
+}
+
+.contact-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .35);
+}
+
+.info-bar {
+  position: relative;
+  background: rgba(255, 255, 255, .92);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.info-item i {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #b18a55;
+  color: white;
+  padding: 16px;
+  border-radius: 50%;
+}
+
+.info-item div {
+  text-align: center;
+}
+
+.info-item h4 {
+  margin: 0;
+}
+
+.info-item p {
+  color: gray;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  padding-top: 10px;
+}
+
+.info-item span {
+  color: #b18a55;
+  font-weight: 600;
+}
+
+.contact-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  gap: 60px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-content h1 {
+  font-size: 55px;
+  margin: 0;
+  color:white;
+}
+
+.left-content h3 {
+  color: #464543;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+.line{
   width: 100%;
-  height: 100vh;
+  height: 1px;
+  background-color: white;
+  margin-bottom: 30px;
+}
+
+.left-content p{
+  color: white;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, .9);
+  border-radius: 18px;
+  padding: 35px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+textarea {
+  height: 100px;
+}
+
+.phone-field {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.country-code {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 10px;
+  border-right: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.country-code img {
+  width: 20px;
+  height: auto;
+}
+
+.country-code span {
+  font-weight: 500;
+}
+
+.country-code i {
+  font-size: 10px;
+  opacity: .6;
+}
+
+.phone-field input {
+  border: none;
+  outline: none;
+  padding: 12px;
+  flex: 1;
+  background: transparent;
+  font-size: 14px;
+}
+
+
+button {
+  width: 100%;
+  padding: 14px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
 }

@@ -6,7 +6,7 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("https://casaconcreto.in/wp-content/uploads/2024/04/casa-concreto-e29558.jpeg");
+  background-image: url("../images/about/about-hero-bg.jpeg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -140,7 +140,7 @@
 .hero-location {
   position: relative;
   min-height: 100vh;
-  background-image: url("https://cdn.prod.website-files.com/64494cd12854f84809b1f4d1/64c1909e081759e48277c57e_about-photo-2-min.jpg");
+  background-image: url("../images/about/about-location-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
