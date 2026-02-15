@@ -6,8 +6,17 @@
   text-decoration: none;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+section{
+  overflow: hidden;
 }
 
 

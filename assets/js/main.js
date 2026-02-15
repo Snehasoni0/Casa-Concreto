@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+  AOS.init({
+    duration: 1000,
+    once: false,
+    easing: "ease-in-out",
+  });
+
 });
 
 
@@ -113,7 +120,21 @@ $('.reels-grid').owlCarousel({
   }
 });
 
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
 
+    const targetId = this.getAttribute('href');
+    const target = document.querySelector(targetId);
+
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 80, // adjust for navbar
+        behavior: "smooth"
+      });
+    }
+  });
+});
 
 
 

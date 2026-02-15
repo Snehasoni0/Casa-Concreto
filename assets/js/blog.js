@@ -65,7 +65,7 @@ blogs.forEach(blog => {
   } else {
 
     grid.innerHTML += `
-      <div class="blog-card">
+      <div data-aos="fade-up" data-aos-duration="1000" class="blog-card">
         <img src="${blog.image}">
         <h3>${blog.title}</h3>
         <p>${blog.desc}</p>

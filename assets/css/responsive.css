@@ -146,7 +146,7 @@
 
 
   .amenities-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 45px 15px;
   }
 
@@ -338,11 +338,6 @@
     position: relative;
     top: 0;
     transform: none;
-  }
-
-  .amenities-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px 10px;
   }
 
   .amenities-title {
@@ -552,7 +547,7 @@
   }
 
   .amenities-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .amenities-section h1 {
