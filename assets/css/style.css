@@ -90,21 +90,47 @@ nav {
   position: absolute;
   top: 100%;
   left: 0;
-  list-style: none;
+  min-width: 200px;
+
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  padding: 15px
+
+  padding: 20px 25px;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+
+  transform: translateY(10px);
+  transition: .3s ease;
 }
 
 .has-dropdown:hover .dropdown {
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+  transform: translateY(0);
 }
 
 .dropdown li {
   padding: 10px 0;
+}
+
+.dropdown li a{
+  color:white;
+  font-size:12px;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.dropdown li a:hover{
+  color:#b68a55;
+  padding-left:5px;
 }
 
 .hamburger,
