@@ -19,10 +19,11 @@ const experiences = [
   },
 
   {
-    title: "Bonfire & Live Music",
-    desc: "Gather around the bonfire under the starlit sky while enjoying live music performances. A perfect evening of warmth, rhythm, and togetherness.",
+    title: "Casa Concreto Bonfire Nights",
+    desc: "Enjoy cozy evenings around a glowing bonfire in our spacious garden, creating warm memories under the starlit sky with friends and family.",
     image: "../../assets/images/experience/6.-Bonfire-scaled.jpg"
   },
+
 
   {
     title: "Floating Tray Breakfast",
@@ -31,9 +32,9 @@ const experiences = [
   },
 
   {
-    title: "Casa Concreto Bonfire Nights",
-    desc: "As the sun sets, embrace cozy bonfire evenings surrounded by serene landscapes, sharing stories and moments with fellow guests.",
-    image: "../../assets/images/experience/6.-Bonfire-scaled.jpg"
+    title: "Langa & Live Music",
+    desc: "Elevate your stay with a symphony of cultural richness. Immerse yourself in enchanting tunes of traditional Langa music or soulful melodies, adding an extraordinary dimension to your Casa Concreto experience.",
+    image: "../../assets/images/experience/langa.jpg"
   },
 
   {
@@ -62,7 +63,7 @@ experiences.forEach(item => {
 
   const div = document.createElement("div");
   div.className = "experience-row";
-  div.setAttribute("data-aos","fade-up");
+  div.setAttribute("data-aos", "fade-up");
 
   div.innerHTML = `
     <div class="exp-image">

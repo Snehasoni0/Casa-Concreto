@@ -158,6 +158,7 @@ textarea {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 6px;
+  outline: none;
 }
 
 textarea {
@@ -216,4 +217,8 @@ button {
   border-radius: 6px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+button:active{
+  scale: 1.05;
 }
