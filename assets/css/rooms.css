@@ -71,7 +71,6 @@
   background: url("../images/rooms/rooms-description-bg.jpg") center/cover no-repeat;
 }
 
-/* light wash over background */
 
 .situ-overlay {
   position: absolute;
@@ -85,14 +84,12 @@
   text-align: center;
 }
 
-/* Title */
 
 .situ-content h2 {
   font-size: 48px;
   margin-bottom: 20px;
 }
 
-/* Paragraph */
 
 .situ-desc {
   max-width: 900px;
@@ -101,7 +98,6 @@
   line-height: 1.8;
 }
 
-/* GRID */
 
 .situ-grid {
   margin-top: 70px;
@@ -110,33 +106,26 @@
   gap: 50px;
 }
 
-/* GLASS CARD */
 
 .situ-card {
   background: rgba(255, 255, 255, 0.2);
-  /* transparent */
-
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
   border-radius: 25px;
   padding: 45px;
-
   border: 1px solid rgba(255, 255, 255, .4);
-
   box-shadow:
     0 20px 40px rgba(0, 0, 0, .08),
     inset 0 0 30px rgba(255, 255, 255, .4);
-
   text-align: left;
-    transition: transform .4s ease, box-shadow .4s ease;
+  transition: transform .4s ease, box-shadow .4s ease;
 }
 
 .situ-card:hover {
   transform: scale(1.03);
   box-shadow:
-    0 30px 60px rgba(0,0,0,.12),
-    inset 0 0 30px rgba(255,255,255,.5);
+    0 30px 60px rgba(0, 0, 0, .12),
+    inset 0 0 30px rgba(255, 255, 255, .5);
 }
 
 .situ-card h3 {
@@ -144,7 +133,6 @@
   font-size: 24px;
 }
 
-/* INNER FEATURE BOX */
 
 .feature-box {
   background: rgba(255, 255, 255, .6);
@@ -165,8 +153,6 @@
   margin-top: 6px;
   color: #666;
 }
-
-/* AMENITIES */
 
 .amenities {
   list-style: none;

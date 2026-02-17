@@ -14,7 +14,6 @@
   justify-content: center;
 }
 
-/* Overlay using pseudo element */
 
 .about-hero::before {
   content: "";
@@ -33,7 +32,6 @@
   margin: 5px auto 0;
 }
 
-/* Title */
 
 .about-hero h1 {
   position: relative;
@@ -216,7 +214,6 @@
   justify-content:center;
 }
 
-/* subtle overlay */
 .guest-overlay{
   position:absolute;
   inset:0;
@@ -260,7 +257,6 @@
   cursor:pointer;
 }
 
-/* hover */
 
 .guest-box button:hover{
   opacity:.8;

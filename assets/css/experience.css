@@ -2,18 +2,15 @@
   position: relative;
 }
 
-/* image already handled by your style.css */
 
 .experience-hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background: rgb(34, 33, 33, 0.7);
-  /* gray overlay */
   z-index: 2;
 }
 
-/* make sure image stays behind overlay */
 
 .experience-hero img {
   position: relative;
@@ -41,53 +38,36 @@
   margin-top: 10px;
 }
 
-.experience-list {
-  width: 100%;
-}
-
-/* ROW */
-
-.experience-row {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  overflow: hidden;
-  margin: 20px 0px;
-  cursor: pointer;
-  border-radius: 15px;
+.experience-list{
+  display:flex;
+  flex-direction:column;
+  gap:80px;
 }
 
 
-/* IMAGE SIDE */
+.experience-row{
+  display:flex;
+  align-items:center;
+  gap:60px;
+}
 
-.exp-image {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 100%;
-  transition: 0.7s ease;
+.experience-row:nth-child(even){
+  flex-direction:row-reverse;
 }
 
 
-
-.exp-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.exp-image{
+  flex:1;
 }
 
-/* gray overlay */
-
-.exp-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, .4);
+.exp-image img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:15px;
 }
 
-/* centered title */
+
 
 .exp-image h2 {
   position: absolute;
@@ -100,23 +80,13 @@
   letter-spacing: 2px;
 }
 
-/* TEXT SIDE */
 
-.exp-text {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 0;
-  height: 100%;
-  opacity: 0;
-  padding: 80px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  transition: 0.7s ease;
-  overflow: hidden;
+.exp-text{
+  flex:1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding:20px;
 }
 
 .line{
@@ -145,19 +115,9 @@
   padding: 40px 0px;
 }
 
-/* HOVER EFFECT */
-
-.experience-row:hover {
-  justify-content: space-between;
-}
-
-.experience-row:hover .exp-image {
-  left: 0;
-  transform: translateX(0);
-  width: 50%;
-}
-
-.experience-row:hover .exp-text {
-  width: 50%;
-  opacity: 1;
+.line{
+  width:80px;
+  height:2px;
+  background:black;
+  margin-bottom:20px;
 }

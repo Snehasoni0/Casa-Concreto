@@ -68,7 +68,6 @@ $(document).ready(function () {
 
 
 
-// console.log("hello")
 
 const galleryItem = document.querySelectorAll(".gallery-item");
 const modal = document.getElementById("galleryModal");
@@ -129,7 +128,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     if (target) {
       window.scrollTo({
-        top: target.offsetTop - 80, // adjust for navbar
+        top: target.offsetTop - 80, 
         behavior: "smooth"
       });
     }

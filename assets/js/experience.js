@@ -58,17 +58,15 @@ const experiences = [
 
 const container = document.querySelector(".experience-list");
 
-experiences.forEach((item) => {
+experiences.forEach(item => {
+
   const div = document.createElement("div");
   div.className = "experience-row";
-
-  div.setAttribute("data-aos", "fade-up");
-  div.setAttribute("data-aos-duration", "1000");
+  div.setAttribute("data-aos","fade-up");
 
   div.innerHTML = `
     <div class="exp-image">
       <img src="${item.image}">
-      <h2>${item.title}</h2>
     </div>
 
     <div class="exp-text">
@@ -79,5 +77,7 @@ experiences.forEach((item) => {
   `;
 
   container.appendChild(div);
+
 });
+
 

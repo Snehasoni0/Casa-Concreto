@@ -54,7 +54,6 @@
 
   .menu>ul>li:hover {
     background: #848686;
-    /* color: white !important; */
   }
 
   .dropdown {
@@ -104,35 +103,25 @@
   .rooms-grid {
     display: grid;
     grid-template-columns: 1fr;
-    /* single column */
     grid-auto-rows: auto;
-    /* let row height adjust automatically */
     gap: 20px;
-    /* consistent gap between cards */
   }
 
   .room-col-grid-first,
   .room-col-grid-second {
     grid-template-columns: 1fr;
-    /* nested grids also single column */
     grid-auto-rows: auto;
-    /* each card takes its own height */
     height: auto;
-    /* full height of content */
     gap: 20px;
-    /* gap between nested cards */
   }
 
   .room-card-large {
     grid-row: auto;
-    /* large card behaves like normal card */
   }
 
   .room-card {
     height: auto;
-    /* card height adjusts to content */
     margin-bottom: 0;
-    /* gaps handled by grid gap */
   }
 
   .room-card {
@@ -201,7 +190,6 @@
     backface-visibility: hidden;
   }
 
-  /* stagger timing */
   .c1 {
     animation-delay: 0s;
   }
@@ -259,28 +247,37 @@
     padding: 30px;
   }
 
+  .experience-heads {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .experience-heads h2 {
+    font-size: 40px;
+    padding-bottom: 10px;
+  }
+
+  .experience-heads p {
+    font-size: 16px;
+  }
+
   .experience-list {
-    padding: 0px 20px;
+    padding: 25px 10px;
   }
 
   .experience-row {
-    height: auto;
-    width: 100%;
+    gap: 10px;
   }
 
-  .exp-image {
-    position: relative !important;
-    width: 100% !important;
-    left: 0 !important;
-    transform: none !important;
+  .experience-row,
+  .experience-row:nth-child(even) {
+    flex-direction: column;
   }
 
-  .exp-text {
-    position: relative !important;
-    width: 100% !important;
-    opacity: 1 !important;
-    padding: 20px;
+  .exp-image img {
+    height: 250px;
   }
+
 
   .featured-blog {
     grid-template-columns: 1fr;
@@ -439,7 +436,6 @@
     text-align: center;
   }
 
-  /* Logo column full width */
   .footer-col:first-child {
     grid-column: 1 / -1;
     text-align: center;
@@ -449,12 +445,11 @@
     justify-content: center;
   }
 
-  /* Map full width */
   .footer-col:last-child {
     grid-column: 1 / -1;
   }
 
-  
+
 
   .cuisine-section {
     padding: 80px 25px;
@@ -542,7 +537,7 @@
 
   .fa-chevron-left:before {
     position: absolute;
-    bottom: -130px !important;
+    bottom: -300px !important;
     left: 100px;
     font-size: 20px;
   }
@@ -550,7 +545,7 @@
   .fa-chevron-right:before {
     position: absolute;
     font-size: 20px;
-    bottom: -130px !important;
+    bottom: -300px !important;
     right: 100px;
   }
 
@@ -588,7 +583,7 @@
     padding: 40px 15px;
   }
 
-  .footer-brand{
+  .footer-brand {
     font-size: 74px;
     bottom: -11px;
   }

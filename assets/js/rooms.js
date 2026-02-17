@@ -1,4 +1,3 @@
-// Room Hero Swiper
 if (document.querySelector(".mySwiper") && typeof Swiper !== "undefined") {
 
   new Swiper(".mySwiper", {

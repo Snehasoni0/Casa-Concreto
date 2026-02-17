@@ -35,8 +35,6 @@ const galleryModalImage = document.getElementById("galleryModalImage");
 
 let currentIndex = 0;
 
-/* BUILD GRID */
-
 images.forEach((img, index) => {
   const image = document.createElement("img");
   image.src = img;
@@ -48,7 +46,6 @@ images.forEach((img, index) => {
   grid.appendChild(image);
 });
 
-/* MODAL FUNCTIONS */
 
 function openModal(index) {
   currentIndex = index;

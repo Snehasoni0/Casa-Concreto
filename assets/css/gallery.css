@@ -4,7 +4,6 @@
   object-fit: cover;
 }
 
-/* CONTENT */
 
 .gallery-content {
   max-width: 900px;
@@ -22,7 +21,6 @@
   line-height: 1.6;
 }
 
-/* GRID */
 
 .gallery-grid {
   max-width: 1150px;
@@ -46,7 +44,6 @@
   transform: scale(1.03);
 }
 
-/* MODAL */
 
 #galleryModal {
   position: fixed;
@@ -101,7 +98,6 @@
   right: 40px;
 }
 
-/* RESPONSIVE */
 
 @media(max-width:900px) {
   .gallery-grid {
