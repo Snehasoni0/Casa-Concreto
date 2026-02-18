@@ -149,10 +149,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  #image-banner {
-    height: 60vh;
-  }
-
 
   .cuisine-text h2 {
     font-size: 36px;

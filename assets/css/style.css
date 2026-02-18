@@ -232,7 +232,6 @@ nav {
 
 #image-banner {
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   position: relative;
 }
@@ -240,9 +239,7 @@ nav {
 #image-banner img {
   width: 100%;
   height: auto;
-  max-height: 100vh;
   display: block;
-  margin: 0 auto;
 }
 
 
@@ -408,12 +405,18 @@ nav {
 }
 
 .experience-headings {
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .experience-headings h2 {
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   font-size: 35px;
+}
+
+.experience-headings p{
+  padding: 10px 0px;
 }
 
 .experience-inner .item {

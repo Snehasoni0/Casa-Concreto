@@ -67,7 +67,7 @@ experiences.forEach(item => {
 
   div.innerHTML = `
     <div class="exp-image">
-      <img src="${item.image}">
+      <img src="${item.image}" alt="exp-img" loading="lazy">
     </div>
 
     <div class="exp-text">
