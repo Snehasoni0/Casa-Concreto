@@ -55,6 +55,7 @@
 .featured-text a {
   display: inline-block;
   margin-top: 20px;
+  color: rgb(51, 49, 49);;
 }
 
 
@@ -86,4 +87,9 @@
 .blog-card a {
   margin-top: 10px;
   display: inline-block;
+  color: rgb(51, 49, 49);
+}
+
+.featured-text a:hover, .blog-card a:hover{
+  color: rgb(157, 153, 153);
 }

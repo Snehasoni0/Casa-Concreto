@@ -172,9 +172,17 @@
     font-size: 36px;
   }
 
+  .testimonial-section{
+    padding: 50px 15px;
+  }
+
+  .testimonial-section h2 {
+    font-size: 27px;
+  }
+
   .testimonial-rotator {
     width: 100%;
-    height: 260px;
+    height: 300px;
     position: relative;
     perspective: 1000px;
   }
@@ -551,6 +559,7 @@
     margin-bottom: 60px;
   }
 
+
   .amenities-grid {
     grid-template-columns: 1fr 1fr !important;
   }
@@ -559,7 +568,11 @@
     grid-template-columns: 1fr !important;
   }
 
-  .amenities-section h1 {
+  .amenities-headings{
+    padding: 0px 20px;
+  }
+
+  .amenities-headings h2 {
     font-size: 32px;
   }
 

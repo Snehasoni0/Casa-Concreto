@@ -243,7 +243,6 @@ nav {
 }
 
 
-
 #themed-rooms {
   padding: 100px 70px 50px 70px;
   background-color: white;
@@ -907,9 +906,8 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 150px;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .review-avatar {
@@ -945,12 +943,13 @@ nav {
 .testimonial-rotator {
   position: relative;
   width: 900px;
-  height: 420px;
+  height: 560px;
   margin: auto;
 }
 
 .t-card {
   width: 400px;
+  height: 250px;
   border-radius: 10px;
   position: absolute;
   background: #fff;
@@ -980,43 +979,23 @@ nav {
 
 @keyframes spin {
 
-  0% {
+  0%,10% {
     top: 0;
     left: 0;
   }
 
-  10% {
+  25%,35% {
     top: 0;
-    left: 0;
+    left: 480px; /* MORE horizontal gap */
   }
 
-  25% {
-    top: 0;
-    left: 460px;
+  50%,60% {
+    top: 280px; /* MORE vertical gap */
+    left: 480px;
   }
 
-  35% {
-    top: 0;
-    left: 460px;
-  }
-
-  50% {
-    top: 220px;
-    left: 460px;
-  }
-
-  60% {
-    top: 220px;
-    left: 460px;
-  }
-
-  75% {
-    top: 220px;
-    left: 0;
-  }
-
-  85% {
-    top: 220px;
+  75%,85% {
+    top: 280px;
     left: 0;
   }
 
@@ -1024,8 +1003,8 @@ nav {
     top: 0;
     left: 0;
   }
-
 }
+
 
 
 

@@ -1,14 +1,35 @@
+.amenities-hero{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url('../../assets/images/gallery/casa-concreto-img11.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .amenities-section {
   max-width: 1200px;
   margin: auto;
-  padding: 80px 20px;
+  padding: 0px 20px;
 }
 
-.amenities-section h1 {
+.amenities-headings{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+.amenities-headings h2 {
   text-align: center;
-  margin-bottom: 50px;
   font-size: 42px;
   letter-spacing: 1px;
+}
+
+.amenities-headings p{
+  padding-top: 15px;
 }
 
 .amenities-page-grid {
