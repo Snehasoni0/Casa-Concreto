@@ -44,6 +44,47 @@ document.addEventListener('DOMContentLoaded', () => {
     easing: "ease-in-out",
   });
 
+  const bg = document.querySelector(".experience-bg");
+
+  const swiper = new Swiper(".experience-slider", {
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      init: function () {
+        updateBackground(this);
+      },
+      slideChange: function () {
+        updateBackground(this);
+      },
+    },
+  });
+
+  function updateBackground(swiperInstance) {
+
+    const activeSlide =
+      swiperInstance.slides[swiperInstance.activeIndex];
+
+    const img = activeSlide.querySelector(".experience-image img");
+
+    if (!img) return;
+
+    bg.style.opacity = 0;
+
+    setTimeout(() => {
+      bg.style.backgroundImage = `url(${img.src})`;
+      bg.style.opacity = 1;
+      bg.style.transform = "scale(1.05)";
+    }, 200);
+  }
+
 });
 
 
@@ -128,7 +169,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
     if (target) {
       window.scrollTo({
-        top: target.offsetTop - 80, 
+        top: target.offsetTop - 80,
         behavior: "smooth"
       });
     }

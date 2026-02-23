@@ -26,6 +26,7 @@ const images = [
   "../assets/images/gallery/casa-concreto-img25.jpg",
   "../assets/images/gallery/casa-concreto-img26.jpg",
   "../assets/images/gallery/casa-concreto-img27.jpg",
+  "../assets/images/gallery/casa-concreto-img28.jpg",
 ];
 
 

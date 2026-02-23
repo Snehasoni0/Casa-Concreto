@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
@@ -43,13 +44,12 @@
 
 <body class="home">
 
-
   <!-- header section started -->
   <header class="custom-navbar">
     <nav>
       <div class="logo">
         <a href="./index.html">
-          <img src="assets/images/Villa-logo.png" alt="logo">
+          <img src="assets/images/casa-concreto-logo.png" alt="logo">
         </a>
       </div>
 
@@ -98,7 +98,7 @@
   </a>
   <section data-aos="fade-in" data-aos-duration="1000" id="hero-banner">
     <video autoplay muted loop playsinline class="hero-video">
-      <source src="./assets/videos/hero-bg-video.mp4" type="video/mp4">
+      <source src="./assets/videos/villa-hero.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
   </section>
@@ -215,59 +215,94 @@
   <!-- themed rooms section ended -->
 
   <!-- Experience section started -->
-  <section data-aos="fade-up" data-aos-duration="2000" id="Experience">
-    <div class="experience-inner">
-      <div class="experience-headings">
-        <h2>Experience Casa Concreto</h2>
-        <div class="theme-line"></div>
-        <p>Where modern design meets calm living — crafted spaces for quiet moments and meaningful stays.</p>
+  <section class="experience-section">
+
+    <!-- Dynamic Background -->
+    <div class="experience-bg"></div>
+    <div class="experience-overlay"></div>
+
+    <!-- Swiper -->
+    <div class="swiper experience-slider">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="experience-content">
+            <div class="experience-image">
+              <img src="./assets/images/experience/workshop.jpg" alt="Concrete Sculpting">
+            </div>
+            <div class="experience-text">
+              <h2>Concrete Sculpting</h2>
+              <div class="theme-line"></div>
+              <p>
+                Create unique art pieces in guided hands-on workshops where creativity meets craftsmanship.
+                Experience the beauty of shaping concrete into expressive designs under expert guidance.
+              </p>
+              <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="experience-content">
+            <div class="experience-image">
+              <img src="./assets/images/experience/barbeque.jpg" alt="Barbecue Nights">
+            </div>
+            <div class="experience-text">
+              <h2>Barbecue Nights</h2>
+              <div class="theme-line"></div>
+              <p>
+                Enjoy live grills and warm outdoor dining experiences in a beautifully curated setting.
+                Savor smoky flavors, soft music, and unforgettable evenings under open skies.
+              </p>
+              <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="experience-content">
+            <div class="experience-image">
+              <img src="./assets/images/experience/3-luxury-setup-scaled.jpg" alt="Luxury Moments">
+            </div>
+            <div class="experience-text">
+              <h2>Luxury Moments</h2>
+              <div class="theme-line"></div>
+              <p>
+                Indulge in curated comfort with personalized villa services designed to elevate your stay.
+                From elegant setups to thoughtful hospitality, every detail speaks of refined luxury.
+              </p>
+              <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="experience-content">
+            <div class="experience-image">
+              <img src="./assets/images/experience/6.-Bonfire-scaled.jpg" alt="Bonfire Evenings">
+            </div>
+            <div class="experience-text">
+              <h2>Bonfire Evenings</h2>
+              <div class="theme-line"></div>
+              <p>
+                Gather under the stars around cozy glowing bonfires and share stories in a serene atmosphere.
+                A perfect blend of warmth, laughter, and magical night vibes.
+              </p>
+              <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="owl-carousel">
 
-        <div class="item">
-          <img src="./assets/images/experience/workshop.jpg" alt="workshop" loading="lazy">
-          <div>
-            <h3>Concrete Sculpting</h3>
-            <p>Create unique art pieces in guided hands-on workshops.</p>
-          </div>
-        </div>
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
 
-        <div class="item">
-          <img src="./assets/images/experience/barbeque.jpg" alt="barbeque" loading="lazy">
-          <div>
-            <h3>Barbecue Nights</h3>
-            <p>Enjoy live grills and warm outdoor dining experiences.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="./assets/images/experience/3-luxury-setup-scaled.jpg" alt="3-luxury-setup" loading="lazy">
-          <div>
-            <h3>Luxury Moments</h3>
-            <p>Indulge in curated comfort with personalized villa services.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="./assets/images/experience/6.-Bonfire-scaled.jpg" alt="bonfire" loading="lazy">
-          <div>
-            <h3>Bonfire Evenings</h3>
-            <p>Gather under the stars around cozy glowing bonfires.</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="./assets/images/experience/new-floating-tray (1).jpg" alt="Floating-tray" loading="lazy">
-          <div>
-            <h3>Floating Breakfast</h3>
-            <p>Start mornings with gourmet trays served poolside.</p>
-          </div>
-        </div>
-
-      </div>
-
-
-      <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
     </div>
 
   </section>
@@ -751,8 +786,9 @@
         <div class="t-card c4">
 
           <div class="review-top">
-            <img src="https://casaconcreto.in/wp-content/uploads/2024/03/ChIJ6X5bhvmHQTkRlE3Qt68sLH0_0f3256ab42eb74c717cd9e0a24516d6d.jpg" class="review-avatar" alt="profile-image"
-              loading="lazy">
+            <img
+              src="https://casaconcreto.in/wp-content/uploads/2024/03/ChIJ6X5bhvmHQTkRlE3Qt68sLH0_0f3256ab42eb74c717cd9e0a24516d6d.jpg"
+              class="review-avatar" alt="profile-image" loading="lazy">
 
             <svg viewBox="0 0 512 512" height="18" width="18" role="none">
               <g fill="none" fill-rule="evenodd">
@@ -780,7 +816,8 @@
           </div>
 
           <p>
-           Very clean and great ambiance. I loved everything about this place whether it’s food, Room or services. The interior and outdoor is perfectly designed. More than satisfying.
+            Very clean and great ambiance. I loved everything about this place whether it’s food, Room or services. The
+            interior and outdoor is perfectly designed. More than satisfying.
           </p>
 
         </div>
@@ -795,12 +832,12 @@
   <!-- testimonials section ended  -->
 
   <!-- Footer section started  -->
-  <footer data-aos="fade-up" data-aos-duration="1000" id="site-footer">
+  <footer id="site-footer">
     <div class="footer-inner">
 
       <!-- Column 1 -->
       <div class="footer-col">
-        <img src="assets/images/Villa-logo.png" class="footer-logo" alt="logo">
+        <img src="assets/images/casa-concreto-logo.png" class="footer-logo" alt="logo">
 
         <p class="footer-address">
           Casa Concreto<br>
@@ -853,8 +890,9 @@
   </footer>
 
   <!-- Footer section ended  -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="./assets/js/main.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 
 </html>
