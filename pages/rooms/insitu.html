@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/rooms.css">
   <link rel="stylesheet" href="../../assets/css/responsive.css">
-
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 
@@ -66,65 +66,72 @@
   <!-- header section ended -->
 
   <!-- Insitu Room Page Content  -->
-  <section data-aos="fade-in" data-aos-duration="1000" class="hero-slider" id="hero-banner">
+  <section data-aos="fade-in" data-aos-duration="1000" class="room-hero">
 
-    <div class="swiper mySwiper">
+    <!-- Background Image -->
+    <img src="../../assets/images/rooms/rooms-insitu-slider1.jpeg" alt="insitu Room" class="hero-bg">
 
-      <div class="swiper-wrapper">
+    <!-- Overlay -->
+    <div class="hero-overlay"></div>
 
-        <div class="swiper-slide">
-          <img src="../../assets/images/rooms/rooms-insitu-slider1.jpeg" alt="insitu-room-image" loading="lazy">
+    <!-- Content -->
+    <div data-aos="fade-up" data-aos-duration="1000"  class="hero-content">
+      <h1>Insitu Room</h1>
+    </div>
+
+  </section>
+
+  <section data-aos="fade-up" data-aos-duration="1000"  class="room-main">
+
+    <div class="container">
+
+      <div class="room-row">
+
+        <!-- Image -->
+        <div class="room-image">
+          <img src="../../assets/images/rooms/rooms-insitu-slider1.jpeg" alt="Insitu Room">
         </div>
 
-        <div class="swiper-slide">
-          <img src="../../assets/images/rooms/rooms-insitu-slider2.jpeg" alt="insitu-room-image" loading="lazy">
-        </div>
+        <!-- Text -->
+        <div class="room-text">
+          <h2>In Situ</h2>
+          <p>
+            The Insitu Room is designed to reflect harmony between structure
+            and serenity. Warm textures, natural materials, and balanced lighting
+            create an inviting space that feels refined yet deeply comforting.
+          </p>
 
-        <div class="swiper-slide">
-          <img src="../../assets/images/rooms/rooms-insitu-slider3.jpeg" alt="insitu-room-image" loading="lazy">
+          <p>
+            Every element is thoughtfully placed to enhance relaxation while
+            maintaining architectural elegance and timeless appeal.
+          </p>
         </div>
 
       </div>
 
-      <!-- Arrows -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-
-      <!-- Dots -->
-      <div class="swiper-pagination"></div>
-
     </div>
 
-
-    <a href="#room-description" class="scroll-down">
-      <i class="fa-solid fa-arrow-down"></i>
-    </a>
   </section>
 
-  <section data-aos="fade-in" data-aos-duration="1000" id="room-description" class="situ-wrapper">
+  <section data-aos="fade-in" data-aos-duration="1000" class="room-details-section">
 
-    <div class="situ-overlay"></div>
+    <div class="details-overlay"></div>
 
-    <div class="situ-content">
+    <div class="details-container">
 
-      <h2>In Situ</h2>
-      <!-- <div class="line"></div> -->
+      <div class="details-heading">
+        <h2>Room Details</h2>
+        <div class="line"></div>
+      </div>
 
-      <p class="situ-desc">
-        Transport yourself to the sun-drenched charm of the Greek Isles with our In Situ room,
-        an exquisite space where every design element is meticulously curated to evoke Grecian
-        beauty seamlessly blended with Boho style.
-      </p>
+      <div class="details-grid">
 
-      <div class="situ-grid">
-
-        <!-- LEFT CARD -->
-
-        <div data-aos="fade-right" data-aos-duration="1000" class="situ-card">
+        <!-- LEFT GLASS CARD -->
+        <div data-aos="fade-right" data-aos-duration="1000" class="glass-card">
 
           <h3>Room Features</h3>
 
-          <div class="feature-box">
+          <div class="feature-item">
             <i class="fa-solid fa-mug-hot"></i>
             <div>
               <strong>Conversation Area</strong>
@@ -132,33 +139,32 @@
             </div>
           </div>
 
-          <div class="feature-box">
+          <div class="feature-item">
             <i class="fa-solid fa-umbrella-beach"></i>
             <div>
               <strong>Private Deck Area</strong>
-              <span>Offers panoramic views of gardens and countryside.</span>
+              <span>Panoramic views of gardens and countryside.</span>
             </div>
           </div>
 
         </div>
 
-        <!-- RIGHT CARD -->
-
-        <div data-aos="fade-left" data-aos-duration="1000" class="situ-card">
+        <!-- RIGHT GLASS CARD -->
+        <div data-aos="fade-left" data-aos-duration="1000" class="glass-card">
 
           <h3>Amenities</h3>
 
-          <ul class="amenities">
-            <li><i class="fa-solid fa-bed"></i>King Sized Bed</li>
-            <li><i class="fa-solid fa-wind"></i>AC</li>
-            <li><i class="fa-solid fa-box"></i>Wardrobe</li>
-            <li><i class="fa-solid fa-plug"></i>Electric Kettle</li>
-            <li><i class="fa-solid fa-mug-hot"></i>Tea & Coffee</li>
-            <li><i class="fa-solid fa-couch"></i>Conversation Area</li>
-            <li><i class="fa-solid fa-sun"></i>Deck Area</li>
-            <li><i class="fa-solid fa-bath"></i>Towel & Toiletries</li>
-            <li><i class="fa-solid fa-chair"></i>Sitting in Bathroom</li>
-            <li><i class="fa-solid fa-fan"></i>Hair Dryer</li>
+          <ul class="amenity-list">
+            <li><i class="fa-solid fa-bed"></i> King Sized Bed</li>
+            <li><i class="fa-solid fa-wind"></i> Air Conditioning</li>
+            <li><i class="fa-solid fa-box"></i> Wardrobe</li>
+            <li><i class="fa-solid fa-plug"></i> Electric Kettle</li>
+            <li><i class="fa-solid fa-mug-hot"></i> Tea & Coffee</li>
+            <li><i class="fa-solid fa-couch"></i> Conversation Area</li>
+            <li><i class="fa-solid fa-sun"></i> Deck Area</li>
+            <li><i class="fa-solid fa-bath"></i> Towels & Toiletries</li>
+            <li><i class="fa-solid fa-chair"></i> Bathroom Seating</li>
+            <li><i class="fa-solid fa-fan"></i> Hair Dryer</li>
           </ul>
 
         </div>
@@ -168,6 +174,49 @@
     </div>
 
   </section>
+
+  <section data-aos="fade-up" data-aos-duration="1000" class="room-gallery">
+
+    <div class="room-gallery-container">
+
+      <div class="room-gallery-heading">
+        <h2>Gallery</h2>
+        <div class="line"></div>
+      </div>
+
+      <!-- Slider -->
+      <div class="swiper roomSwiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <img src="../../assets/images/rooms/rooms-insitu-slider1.jpeg" alt="Gallery Image">
+          </div>
+
+          <div class="swiper-slide">
+            <img src="../../assets/images/rooms/rooms-insitu-slider2.jpeg" alt="Gallery Image">
+          </div>
+
+          <div class="swiper-slide">
+            <img src="../../assets/images/rooms/rooms-insitu-slider3.jpeg" alt="Gallery Image">
+          </div>
+
+        </div>
+
+        <!-- Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Image Modal -->
+  <div class="image-modal" id="imageModal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-img" id="modalImage">
+  </div>
 
 
   <!-- footer section started -->

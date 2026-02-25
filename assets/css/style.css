@@ -392,7 +392,36 @@ nav {
 }
 
 
-.experience-section {
+.experience-section{
+  width: 100%;
+  padding-top: 40px;
+}
+
+.experience-headings {
+  background: #ffffff;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.experience-headings h2 {
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.experience-headings p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  padding-top: 10px;
+}
+
+.experience-section-inner {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -416,7 +445,7 @@ nav {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 /* Swiper Container */
@@ -1030,8 +1059,7 @@ nav {
 }
 
 .footer-logo {
-  width: 170px;
-  margin-bottom: 20px;
+  width: 125px;
 }
 
 .footer-address {

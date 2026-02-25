@@ -245,17 +245,7 @@
 
   }
 
-  .situ-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .situ-content h2 {
-    font-size: 34px;
-  }
-
-  .situ-card {
-    padding: 30px;
-  }
 
   .experience-heads {
     width: 100%;
@@ -306,6 +296,39 @@
     bottom: -18px;
   }
 
+
+  .hero-content h1 {
+    font-size: 38px;
+  }
+
+  /* MAIN SECTION */
+  .room-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .room-image,
+  .room-text {
+    width: 100%;
+  }
+
+  .room-text {
+    text-align: center;
+  }
+
+  /* DETAILS SECTION */
+  .details-grid {
+    flex-direction: column;
+  }
+
+  .glass-card {
+    padding: 35px;
+  }
+
+  /* GALLERY */
+  .swiper-slide img {
+    height: 320px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -315,11 +338,6 @@
 
   .all-for-you p {
     font-size: 14px;
-  }
-
-  .experience-section {
-    height: auto;
-    padding: 80px 0;
   }
 
   .experience-content {
@@ -332,7 +350,7 @@
   }
 
   .experience-text {
-    height: 370px;
+    height: 400px;
     padding: 40px 30px;
   }
 
@@ -364,6 +382,7 @@
   }
 
   .stats {
+    grid-template-columns: 1fr 1fr;
     gap: 30px !important;
   }
 
@@ -398,6 +417,26 @@
   .footer-brand {
     font-size: 50px !important;
     bottom: -5px !important;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  .room-text h2 {
+    font-size: 22px;
+  }
+
+  .room-text p {
+    font-size: 15px;
+  }
+
+  .details-heading h2 {
+    font-size: 22px;
+  }
+
+  .swiper-slide img {
+    height: 220px;
   }
 
 }
@@ -436,6 +475,18 @@
 
   .gallery-item.wide {
     grid-column: auto;
+  }
+
+
+  .experience-headings h2 {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+  .experience-headings p {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 90%;
   }
 
   #site-footer {
@@ -487,10 +538,6 @@
 
   .villa-info h2 {
     font-size: 32px !important;
-  }
-
-  .stat h3 {
-    font-size: 55px !important;
   }
 
   .escape-content {
@@ -605,5 +652,63 @@
     bottom: -11px;
   }
 
+
+  .room-hero {
+    align-items: flex-end;
+  }
+
+  .hero-content {
+    padding-bottom: 40px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  /* MAIN */
+  .room-main {
+    padding: 70px 0;
+  }
+
+  .room-text h2 {
+    font-size: 26px;
+  }
+
+  .room-text p {
+    font-size: 16px;
+  }
+
+  /* DETAILS */
+  .room-details-section {
+    padding: 80px 0;
+  }
+
+  .details-heading h2 {
+    font-size: 26px;
+  }
+
+  .glass-card {
+    padding: 25px;
+  }
+
+  .glass-card h3 {
+    font-size: 20px;
+  }
+
+  /* GALLERY */
+  .room-gallery {
+    padding: 60px 0;
+  }
+
+  .swiper-slide img {
+    height: 250px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+    /* hide arrows on small mobile */
+  }
 
 }
