@@ -193,12 +193,10 @@
   height: 100vh;
 }
 
-
 .video-hero iframe {
- width: 100%; 
- height: 100%;
+  width: 100%;
+  height: 100%;
 }
-
 
 .vm-artistic {
   position: relative;
@@ -214,12 +212,10 @@
 .vm-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    rgba(0,0,0,0.85) 20%,
-    rgba(0,0,0,0.6) 50%,
-    rgba(0,0,0,0.85) 80%
-  );
+  background: linear-gradient(120deg,
+      rgba(0, 0, 0, 0.85) 20%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.85) 80%);
   z-index: 1;
 }
 
@@ -276,62 +272,60 @@
 }
 
 
-.guest-section{
-  position:relative;
-  width:100%;
-  height:100vh;
-  background:url("https://casaconcreto.in/wp-content/uploads/2024/01/7.-Kids-friendly.jpeg") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.guest-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("https://casaconcreto.in/wp-content/uploads/2024/01/7.-Kids-friendly.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.guest-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(37, 36, 36, 0.8);
+.guest-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(37, 36, 36, 0.8);
 }
 
-.guest-box{
-  position:relative;
-  background:white;
-  padding:60px 70px;
-  max-width:520px;
-  z-index:2;
+.guest-box {
+  position: relative;
+  background: white;
+  padding: 60px 70px;
+  max-width: 520px;
+  z-index: 2;
   border-radius: 10px;
 }
 
-.line{
-  width:40px;
-  height:1px;
-  background:black;
-  display:block;
-  margin-bottom:25px;
+.line {
+  width: 40px;
+  height: 1px;
+  background: black;
+  display: block;
+  margin-bottom: 25px;
 }
 
-.guest-box h2{
-  font-size:42px;
-  margin-bottom:20px;
+.guest-box h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
 }
 
-.guest-box p{
-  font-size:14px;
-  line-height:1.7;
-  color:#222;
+.guest-box p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #222;
 }
 
-.guest-box button{
-  background:black;
-  color:white;
-  border:none;
-  padding:15px 40px;
-  letter-spacing:2px;
-  cursor:pointer;
-}
-
-
-.guest-box button:hover{
-  opacity:.8;
+.guest-box button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  letter-spacing: 2px;
+  cursor: pointer;
 }
 
 
+.guest-box button:hover {
+  opacity: .8;
+}
