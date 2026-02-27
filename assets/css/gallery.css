@@ -1,8 +1,4 @@
-  body{
-    /* background-color: rgb(228, 212, 201); */
-  }
-  
-  .gallery-hero img {
+.gallery-hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -40,7 +36,6 @@
     gap: 10px;
   }
 
-  /* Base Image */
   .gallery-grid img {
     width: 100%;
     height: 100%;
@@ -49,20 +44,16 @@
     transition: 0.4s ease;
   }
 
-  /* ---- Controlled Pattern (6 item block) ---- */
 
-  /* Item 1 */
   .gallery-grid img:nth-child(6n + 1) {
     grid-column: span 2;
     grid-row: span 2;
   }
 
-  /* Item 4 */
   .gallery-grid img:nth-child(6n + 4) {
     grid-column: span 2;
   }
 
-  /* Item 6 */
   .gallery-grid img:nth-child(6n + 6) {
     grid-row: span 2;
   }

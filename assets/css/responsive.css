@@ -301,7 +301,6 @@
     font-size: 38px;
   }
 
-  /* MAIN SECTION */
   .room-row {
     flex-direction: column;
     gap: 40px;
@@ -316,7 +315,6 @@
     text-align: center;
   }
 
-  /* DETAILS SECTION */
   .details-grid {
     flex-direction: column;
   }
@@ -325,9 +323,12 @@
     padding: 35px;
   }
 
-  /* GALLERY */
   .swiper-slide img {
     height: 320px;
+  }
+
+  .home-blog-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -453,7 +454,7 @@
     gap: 12px;
   }
 
-  /* Remove all spans on mobile */
+
   .gallery-grid img {
     grid-column: span 1 !important;
     grid-row: span 1 !important;
@@ -629,6 +630,22 @@
     font-size: 32px;
   }
 
+  .amenities-page-grid .amenity-card:nth-child(2) {
+    margin-top: 0px;
+  }
+
+  .amenities-page-grid .amenity-card:nth-child(5) {
+    margin-top: 0px;
+  }
+
+  .amenities-page-grid .amenity-card:nth-child(8) {
+    margin-top: 0px;
+  }
+
+  .amenities-page-grid .amenity-card:nth-child(11) {
+    margin-top: 0px;
+  }
+
 
   .blog-hero h1 {
     font-size: 36px;
@@ -666,7 +683,6 @@
     letter-spacing: 2px;
   }
 
-  /* MAIN */
   .room-main {
     padding: 70px 0;
   }
@@ -679,7 +695,6 @@
     font-size: 16px;
   }
 
-  /* DETAILS */
   .room-details-section {
     padding: 80px 0;
   }
@@ -696,7 +711,6 @@
     font-size: 20px;
   }
 
-  /* GALLERY */
   .room-gallery {
     padding: 60px 0;
   }
@@ -708,7 +722,68 @@
   .swiper-button-prev,
   .swiper-button-next {
     display: none;
-    /* hide arrows on small mobile */
+  }
+
+  .home-blogs {
+    padding: 60px 20px;
+  }
+
+  .home-blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-blog-heading h2 {
+    font-size: 28px;
+  }
+
+  .vm-artistic {
+    height: auto;
+    padding: 100px 0;
+  }
+
+  .vm-content {
+    position: relative;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+
+  .vm-vision,
+  .vm-mission {
+    position: relative;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .vm-vision h2,
+  .vm-mission h2 {
+    font-size: 32px;
+  }
+
+  .vm-arrow {
+    position: relative;
+    height: 140px;
+    left: 0px;
+    transform: rotate(100deg);
+  }
+
+  .faq-hero {
+    height: 60vh !important;
+    padding: 30px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .faq-question {
+    font-size: 18px;
   }
 
 }

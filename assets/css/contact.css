@@ -88,6 +88,10 @@
   margin: 0;
 }
 
+.info-item a{
+  color: black;
+}
+
 .info-item p {
   color: gray;
   font-size: 14px;

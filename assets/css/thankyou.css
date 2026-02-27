@@ -1,0 +1,77 @@
+
+    .thankyou-hero {
+      height: 100vh;
+      background: url("../images/home/banner-image-home.jpg") center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+    }
+
+    .thankyou-content {
+      position: relative;
+      max-width: 700px;
+      padding: 40px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .thankyou-content h1 {
+      font-size: 48px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .thankyou-content p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ddd;
+      margin-bottom: 35px;
+    }
+
+    .btn-back {
+      display: inline-block;
+      padding: 14px 35px;
+      background: #181717;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
+      border-radius: 25px;
+    }
+
+    .btn-back:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo-top {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .logo-top img {
+      width: 160px;
+    }
+

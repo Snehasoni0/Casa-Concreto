@@ -125,12 +125,10 @@ galleryItem.forEach((item) => {
 
 });
 
-// close icon
 closeModal.addEventListener("click", () => {
   modal.classList.remove("active");
 });
 
-// overlay click
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.classList.remove("active");

@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ================= SWIPER ================= */
-
   if (document.querySelector(".roomSwiper")) {
 
     new Swiper(".roomSwiper", {

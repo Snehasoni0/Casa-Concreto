@@ -1,0 +1,113 @@
+
+.faq-hero {
+  position: relative;
+  height: 80vh;
+  background: url('../images/experience/bird.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.underline {
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  margin-top: 12px;
+}
+
+.faq-intro {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq-intro p {
+  font-size: 18px;
+  color: #999595;
+  line-height: 1.8;
+}
+
+.faq-intro .underline {
+  background-color: #999595;
+  margin-bottom: 10px;
+  width: 70px;
+}
+
+
+.faq-section {
+  max-width: 900px;
+  margin: 0px auto 20px;
+  padding: 0 20px;
+  border-radius: 10px;
+}
+
+
+.faq-item {
+  border-bottom: 1px solid gray;
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 25px 0;
+  text-align: left;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question span {
+  font-size: 24px;
+  transition: 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+  padding-bottom: 20px;
+  line-height: 1.7;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+}
+
+.faq-item.active .faq-question span {
+  transform: rotate(45deg);
+}

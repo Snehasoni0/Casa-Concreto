@@ -38,7 +38,6 @@
   letter-spacing: 2px;
 }
 
-/* ================= MAIN SECTION ================= */
 
 .room-main {
   padding: 100px 0;
@@ -51,14 +50,12 @@
   margin: auto;
 }
 
-/* Row layout */
 .room-row {
   display: flex;
   align-items: center;
   gap: 60px;
 }
 
-/* Image */
 .room-image {
   flex: 1;
 }
@@ -70,16 +67,10 @@
   border-radius: 8px;
 }
 
-/* Text */
 .room-text {
   flex: 1;
 }
 
-.room-text h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
 
 .room-text p {
   font-size: 18px;
@@ -89,8 +80,6 @@
 }
 
 
-/* ================= ROOM DETAILS SECTION ================= */
-
 .room-details-section {
   position: relative;
   padding: 120px 0;
@@ -98,14 +87,12 @@
   color: #fff;
 }
 
-/* Overlay */
 .details-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
 }
 
-/* Container */
 .details-container {
   position: relative;
   width: 90%;
@@ -121,7 +108,6 @@
   align-items: center;
 }
 
-/* ================= DETAILS HEADING ================= */
 
 .details-heading {
   text-align: center;
@@ -136,7 +122,6 @@
   position: relative;
 }
 
-/* Decorative Line */
 .details-heading .line {
   width: 80px;
   height: 2px;
@@ -145,13 +130,11 @@
   opacity: 0.8;
 }
 
-/* Grid */
 .details-grid {
   display: flex;
   gap: 50px;
 }
 
-/* Glass Card */
 .glass-card {
   flex: 1;
   background: rgba(255, 255, 255, 0.12);
@@ -162,13 +145,11 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Card Title */
 .glass-card h3 {
   font-size: 24px;
   margin-bottom: 30px;
 }
 
-/* Feature Item */
 .feature-item {
   display: flex;
   gap: 15px;
@@ -191,7 +172,6 @@
   opacity: 0.8;
 }
 
-/* Amenities */
 .amenity-list {
   list-style: none;
   padding: 0;
@@ -211,8 +191,6 @@
 
 }
 
-
-/* ================= GALLERY SECTION ================= */
 
 .room-gallery {
   padding: 50px 0;
@@ -243,7 +221,6 @@
   margin: 0 auto;
 }
 
-/* Slider */
 .swiper {
   width: 100%;
 }
@@ -256,7 +233,6 @@
   cursor: pointer;
 }
 
-/* Remove default arrow color */
 .swiper-button-prev:after,
 .swiper-button-next:after {
   color: rgb(180, 122, 21);
@@ -264,11 +240,6 @@
   font-weight: bold ;
 }
 
-.swiper-button-prev{
-  left: 0px !important;
-}
-
-/* ================= MODAL ================= */
 
 .image-modal {
   display: none;
@@ -292,4 +263,9 @@
   font-size: 40px;
   color: #fff;
   cursor: pointer;
+  transition: .3s;
+}
+
+.modal-close:hover{
+  transform: rotate(90deg);
 }
