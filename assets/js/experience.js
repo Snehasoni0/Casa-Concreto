@@ -57,27 +57,23 @@ const experiences = [
 
 ];
 
-const container = document.querySelector(".experience-list");
+const items = document.querySelectorAll(".experience-item");
 
-experiences.forEach(item => {
+items.forEach((item, index) => {
 
-  const div = document.createElement("div");
-  div.className = "experience-row";
-  div.setAttribute("data-aos", "fade-up");
+  const img = item.querySelector(".exp-img");
 
-  div.innerHTML = `
-    <div class="exp-image">
-      <img src="${item.image}" alt="exp-img" loading="lazy">
-    </div>
+  // alternate image position
+  if(index % 2 !== 0){
+    item.classList.add("reverse");
+  }
 
-    <div class="exp-text">
-      <h2>${item.title}</h2>
-      <div class="line"></div>
-      <p>${item.desc}</p>
-    </div>
-  `;
-
-  container.appendChild(div);
+  // alternate orientation
+  if(index % 2 === 0){
+    img.classList.add("vertical");
+  } else{
+    img.classList.add("horizontal");
+  }
 
 });
 

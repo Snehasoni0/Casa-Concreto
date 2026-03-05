@@ -37,156 +37,184 @@
 }
 
 
-.villa-info {
-  padding: 100px 20px;
+.villa-info{
+  padding:70px 8%;
+}
+
+.villa-info-inner{
+  max-width:1300px;
+  margin:auto;
+}
+
+/* TOP ROW */
+
+.villa-top{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  align-items:center;
+  margin-bottom:60px;
+}
+
+/* TEXT */
+
+.villa-text .icon{
+  font-size:26px;
+  margin-bottom:15px;
+  color:#c4a46c;
   text-align: center;
 }
 
-.container {
-  max-width: 1200px;
+.villa-text h2{
+  font-size:42px;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.villa-text p{
+  color:#666;
+  line-height:1.7;
+  max-width:520px;
+}
+
+/* STATS GRID */
+
+.villa-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px 40px;
+  text-align: center;
+}
+
+.stat{
+  border-bottom:1px solid #ddd;
+  padding-bottom:12px;
+}
+
+.stat h3{
+  font-size:36px;
+  font-weight:500;
+}
+
+.stat span{
+  display:block;
+  color:#777;
+  font-size:14px;
+  margin-top:4px;
+}
+
+/* IMAGE */
+
+.villa-image img{
+  width:100%;
+  height: 500px;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+/* SECTION */
+
+.luxury-era {
+  padding: 120px 8%;
+  background: #f7f7f7;
+}
+
+.luxury-era-inner {
+  max-width: 1300px;
   margin: auto;
 }
 
-.icon {
-  font-size: 30px;
-  margin-bottom: 20px;
+/* HEADING */
+
+.luxury-era-heading {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.villa-info h2 {
-  font-size: 46px;
-  margin-bottom: 25px;
+.luxury-era-heading h2 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  font-weight: 500;
 }
 
-.villa-info p {
-  max-width: 800px;
-  margin: 0 auto 60px;
-  line-height: 1.7;
-  font-size: 15px;
-  color: #444;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-}
-
-.stat h3 {
-  font-size: 70px;
-  margin-bottom: 5px;
-}
-
-.stat span {
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-.escape-section {
-  background: #000;
-  padding: 100px 0;
-}
-
-.escape-container {
-  max-width: 1400px;
+.luxury-era-heading p {
+  color: #666;
+  max-width: 620px;
   margin: auto;
+  line-height: 1.6;
+}
+
+/* GRID */
+
+.luxury-era-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 80px;
-  padding: 0 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.escape-content h2 {
-  color: white;
-  font-size: 48px;
-  margin-bottom: 25px;
+/* CARD */
+
+.luxury-era-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 460px;
+  cursor: pointer;
 }
 
-.escape-content p {
-  color: #ccc;
-  max-width: 450px;
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
-
-.escape-btn {
-  display: inline-block;
-  padding: 15px 40px;
-  border: 1px solid white;
-  color: white;
-  text-decoration: none;
-  letter-spacing: 2px;
-  font-size: 13px;
-  transition: 0.3s;
-}
-
-.escape-btn:hover {
-  background: white;
-  color: black;
-}
-
-.escape-image img {
+.luxury-era-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .6s ease;
 }
 
-.hero-location {
-  position: relative;
-  min-height: 100vh;
-  background-image: url("../images/about/about-location-bg.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* DARK OVERLAY */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-overlay {
+.luxury-era-card::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 
-.hero-content {
-  position: relative;
+/* TEXT OVERLAY */
+
+.luxury-era-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 35px;
+  color: #fff;
   z-index: 2;
-  max-width: 650px;
-  padding: 0 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
 }
 
-.hero-content h2 {
-  font-size: 48px;
-  color: #fff;
-  margin-bottom: 20px;
+.luxury-era-tag {
+  font-size: 14px;
+  opacity: .9;
 }
 
-.hero-content p {
-  color: #ddd;
-  line-height: 1.7;
-  margin-bottom: 40px;
+.luxury-era-overlay h3 {
+  font-size: 24px;
+  margin: 8px 0 10px;
 }
 
-.hero-btn {
-  display: inline-block;
-  padding: 15px 40px;
-  border: 1px solid #fff;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: 2px;
-  font-size: 13px;
-  transition: 0.3s ease;
+.luxury-era-overlay p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: .9;
 }
 
-.hero-btn:hover {
-  background: #fff;
-  color: #000;
-  border-radius: 5px;
-  font-weight: bold;
+/* HOVER */
+
+.luxury-era-card:hover img {
+  transform: scale(1.08);
 }
+
+
 
 .video-hero {
   width: 100%;

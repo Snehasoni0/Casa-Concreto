@@ -38,94 +38,155 @@
   margin-top: 10px;
 }
 
+.exp-intro-inner {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding-top: 40px;
+}
 
-.experience-container{
+.exp-intro-title {
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.exp-intro-text {
+  font-size: 14px;
+  color: #333;
+  letter-spacing: 0.1px;
+  line-height: 18px;
+}
+
+.experiences {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.experience-item {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.exp-img img {
   width: 100%;
   height: 100%;
-  padding: 40px 0px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-.experience-list{
-  display:flex;
-  flex-direction:column;
-  gap:50px;
+/* vertical image */
+.vertical img {
+  aspect-ratio: 3/4;
+  height: 500px;
 }
 
-
-.experience-row{
-  display:flex;
-  align-items:center;
-  gap:60px;
+/* horizontal image */
+.horizontal {
+  max-width: 520px;
 }
 
-.experience-row:nth-child(even){
-  flex-direction:row-reverse;
+.horizontal img {
+  aspect-ratio: 4/3;
 }
 
-
-.exp-image{
-  flex:1;
+/* reverse layout */
+.reverse {
+  direction: rtl;
 }
 
-.exp-image img{
-  width:100%;
-  height:350px;
-  object-fit:cover;
-  border-radius:15px;
+.exp-text-underline {
+  width: 70px;
+  height: 2px;
+  background: black;
+  margin-bottom: 10px;
 }
 
-
-
-.exp-image h2 {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  z-index: 2;
-  letter-spacing: 2px;
+/* when text is on right */
+.reverse .exp-text-underline {
+  margin-left: auto;
 }
 
-
-.exp-text{
-  flex:1;
+.exp-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding:20px;
+  justify-content: flex-end;
+  height: 100%;
 }
 
-.line{
-  width: 100px;
-  height: 1px;
-  background-color: white;
-  margin-bottom: 25px;
+/* default layout (image left, text right) */
+.exp-text {
+  text-align: left;
 }
 
-.exp-text h2 {
-  margin-bottom: 15px;
+
+
+/* reversed layout (image right, text left) */
+.reverse .exp-text {
+  text-align: right;
+}
+
+.reverse .exp-text {
+  direction: ltr;
+}
+
+.exp-text h3 {
+  font-size: 26px;
+  font-style: italic;
+  margin-bottom: 7px;
 }
 
 .exp-text p {
-  letter-spacing: 1px;
+  font-size: 15px;
   line-height: 1.7;
+  color: #444;
+  margin-bottom: 15px;
 }
 
-.experiences-container {
-  width: 100%;
+.exp-text a {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1a7d6f;
 }
 
-.experience-inner {
-  max-width: 1170px;
+/* responsive */
+
+@media(max-width:900px) {
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 70px auto;
+  }
+
+  .reverse {
+    direction: ltr;
+  }
+
+  .full-exp-img {
+    height: 300px !important;
+    padding: 0px 10px;
+    overflow: hidden;
+  }
+
+}
+
+.full-exp-img {
+  max-width: 1200px;
+  overflow: hidden;
+  height: 600px;
   margin: auto;
-  padding: 40px 0px;
+  border-radius: 15px;
 }
 
-.line{
-  width:80px;
-  height:2px;
-  background:black;
-  margin-bottom:20px;
+.full-exp-img img {
+  width: 100%;
+  border-radius: 15px;
 }

@@ -98,8 +98,27 @@
     color: white;
   }
 
-  .all-for-you {
-    padding: 100px 25px;
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .projects-images {
+    display: flex;
+    justify-content: center;
+  }
+
+  .projects-content {
+    max-width: 100%;
+  }
+
+  .projects-bottom {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .img-bg {
+    display: none;
   }
 
   #themed-rooms {
@@ -162,15 +181,6 @@
     font-size: 36px !important;
   }
 
-  .escape-container {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    padding: 0 30px;
-  }
-
-  .escape-content h2 {
-    font-size: 36px;
-  }
 
   .hero-content h2 {
     font-size: 36px;
@@ -246,7 +256,6 @@
   }
 
 
-
   .experience-heads {
     width: 100%;
     padding: 10px;
@@ -301,6 +310,10 @@
     font-size: 38px;
   }
 
+  .luxury-era-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
   .room-row {
     flex-direction: column;
     gap: 40px;
@@ -330,16 +343,19 @@
   .home-blog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .villa-top{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .villa-text h2{
+    font-size:32px;
+  }
 }
 
 @media (max-width: 575px) {
-  .all-for-you h2 {
-    font-size: 26px;
-  }
 
-  .all-for-you p {
-    font-size: 14px;
-  }
 
   .experience-content {
     flex-direction: column;
@@ -382,30 +398,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px !important;
-  }
-
-  .villa-info h2 {
-    font-size: 26px !important;
-  }
-
-  .stat h3 {
-    font-size: 40px !important;
-  }
-
-  .escape-section {
-    padding: 60px 0;
-  }
-
-  .escape-content h2 {
-    font-size: 26px;
-  }
-
-  .escape-btn {
-    padding: 12px 30px;
-  }
 
   .hero-content h2 {
     font-size: 26px;
@@ -444,6 +436,45 @@
 
 
 @media(max-width:768px) {
+  .luxury-era {
+    padding: 80px 6%;
+  }
+
+  .luxury-era-heading h2 {
+    font-size: 32px;
+  }
+
+  .luxury-era-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .luxury-era-card {
+    height: 420px;
+  }
+
+  .projects-section {
+    padding: 80px 6%;
+  }
+
+  .projects-content h2 {
+    font-size: 32px;
+  }
+
+  .projects-bottom {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .bottom-text h3 {
+    font-size: 20px;
+  }
+
+  .img-main {
+    width: 100%;
+    height: 340px;
+  }
+
   #lux-gallery {
     padding: 60px 15px;
   }
@@ -537,20 +568,19 @@
     font-size: 2.5rem;
   }
 
-  .villa-info h2 {
-    font-size: 32px !important;
+  .villa-info{
+    padding:80px 6%;
   }
 
-  .escape-content {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
+  .villa-stats{
+    grid-template-columns:1fr 1fr;
+    gap:20px;
   }
 
-  .escape-content h2 {
-    font-size: 32px;
+  .stat h3{
+    font-size:28px;
   }
+
 
   .hero-content h2 {
     font-size: 32px;

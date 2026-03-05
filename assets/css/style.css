@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Ethereal";
+  src: url("../fonts/Ethereal-Thin.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +18,7 @@ html {
 }
 
 body {
-  font-family: sans-serif !important;
+  font-family: "Ethereal";
   overflow-x: hidden;
 }
 
@@ -102,8 +109,8 @@ nav {
   -webkit-backdrop-filter: blur(18px);
 
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
 
   transform: translateY(10px);
   transition: .3s ease;
@@ -120,16 +127,16 @@ nav {
   padding: 10px 0;
 }
 
-.dropdown li a{
-  color:white;
-  font-size:12px;
-  letter-spacing:2px;
-  transition:.3s;
+.dropdown li a {
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
+  transition: .3s;
 }
 
-.dropdown li a:hover{
-  color:#b68a55;
-  padding-left:5px;
+.dropdown li a:hover {
+  color: #b68a55;
+  padding-left: 5px;
 }
 
 .hamburger,
@@ -197,36 +204,96 @@ nav {
   color: #3e474b;
 }
 
-.all-for-you {
-  background: #ffffff;
-  padding: 100px 0;
+.projects-section {
+  padding: 120px 8%;
+  max-width: 1300px;
+  margin: auto;
 }
 
-.all-for-you-inner {
-  max-width: 1150px;
-  margin: 0 auto;
-  text-align: center;
+/* container */
+
+.projects-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  align-items: center;
+  gap: 80px;
 }
 
-.all-for-you h2 {
-  font-size: 3rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #004141;
-  padding-bottom: 40px;
+/* stacked images */
+
+.projects-images {
+  position: relative;
+  width: 100%;
 }
 
-.all-for-you p {
-  font-size: 19px;
-  font-weight: 300;
-  line-height: 1.5;
-  color: #9a9a9a;
-  margin-bottom: 36px;
+.img-bg {
+  width: 290px;
+  height: 330px;
+  background: #dfe6e3;
+  position: absolute;
+  top: -40px;
+  left: -40px;
 }
 
-.all-for-you p:last-child {
-  margin-bottom: 0;
+.img-main {
+  width: 290px;
+  height: 360px;
+  object-fit: cover;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
+
+/* content */
+
+.projects-content {
+  max-width: 520px;
+}
+
+.projects-content span {
+  font-size: 14px;
+  color: #777;
+  display: block;
+}
+
+.projects-content h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.projects-content p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+/* bottom section */
+
+.projects-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.bottom-text h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.bottom-text p {
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.bottom-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
 
 
 #image-banner {
@@ -276,6 +343,10 @@ nav {
   margin-top: 20px;
 }
 
+.rooms-grid img {
+  border-radius: 12px;
+}
+
 .room-col-grid-first,
 .room-col-grid-second {
   display: grid;
@@ -297,7 +368,6 @@ nav {
   overflow: hidden;
   cursor: pointer;
   text-align: center;
-  border-radius: 8px;
 }
 
 .room-card-large {
@@ -391,7 +461,7 @@ nav {
 }
 
 
-.experience-section{
+.experience-section {
   width: 100%;
   padding-top: 40px;
 }
@@ -449,6 +519,7 @@ nav {
 .experience-slider {
   width: 85%;
   max-width: 1200px;
+  border-radius: 10px;
   z-index: 0;
 }
 
@@ -494,7 +565,8 @@ nav {
 }
 
 
-.swiper-button-next:after,.swiper-button-prev:after {
+.swiper-button-next:after,
+.swiper-button-prev:after {
   color: gray;
 }
 
@@ -546,69 +618,6 @@ nav {
 }
 
 
-#amenities {
-  width: 100%;
-  padding: 90px 0;
-  background-color: rgb(46, 43, 43);
-}
-
-.amenities-wrapper {
-  max-width: 1100px;
-  margin: auto;
-}
-
-.amenities-headings {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-
-.amenities-title {
-  font-size: 35px;
-  font-weight: 400;
-  color: white;
-}
-
-.amenities-line {
-  width: 65px;
-  height: 1px;
-  margin-top: 10px;
-  background-color: wheat;
-}
-
-.amenities-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 55px 20px;
-  text-align: center;
-}
-
-.amenity-item p {
-  margin-top: 14px;
-  font-size: 13px;
-  color: wheat;
-  letter-spacing: 0.5px;
-}
-
-.amenity-icon {
-  width: 52px;
-  height: 52px;
-  border: 1px solid #b68a55;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.amenity-icon i {
-  font-size: 18px;
-  color: #b68a55;
-}
-
 #lux-gallery {
   padding: 100px 60px;
 }
@@ -644,13 +653,6 @@ nav {
   background-color: black;
 }
 
-.gallery-grid {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-flow: dense;
-}
-
 .gallery-item {
   position: relative;
   height: 240px;
@@ -669,14 +671,6 @@ nav {
   }
 }
 
-.gallery-item.tall {
-  grid-row: span 2;
-  height: 480px;
-}
-
-.gallery-item.wide {
-  grid-column: span 2;
-}
 
 .gallery-item img {
   width: 100%;
@@ -701,6 +695,7 @@ nav {
   color: white;
   letter-spacing: 2px;
   font-weight: 300;
+  font-size: 18px;
 }
 
 .gallery-item:hover img {
@@ -710,6 +705,25 @@ nav {
 .gallery-item:hover .gallery-overlay {
   transform: translateY(0);
   opacity: 1;
+}
+
+.owl-carousel,
+.owl-carousel .owl-item {
+  text-align: center;
+  font-size: 35px;
+  color: #c19b76;
+}
+
+.owl-prev span {
+  position: absolute;
+  left: -30px;
+  top: 35%;
+}
+
+.owl-next span {
+  position: absolute;
+  top: 35%;
+  right: -30px;
 }
 
 
@@ -806,17 +820,20 @@ nav {
 
 .btn-outline {
   border: 1px solid white;
-  padding: 22px 40px;
+  padding: 12px 20px;
   color: white;
+  background-color: #252424;
   text-decoration: none;
   letter-spacing: 2px;
   font-size: 12px;
   transition: .3s;
+  border-radius: 5px;
 }
 
 .btn-outline:hover {
   background: white;
   color: black;
+  border: 1px solid black;
 }
 
 
@@ -1004,22 +1021,26 @@ nav {
 
 @keyframes spin {
 
-  0%,10% {
+  0%,
+  10% {
     top: 0;
     left: 0;
   }
 
-  25%,35% {
+  25%,
+  35% {
     top: 0;
-    left: 480px; 
+    left: 480px;
   }
 
-  50%,60% {
+  50%,
+  60% {
     top: 280px;
     left: 480px;
   }
 
-  75%,85% {
+  75%,
+  85% {
     top: 280px;
     left: 0;
   }
@@ -1068,6 +1089,7 @@ nav {
   background: #fff;
   overflow: hidden;
   transition: 0.4s ease;
+  border-radius: 10px;
 }
 
 .home-blog-img {
@@ -1109,7 +1131,7 @@ nav {
 }
 
 .home-blog-content a:hover {
-  color: #c19b76; 
+  color: #c19b76;
 }
 
 

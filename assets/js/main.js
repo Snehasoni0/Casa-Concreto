@@ -1,15 +1,27 @@
 const navbar = document.querySelector(".custom-navbar");
 const hero = document.getElementById("hero-banner");
 
-window.addEventListener("scroll", () => {
-  const heroHeight = hero.offsetHeight;
+function handleNavbar() {
+  if (hero) {
+    const heroHeight = hero.offsetHeight;
 
-  if (window.scrollY > heroHeight - 100) {
-    navbar.classList.add("scrolled");
+    if (window.scrollY > heroHeight - 100) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+
   } else {
-    navbar.classList.remove("scrolled");
+    // pages without hero banner
+    navbar.classList.add("scrolled");
   }
-});
+}
+
+/* run once when page loads */
+handleNavbar();
+
+/* run on scroll */
+window.addEventListener("scroll", handleNavbar);
 
 
 document.addEventListener('DOMContentLoaded', () => {

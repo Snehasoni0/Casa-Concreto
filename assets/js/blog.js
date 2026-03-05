@@ -3,7 +3,7 @@ const blogs = [
 {
   title: "Maximizing Your Luxury Stay Experience",
   desc: "Learn top tips for making the most of your Casa Concreto retreat, from personalized services to indulgent amenities.",
-  image: "../../assets/images/blog/blogs-1.jpeg",
+  image: "../../assets/images/about/villa.jpeg",
   featured: true
 },
 
@@ -58,7 +58,7 @@ blogs.forEach(blog => {
       <div class="featured-text">
         <h2>${blog.title}</h2>
         <p>${blog.desc}</p>
-        <a href="#">Read More →</a>
+        <a href="../../pages/discover/blog-des.html">Read More →</a>
       </div>
     `;
 
@@ -69,7 +69,7 @@ blogs.forEach(blog => {
         <img src="${blog.image}">
         <h3>${blog.title}</h3>
         <p>${blog.desc}</p>
-        <a href="#">Read More →</a>
+        <a href="../../pages/discover/blog-des.html">Read More →</a>
       </div>
     `;
   }
