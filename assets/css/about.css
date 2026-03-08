@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("../images/about/about-hero-bg.jpeg");
+  background-image: url("https://res.cloudinary.com/dxaj4o4xh/image/upload/v1772713208/about-hero-bg_aizsyq.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -46,7 +46,6 @@
   margin:auto;
 }
 
-/* TOP ROW */
 
 .villa-top{
   display:grid;
@@ -56,7 +55,6 @@
   margin-bottom:60px;
 }
 
-/* TEXT */
 
 .villa-text .icon{
   font-size:26px;
@@ -77,7 +75,6 @@
   max-width:520px;
 }
 
-/* STATS GRID */
 
 .villa-stats{
   display:grid;
@@ -103,7 +100,6 @@
   margin-top:4px;
 }
 
-/* IMAGE */
 
 .villa-image img{
   width:100%;
@@ -112,7 +108,6 @@
   object-fit:cover;
 }
 
-/* SECTION */
 
 .luxury-era {
   padding: 120px 8%;
@@ -124,7 +119,6 @@
   margin: auto;
 }
 
-/* HEADING */
 
 .luxury-era-heading {
   text-align: center;
@@ -144,7 +138,6 @@
   line-height: 1.6;
 }
 
-/* GRID */
 
 .luxury-era-grid {
   display: grid;
@@ -152,7 +145,6 @@
   gap: 30px;
 }
 
-/* CARD */
 
 .luxury-era-card {
   position: relative;
@@ -169,7 +161,6 @@
   transition: transform .6s ease;
 }
 
-/* DARK OVERLAY */
 
 .luxury-era-card::before {
   content: "";
@@ -179,7 +170,6 @@
   z-index: 1;
 }
 
-/* TEXT OVERLAY */
 
 .luxury-era-overlay {
   position: absolute;
@@ -208,12 +198,9 @@
   opacity: .9;
 }
 
-/* HOVER */
-
 .luxury-era-card:hover img {
   transform: scale(1.08);
 }
-
 
 
 .video-hero {
@@ -229,7 +216,7 @@
 .vm-artistic {
   position: relative;
   height: 100vh;
-  background: url('../images/about/vision-mission-bg.JPG') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/dxaj4o4xh/image/upload/v1772713221/vision-mission-bg_zdytev.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

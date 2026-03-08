@@ -80,13 +80,11 @@
   border-radius: 10px;
 }
 
-/* vertical image */
 .vertical img {
   aspect-ratio: 3/4;
   height: 500px;
 }
 
-/* horizontal image */
 .horizontal {
   max-width: 520px;
 }
@@ -95,7 +93,6 @@
   aspect-ratio: 4/3;
 }
 
-/* reverse layout */
 .reverse {
   direction: rtl;
 }
@@ -107,7 +104,6 @@
   margin-bottom: 10px;
 }
 
-/* when text is on right */
 .reverse .exp-text-underline {
   margin-left: auto;
 }
@@ -119,14 +115,12 @@
   height: 100%;
 }
 
-/* default layout (image left, text right) */
 .exp-text {
   text-align: left;
 }
 
 
 
-/* reversed layout (image right, text left) */
 .reverse .exp-text {
   text-align: right;
 }
@@ -156,27 +150,6 @@
   color: #1a7d6f;
 }
 
-/* responsive */
-
-@media(max-width:900px) {
-
-  .experience-item {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin: 70px auto;
-  }
-
-  .reverse {
-    direction: ltr;
-  }
-
-  .full-exp-img {
-    height: 300px !important;
-    padding: 0px 10px;
-    overflow: hidden;
-  }
-
-}
 
 .full-exp-img {
   max-width: 1200px;

@@ -210,7 +210,6 @@ nav {
   margin: auto;
 }
 
-/* container */
 
 .projects-container {
   display: grid;
@@ -219,7 +218,6 @@ nav {
   gap: 80px;
 }
 
-/* stacked images */
 
 .projects-images {
   position: relative;
@@ -244,7 +242,7 @@ nav {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* content */
+
 
 .projects-content {
   max-width: 520px;
@@ -268,7 +266,6 @@ nav {
   margin-bottom: 25px;
 }
 
-/* bottom section */
 
 .projects-bottom {
   display: grid;
@@ -619,7 +616,7 @@ nav {
 
 
 #lux-gallery {
-  padding: 100px 60px;
+  padding: 60px;
 }
 
 .gallery-inner {
@@ -724,6 +721,10 @@ nav {
   position: absolute;
   top: 35%;
   right: -30px;
+}
+
+.owl-dots{
+  display: none !important;
 }
 
 

@@ -10,37 +10,43 @@ const blogs = [
 {
   title: "Tips for Planning the Perfect Romantic Getaway",
   desc: "Create unforgettable moments with curated experiences.",
-  image: "../../assets/images/blog/blogs-2.jpeg"
+  image: "../../assets/images/blog/blogs-2.jpeg",
+  path: "../../pages/discover/blog1.html"
 },
 
 {
   title: "The Art of Concrete Sculpting",
   desc: "Workshops & inspiration at Casa Concreto.",
-  image: "../../assets/images/blog/blogs-3.jpeg"
+  image: "../../assets/images/blog/blogs-3.jpeg",
+  path: "../../pages/discover/blog2.html"
 },
 
 {
   title: "Poolside Relaxation Essentials",
   desc: "Luxury days by the pool made perfect.",
-  image: "../../assets/images/blog/blogs-4.jpeg"
+  image: "../../assets/images/blog/blogs-4.jpeg",
+  path: "../../pages/discover/blog3.html"
 },
 
 {
   title: "Exquisite Outdoor Dining Under the Stars",
   desc: "An unforgettable candlelit dining experience.",
-  image: "../../assets/images/blog/blogs-5.jpeg"
+  image: "../../assets/images/blog/blogs-5.jpeg",
+  path: "../../pages/discover/blog4.html"
 },
 
 {
   title: "Upcoming Events This Season",
   desc: "What’s happening this month at Casa Concreto.",
-  image: "../../assets/images/blog/blogs-6.jpeg"
+  image: "../../assets/images/blog/blogs-6.jpeg",
+  path: "../../pages/discover/blog5.html"
 },
 
 {
   title: "Wellness & Spa Retreats",
   desc: "Rejuvenate your mind and body.",
-  image: "../../assets/images/blog/blogs-7.jpeg"
+  image: "../../assets/images/blog/blogs-7.jpeg",
+  path: "../../pages/discover/blog6.html"
 }
 
 ];
@@ -69,7 +75,7 @@ blogs.forEach(blog => {
         <img src="${blog.image}">
         <h3>${blog.title}</h3>
         <p>${blog.desc}</p>
-        <a href="../../pages/discover/blog-des.html">Read More →</a>
+        <a href="${blog.path}">Read More →</a>
       </div>
     `;
   }

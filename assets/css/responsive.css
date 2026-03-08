@@ -352,6 +352,22 @@
   .villa-text h2{
     font-size:32px;
   }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 70px auto;
+  }
+
+  .reverse {
+    direction: ltr;
+  }
+
+  .full-exp-img {
+    height: 300px !important;
+    padding: 0px 10px;
+    overflow: hidden;
+  }
 }
 
 @media (max-width: 575px) {

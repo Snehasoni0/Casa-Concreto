@@ -2,14 +2,12 @@
   padding:80px 20px;
 }
 
-/* outer container */
 .preview-container{
   max-width:1100px;
   margin:auto;
   text-align:center;
 }
 
-/* live preview label */
 .preview-label{
   letter-spacing:8px;
   font-size:12px;
@@ -17,35 +15,29 @@
   margin-bottom:10px;
 }
 
-/* big heading */
 .preview-title{
   font-size:40px;
   margin-bottom:40px;
 }
 
-/* grey card container */
 .preview-card{
   border-radius:18px;
   padding:50px 40px;
   text-align:left;
 }
-/* center the header content */
 .blog-header{
   text-align:center;
   max-width:700px;
   margin:auto;
 }
 
-/* center description */
 .blog-intro{
   margin:15px auto 25px;
 }
 
-/* center meta items */
 .blog-meta{
   justify-content:center;
 }
-/* blog heading */
 .blog-header h2{
   font-size:32px;
   margin-bottom:12px;
@@ -58,7 +50,6 @@
   margin-bottom:25px;
 }
 
-/* meta row */
 .blog-meta{
   display:flex;
   align-items:center;
@@ -82,7 +73,6 @@
   background:#ddd;
 }
 
-/* pills */
 .pill{
   font-size:13px;
   background:#e6e7eb;
@@ -90,7 +80,6 @@
   border-radius:20px;
 }
 
-/* blog image */
 .blog-image{
   margin-bottom:35px;
 }
@@ -101,7 +90,6 @@
   display:block;
 }
 
-/* content */
 .blog-content{
   color:#555;
   line-height:1.8;
