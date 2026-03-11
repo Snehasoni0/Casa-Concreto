@@ -10,7 +10,189 @@
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/experience.css">
   <link rel="stylesheet" href="../../assets/css/responsive.css">
+  <style>
+    .casa-experience-theatre {
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+    }
 
+    .theatre-wrapper {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      width: 92%;
+      max-width: 1300px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* LEFT COLUMN - Shorter Height */
+    .stage-frame {
+      height: 480px;
+      /* Reduced height as requested */
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      background: #f9f9f9;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .stage-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    .stage-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+    }
+
+    #activeTitle {
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin: 8px 0;
+    }
+
+    #activeDesc {
+      font-size: 15px;
+      max-width: 400px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    /* RIGHT COLUMN - Fixed 3-Item View */
+    .nav-col {
+      height: 360px;
+      /* Exact height for 3 items (120px each) */
+      position: relative;
+      overflow: hidden;
+      padding-right: 20px;
+      /* Prevents cutting on the right */
+    }
+
+    .nav-track {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.7s cubic-bezier(0.45, 0, 0.55, 1);
+    }
+
+    .nav-item {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 30px;
+      opacity: 0.2;
+      /* Side items dimmed */
+      filter: blur(1px);
+      transform: scale(0.9);
+      transform-origin: left center;
+      transition: all 0.5s ease;
+    }
+
+    /* Middle Highlighted Item */
+    .nav-item.active {
+      opacity: 1;
+      filter: blur(0);
+      transform: scale(1.1);
+      /* The "Purple Line" indicator from your image */
+      border-left: 4px solid gray;
+    }
+
+    .nav-item h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0;
+      white-space: nowrap;
+      /* Ensures text stays on one line */
+    }
+
+    .nav-icon {
+      font-size: 28px;
+    }
+
+    /* --- RESPONSIVE LOGIC --- */
+@media (max-width: 991px) {
+  .theatre-wrapper {
+    grid-template-columns: 1fr; /* Single column */
+    display: flex;
+    flex-direction: column-reverse; /* Navigation on top, Content on bottom */
+    gap: 30px;
+    width: 95%;
+  }
+
+  /* Adjust Right Column (Now Top) */
+  .nav-col {
+    height: 240px; /* Reduced height for mobile (80px * 3 items) */
+    width: 100%;
+    padding-right: 0;
+    margin-top: 20px;
+  }
+
+  .nav-item {
+    height: 80px; /* Slimmer items for mobile */
+    padding: 0 15px;
+    gap: 12px;
+  }
+
+  .nav-item h3 {
+    font-size: 16px;
+    white-space: normal; /* Allow text to wrap if it's too long for mobile */
+  }
+
+  .nav-icon {
+    font-size: 22px;
+  }
+
+  /* Adjust Left Column (Now Bottom) */
+  .stage-frame {
+    height: 350px; /* Shorter image height for mobile */
+    width: 100%;
+  }
+
+  .stage-overlay {
+    padding: 25px;
+  }
+
+  #activeTitle {
+    font-size: 24px;
+  }
+
+  #activeDesc {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .casa-experience-theatre {
+    padding: 0px;
+  }
+}
+
+/* Small Mobile Optimization */
+@media (max-width: 480px) {
+  .nav-col {
+    height: 210px; /* 70px per item */
+  }
+  .nav-item {
+    height: 70px;
+  }
+  .stage-frame {
+    height: 300px;
+  }
+}
+  </style>
 
 </head>
 
@@ -92,155 +274,26 @@
 
   </section>
 
-  <section class="experiences">
+  <section class="casa-experience-theatre">
+    <div class="theatre-wrapper">
 
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="full-exp-img">
-      <img src="../../assets/images/experience/6.-Bonfire-scaled.jpg" alt="">
+      <div class="content-col">
+        <div class="stage-frame">
+          <img id="activeImg" src="" alt="Experience">
+          <div class="stage-overlay">
+            <span id="activeNum">01</span>
+            <h2 id="activeTitle"></h2>
+            <p id="activeDesc"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-col">
+        <div class="nav-track" id="wheelTrack">
+        </div>
+      </div>
+
     </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/workshop.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Concrete Sculpting Workshop</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Unleash your creativity with hands-on concrete sculpting sessions. Learn the basics of shaping, molding, and
-          crafting unique art pieces under expert guidance.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/barbeque.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Barbecue Oracle</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Indulge yourself in warm flames and sizzling delicacies. Experience the joy of live barbecue nights where
-          flavors meet fire in a cozy outdoor setting.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/3-luxury-setup-scaled.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Luxury Stay Experiences</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Designed to elevate your Casa Concreto retreat, enjoy curated luxury moments including private dining setups,
-          personalized services, and tranquil ambience.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="full-exp-img">
-      <img src="../../assets/images/experience/3-luxury-setup-scaled.jpg" alt="">
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/6.-Bonfire-scaled.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Casa Concreto Bonfire Nights</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Enjoy cozy evenings around a glowing bonfire in our spacious garden, creating warm memories under the starlit
-          sky with friends and family.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/new-floating-tray (1).jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Floating Tray Breakfast</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Begin your morning with a floating breakfast experience by the pool, offering gourmet delights served on
-          elegant trays amidst calming waters.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/langa.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Langa & Live Music</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Elevate your stay with a symphony of cultural richness. Immerse yourself in enchanting tunes of traditional
-          Langa music or soulful melodies, adding an extraordinary dimension to your Casa Concreto experience.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="full-exp-img">
-      <img src="../../assets/images/experience/3-luxury-setup-scaled.jpg" alt="">
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/village-1280.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Village Safari</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Explore the rustic charm of nearby villages with guided safaris, offering insights into local culture,
-          traditions, and rural life experiences.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/8.-Yoga-scaled.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Casa Concreto Yoga Bliss</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Reconnect with your inner self through guided yoga sessions held in peaceful surroundings, designed to restore
-          balance and mindfulness.
-        </p>
-      </div>
-    </div>
-
-    <div  data-aos="fade-up" data-aos-duration="1000"  class="experience-item">
-      <div class="exp-img">
-        <img src="../../assets/images/experience/bird.jpg" alt="">
-      </div>
-
-      <div class="exp-text">
-        <h3>Bird Watching</h3>
-        <div class="exp-text-underline"></div>
-        <p>
-          Immerse yourself in nature with peaceful bird watching experiences, spotting native species while enjoying the
-          tranquil environment around Casa Concreto.
-        </p>
-      </div>
-    </div>
-
   </section>
 
 
