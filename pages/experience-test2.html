@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-Item Experience Grid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --bg-black: #030712;
+            --bg-white: #ffffff;
+            --accent: #6c5ce7;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f8f9fa;
+            font-family: 'Inter', sans-serif;
+            padding: 40px 20px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- THE CARD CONTAINER --- */
+        .card-container {
+            width: 100%;
+            height: 420px;
+            perspective: 1500px;
+            position: relative;
+        }
+
+        .card-3d {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* FLIP ACTION */
+        .card-3d.flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* --- FACES --- */
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 35px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        /* Front Styles (Alternating Black/White) */
+        .face-front.bg-black { background: var(--bg-black); color: white; }
+        .face-front.bg-white { background: var(--bg-white); color: #111; }
+
+        .face-front h3 { font-size: 1.4rem; text-transform: uppercase; margin: 0; font-weight: 800; }
+        .face-front p { margin-top: 15px; font-size: 0.95rem; line-height: 1.5; opacity: 0.7; }
+
+        /* Back Styles (Image + Overlay) */
+        .face-back {
+            transform: rotateY(180deg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .face-back::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            z-index: 1;
+        }
+
+        .back-content { position: relative; z-index: 2; }
+        .back-content i { font-size: 3rem; margin-bottom: 15px; color: var(--accent); }
+
+        /* --- FLIP BUTTON --- */
+        .flip-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .flip-btn:hover { transform: scale(1.1) rotate(90deg); }
+
+        /* Responsive */
+        @media (max-width: 992px) { .experience-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .experience-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="experience-grid" id="experience-grid">
+    </div>
+
+<script>
+const experiences = [
+    { title: "Concrete Sculpting", icon: "fa-solid fa-hammer", desc: "Unleash your creativity with hands-on concrete sculpting sessions.", image: "../../assets/images/experience/workshop.jpg" },
+    { title: "Barbecue Oracle", icon: "fa-solid fa-fire-burner", desc: "Indulge yourself in warm flames and sizzling delicacies.", image: "../../assets/images/experience/barbeque.jpg" },
+    { title: "Luxury Stay", icon: "fa-solid fa-crown", desc: "Designed to elevate your retreat with curated luxury moments.", image: "../../assets/images/experience/3-luxury-setup-scaled.jpg" },
+    { title: "Bonfire Nights", icon: "fa-solid fa-fire", desc: "Enjoy cozy evenings around a glowing bonfire in our garden.", image: "../../assets/images/experience/6.-Bonfire-scaled.jpg" },
+    { title: "Floating Breakfast", icon: "fa-solid fa-water", desc: "Begin your morning with gourmet delights by the pool.", image: "../../assets/images/experience/new-floating-tray (1).jpg" },
+    { title: "Langa & Live Music", icon: "fa-solid fa-music", desc: "Immerse yourself in enchanting tunes of traditional Langa music.", image: "../../assets/images/experience/langa.jpg" },
+    { title: "Village Safari", icon: "fa-solid fa-jeep", desc: "Explore the rustic charm of nearby villages with guided safaris.", image: "../../assets/images/experience/village-1280.jpg" },
+    { title: "Yoga Bliss", icon: "fa-solid fa-spa", desc: "Reconnect with your inner self through guided yoga sessions.", image: "../../assets/images/experience/8.-Yoga-scaled.jpg" },
+    { title: "Bird Watching", icon: "fa-solid fa-binoculars", desc: "Spot native species while enjoying the tranquil environment.", image: "../../assets/images/experience/bird.jpg" }
+];
+
+const grid = document.getElementById('experience-grid');
+
+grid.innerHTML = experiences.map((exp, i) => {
+    // Alternating background color for the front
+    const bgClass = i % 2 === 0 ? 'bg-black' : 'bg-white';
+    
+    return `
+        <div class="card-container">
+            <button class="flip-btn" onclick="toggleFlip(this)" title="Flip Card">
+                <i class="fa-solid fa-rotate"></i>
+            </button>
+            
+            <div class="card-3d">
+                <div class="face face-front ${bgClass}">
+                    <i class="${exp.icon}" style="font-size: 2.5rem; margin-bottom: 20px; color: ${i % 2 === 0 ? '#6c5ce7' : '#030712'};"></i>
+                    <h3>${exp.title}</h3>
+                    <p>${exp.desc}</p>
+                </div>
+                
+                <div class="face face-back" style="background-image: url('${exp.image}')">
+                    <div class="back-content">
+                        <i class="${exp.icon}"></i>
+                        <h3>${exp.title}</h3>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Experience Authenticity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}).join('');
+
+function toggleFlip(btn) {
+    const card = btn.nextElementSibling; // Targets the .card-3d div
+    card.classList.toggle('flipped');
+}
+</script>
+
+</body>
+</html>

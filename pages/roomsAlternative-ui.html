@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Themed Rooms | Expansion UI</title>
+  <style>
+    /* --- RESET & CORE --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* --- FULLSCREEN EXPANSION UI --- */
+    .casa-fullscreen-ui {
+      height: 100vh;
+      width: 100%;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 0 0 0;
+      overflow: hidden;
+    }
+
+    .theme-headings {
+      margin-bottom: 40px;
+      padding: 0 50px;
+      text-align: center;
+    }
+
+    .section-title {
+      letter-spacing: 5px;
+      font-weight: 800;
+      color: #1a1a1a;
+      text-transform: uppercase;
+    }
+
+    .theme-line {
+      width: 50px;
+      height: 2px;
+      background: #000;
+      margin: 15px auto 0;
+    }
+
+    .casa-expansion-wrapper {
+      display: flex;
+      width: 100%;
+      flex: 1; /* Forces equal height for all panels */
+      align-items: stretch;
+      gap: 0;
+      transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .expansion-panel {
+      position: relative;
+      flex: 1;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: flex 0.8s cubic-bezier(0.25, 1, 0.3, 1);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .expansion-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Prevents "big height" issues, crops perfectly */
+      filter: grayscale(100%) brightness(0.7);
+      transition: transform 1.2s cubic-bezier(0.25, 1, 0.3, 1), filter 0.8s ease;
+    }
+
+    .room-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
+      opacity: 0.5;
+      transition: opacity 0.6s ease;
+    }
+
+    /* --- CONTENT POSITIONING --- */
+    .room-content {
+      position: absolute;
+      bottom: 80px;
+      left: 40px;
+      z-index: 10;
+      white-space: nowrap;
+      transition: all 0.5s ease;
+    }
+
+    .room-number {
+      font-size: 12px;
+      color: #c5a059; /* Gold accent */
+      font-weight: 800;
+      display: block;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .title-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .expansion-panel h4 {
+      font-size: 20px;
+      color: #fff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      transform: rotate(-90deg);
+      transform-origin: left bottom;
+      transition: all 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+    }
+
+    /* --- LEFT TO RIGHT UNDERLINE --- */
+    .title-wrap::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 0;
+      height: 2px;
+      background-color: #c5a059;
+      transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* --- VIEW DETAILS BUTTON --- */
+    .room-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .room-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    /* --- INTERACTION STATES --- */
+    .casa-expansion-wrapper:hover .expansion-panel {
+      flex: 0.6;
+    }
+
+    .expansion-panel:hover {
+      flex: 3 !important;
+    }
+
+    .expansion-panel:hover img {
+      filter: grayscale(0%) brightness(0.9);
+      transform: scale(1.05);
+    }
+
+    .expansion-panel:hover .room-overlay {
+      opacity: 0.8;
+    }
+
+    .expansion-panel:hover h4 {
+      transform: rotate(0deg);
+      font-size: 36px;
+      letter-spacing: 2px;
+    }
+
+    .expansion-panel:hover .title-wrap::after {
+      width: 100%;
+    }
+
+    .expansion-panel:hover .room-btn {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 1024px) {
+      .casa-fullscreen-ui {
+        height: auto;
+      }
+
+      .casa-expansion-wrapper {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .expansion-panel {
+        height: 400px;
+        flex: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+      }
+
+      .expansion-panel img {
+        filter: grayscale(0%);
+      }
+
+      .expansion-panel h4 {
+        transform: rotate(0);
+        font-size: 28px;
+      }
+
+      .title-wrap::after {
+        width: 80px;
+      }
+
+      .room-btn {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="themed-rooms" class="casa-fullscreen-ui">
+    <div class="theme-headings">
+      <h2 class="section-title">THEMED ROOMS</h2>
+      <div class="theme-line"></div>
+    </div>
+
+    <div class="casa-expansion-wrapper">
+
+      <div class="room-card expansion-panel">
+        <img src="./assets/images/home/insitu.jpg" alt="insitu-room">
+        <div class="room-overlay"></div>
+        <div class="room-content">
+          <span class="room-number">01</span>
+          <div class="title-wrap">
+            <h4>IN SITU</h4>
+          </div>
+          <br>
+          <a href="./pages/rooms/insitu.html" class="room-btn">VIEW DETAILS</a>
+        </div>
+      </div>
+
+      <div class="room-card expansion-panel">
+        <img src="./assets/images/home/black-stone.jpg" alt="black-stone-room">
+        <div class="room-overlay"></div>
+        <div class="room-content">
+          <span class="room-number">02</span>
+          <div class="title-wrap">
+            <h4>BLACK STONE</h4>
+          </div>
+          <br>
+          <a href="./pages/rooms/black-stone.html" class="room-btn">VIEW DETAILS</a>
+        </div>
+      </div>
+
+      <div class="room-card expansion-panel">
+        <img src="./assets/images/home/stamping.jpg" alt="stamping-room">
+        <div class="room-overlay"></div>
+        <div class="room-content">
+          <span class="room-number">03</span>
+          <div class="title-wrap">
+            <h4>STAMPING</h4>
+          </div>
+          <br>
+          <a href="./pages/rooms/stamping.html" class="room-btn">VIEW DETAILS</a>
+        </div>
+      </div>
+
+      <div class="room-card expansion-panel">
+        <img src="./assets/images/home/wabi-sabi.jpg" alt="wabi-sabi-room">
+        <div class="room-overlay"></div>
+        <div class="room-content">
+          <span class="room-number">04</span>
+          <div class="title-wrap">
+            <h4>WABI SABI</h4>
+          </div>
+          <br>
+          <a href="./pages/rooms/wabisabi.html" class="room-btn">VIEW DETAILS</a>
+        </div>
+      </div>
+
+      <div class="room-card expansion-panel">
+        <img src="./assets/images/home/woods-log.jpg" alt="woodlogs-room">
+        <div class="room-overlay"></div>
+        <div class="room-content">
+          <span class="room-number">05</span>
+          <div class="title-wrap">
+            <h4>WOOD LOGS</h4>
+          </div>
+          <br>
+          <a href="./pages/rooms/woodlogs.html" class="room-btn">VIEW DETAILS</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>

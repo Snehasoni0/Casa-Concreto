@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --bg-black: #030712;
+      /* Tailwind bg-gray-950 */
+      --bg-white: #ffffff;
+      --text-dark: #111827;
+      --text-light: #f9fafb;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 3 columns for desktop */
+      width: 100%;
+      margin: 0;
+    }
+
+    .tile {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      /* Smooth easing */
+    }
+
+    /* ============================
+   TEXT TILES & EFFECT
+   ============================ */
+    .tile.text-tile {
+      padding: 40px;
+      z-index: 1;
+      /* For shadow lift */
+    }
+
+    .tile.bg-black {
+      background-color: var(--bg-black);
+      color: var(--text-light);
+    }
+
+    .tile.bg-white {
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+    }
+
+    /* Hover Effect: Lift and Shadow */
+    .tile.text-tile:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    .tile.text-tile h3 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .tile.text-tile p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ============================
+   IMAGE TILES & OVERLAY EFFECT
+   ============================ */
+    .tile.image-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      transform: scale(1);
+      /* Starting state for hover */
+    }
+
+    /* The Overlay */
+    .tile.image-tile::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      /* Soft dark overlay */
+      transition: background-color 0.4s ease;
+      z-index: 2;
+    }
+
+    /* Hover Effect: Image zooms slightly, Overlay darkens slightly */
+    .tile.image-tile:hover img {
+      transform: scale(1.08);
+      /* Zoom in */
+    }
+
+    .tile.image-tile:hover::after {
+      background-color: rgba(0, 0, 0, 0.3);
+      /* Slightly darker on hover */
+    }
+
+    /* ============================
+   Responsive (Stacking)
+   ============================ */
+    @media (max-width: 1024px) {
+      .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tile {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="experience-section">
+    <div class="experience-grid" id="experience-grid">
+    </div>
+  </section>
+
+
+  <script>
+    const experiences = [
+      { title: "Concrete Sculpting", icon: "fa-solid fa-hammer", desc: "Unleash your creativity with hands-on concrete sculpting sessions.", image: "../../assets/images/experience/workshop.jpg" },
+      { title: "Barbecue Oracle", icon: "fa-solid fa-fire-burner", desc: "Indulge yourself in warm flames and sizzling delicacies.", image: "../../assets/images/experience/barbeque.jpg" },
+      { title: "Luxury Stay", icon: "fa-solid fa-crown", desc: "Designed to elevate your retreat with curated luxury moments.", image: "../../assets/images/experience/3-luxury-setup-scaled.jpg" },
+      { title: "Bonfire Nights", icon: "fa-solid fa-fire", desc: "Enjoy cozy evenings around a glowing bonfire in our garden.", image: "../../assets/images/experience/6.-Bonfire-scaled.jpg" },
+      { title: "Floating Breakfast", icon: "fa-solid fa-water", desc: "Begin your morning with gourmet delights by the pool.", image: "../../assets/images/experience/new-floating-tray (1).jpg" },
+      { title: "Langa & Live Music", icon: "fa-solid fa-music", desc: "Immerse yourself in enchanting tunes of traditional Langa music.", image: "../../assets/images/experience/langa.jpg" },
+      { title: "Village Safari", icon: "fa-solid fa-jeep", desc: "Explore the rustic charm of nearby villages with guided safaris.", image: "../../assets/images/experience/village-1280.jpg" },
+      { title: "Yoga Bliss", icon: "fa-solid fa-spa", desc: "Reconnect with your inner self through guided yoga sessions.", image: "../../assets/images/experience/8.-Yoga-scaled.jpg" },
+      { title: "Bird Watching", icon: "fa-solid fa-binoculars", desc: "Spot native species while enjoying the tranquil environment.", image: "../../assets/images/experience/bird.jpg" }
+    ];
+
+    // Definition of your specific sequence (18 items total)
+    // Sequence matches your request across 6 rows
+    const pattern = [
+      'black', 'image', 'white',  // Row 1
+      'image', 'black', 'image',  // Row 2
+      'white', 'image', 'black',  // Row 3
+      'image', 'white', 'image',  // Row 4
+      'black', 'image', 'white',  // Row 5
+      'image', 'black', 'image'   // Row 6
+    ];
+
+    const grid = document.getElementById('experience-grid');
+    let textIdx = 0;
+    let imgIdx = 0;
+
+    const html = pattern.map(type => {
+      if (type === 'image') {
+        const data = experiences[imgIdx % experiences.length];
+        imgIdx++;
+        return `
+      <div class="tile image-tile">
+        <img src="${data.image}" alt="${data.title}">
+      </div>`;
+      } else {
+        // We alternate content based on textIdx
+        const data = experiences[textIdx % experiences.length];
+        const bgColor = type === 'black' ? 'bg-black' : 'bg-white';
+        textIdx++;
+        return `
+      <div class="tile text-tile ${bgColor}">
+        <h3>${data.title}</h3>
+        <p>${data.desc}</p>
+      </div>`;
+      }
+    }).join('');
+
+    grid.innerHTML = html;
+  </script>
+</body>
+
+</html>
+
+
+<!-- <section class="casa-experience-theatre">
+    <div class="theatre-wrapper">
+
+      <div class="content-col">
+        <div class="stage-frame">
+          <img id="activeImg" src="" alt="Experience">
+          <div class="stage-overlay">
+            <span id="activeNum">01</span>
+            <h2 id="activeTitle"></h2>
+            <p id="activeDesc"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-col">
+        <div class="nav-track" id="wheelTrack">
+        </div>
+      </div>
+
+    </div>
+  </section> -->
