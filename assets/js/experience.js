@@ -10,55 +10,100 @@ const experiences = [
   { title: "Bird Watching", icon: "fa-solid fa-binoculars", desc: "Spot native species while enjoying the tranquil environment.", image: "../../assets/images/experience/bird.jpg" }
 ];
 
-const track = document.getElementById('wheelTrack');
-let currentIndex = 0;
+// const track = document.getElementById('wheelTrack');
+// let currentIndex = 0;
 
-function init() {
-  experiences.forEach((exp, i) => {
-    const div = document.createElement('div');
-    div.className = `nav-item ${i === 0 ? 'active' : ''}`;
-    // Rendering FontAwesome Icon
-    div.innerHTML = `<i class="${exp.icon}"></i><h3>${exp.title}</h3>`;
-    track.appendChild(div);
-  });
-  updateStage(0);
-  startLoop();
-}
-function updateStage(index) {
-  const data = experiences[index];
+// function init() {
+//   experiences.forEach((exp, i) => {
+//     const div = document.createElement('div');
+//     div.className = `nav-item ${i === 0 ? 'active' : ''}`;
+//     // Rendering FontAwesome Icon
+//     div.innerHTML = `<i class="${exp.icon}"></i><h3>${exp.title}</h3>`;
+//     track.appendChild(div);
+//   });
+//   updateStage(0);
+//   startLoop();
+// }
+// function updateStage(index) {
+//   const data = experiences[index];
 
-  // Left Side Update
-  const imgEl = document.getElementById('activeImg');
-  imgEl.style.opacity = '0';
-  setTimeout(() => {
-    imgEl.src = data.image;
-    document.getElementById('activeTitle').innerText = data.title;
-    document.getElementById('activeDesc').innerText = data.desc;
-    document.getElementById('activeNum').innerText = `0${index + 1}`;
-    imgEl.style.opacity = '1';
-  }, 300);
+//   // Left Side Update
+//   const imgEl = document.getElementById('activeImg');
+//   imgEl.style.opacity = '0';
+//   setTimeout(() => {
+//     imgEl.src = data.image;
+//     document.getElementById('activeTitle').innerText = data.title;
+//     document.getElementById('activeDesc').innerText = data.desc;
+//     document.getElementById('activeNum').innerText = `0${index + 1}`;
+//     imgEl.style.opacity = '1';
+//   }, 300);
 
-  // Right Side Update
-  const allItems = document.querySelectorAll('.nav-item');
-  allItems.forEach((item, i) => item.classList.toggle('active', i === index));
+//   // Right Side Update
+//   const allItems = document.querySelectorAll('.nav-item');
+//   allItems.forEach((item, i) => item.classList.toggle('active', i === index));
 
-  // RESPONSIVE MATH
-  // Check if we are on mobile (matches the CSS media query)
-  const isMobile = window.innerWidth <= 991;
-  const itemHeight = isMobile ? 80 : 120; // 80px for mobile, 120px for desktop
+//   // RESPONSIVE MATH
+//   // Check if we are on mobile (matches the CSS media query)
+//   const isMobile = window.innerWidth <= 991;
+//   const itemHeight = isMobile ? 80 : 120; // 80px for mobile, 120px for desktop
 
-  // Offset logic to keep active item in the middle (2nd slot)
-  const offset = -(index * itemHeight) + itemHeight;
+//   // Offset logic to keep active item in the middle (2nd slot)
+//   const offset = -(index * itemHeight) + itemHeight;
 
-  const track = document.getElementById('wheelTrack');
-  track.style.transform = `translateY(${offset}px)`;
-}
+//   const track = document.getElementById('wheelTrack');
+//   track.style.transform = `translateY(${offset}px)`;
+// }
 
-function startLoop() {
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % experiences.length;
-    updateStage(currentIndex);
-  }, 4000);
-}
+// function startLoop() {
+//   setInterval(() => {
+//     currentIndex = (currentIndex + 1) % experiences.length;
+//     updateStage(currentIndex);
+//   }, 4000);
+// }
 
-init();
+// init();
+
+// Wrap everything in this listener to prevent "null" errors
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const pattern = [
+      'black', 'image', 'white',  // Row 1
+      'image', 'black', 'image',  // Row 2
+      'white', 'image', 'black',  // Row 3
+      'image', 'white', 'image',  // Row 4
+      'black', 'image', 'white',  // Row 5
+      'image', 'black', 'image'   // Row 6
+    ];
+
+    const grid = document.getElementById('experience-grid');
+
+    // Safety check: only run if the grid exists on this page
+    if (grid) {
+        let textIdx = 0;
+        let imgIdx = 0;
+
+        const html = pattern.map(type => {
+          if (type === 'image') {
+            const data = experiences[imgIdx % experiences.length];
+            imgIdx++;
+            return `
+              <div class="tile image-tile">
+                <img src="${data.image}" alt="${data.title}">
+              </div>`;
+          } else {
+            const data = experiences[textIdx % experiences.length];
+            const bgColor = type === 'black' ? 'bg-black' : 'bg-white';
+            textIdx++;
+            return `
+              <div class="tile text-tile ${bgColor}">
+                <h3>${data.title}</h3>
+                <p>${data.desc}</p>
+              </div>`;
+          }
+        }).join('');
+
+        grid.innerHTML = html;
+    } else {
+        console.warn("Element #experience-grid not found on this page.");
+    }
+});

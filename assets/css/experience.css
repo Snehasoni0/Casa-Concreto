@@ -58,105 +58,113 @@
   line-height: 18px;
 }
 
-.casa-experience-theatre {
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 0;
-    }
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin: 0;
+}
 
-    .theatre-wrapper {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      width: 92%;
-      max-width: 1300px;
-      gap: 40px;
-      align-items: center;
-    }
+.tile {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-    .stage-frame {
-      height: 480px;
-      border-radius: 30px;
-      overflow: hidden;
-      position: relative;
-      background: #f9f9f9;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-    }
+/* ============================
+       TEXT TILES & EFFECT
+       ============================ */
+.tile.text-tile {
+  padding: 40px;
+  z-index: 1;
+}
 
-    .stage-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.6s ease-in-out;
-    }
+/* Manual Background: Dark (Tailwind Gray-950 equivalent) */
+.tile.bg-black {
+  background-color: #030712;
+  color: #f9fafb;
+}
 
-    .stage-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      color: #fff;
-    }
+/* Manual Background: White */
+.tile.bg-white {
+  background-color: #ffffff;
+  color: #111827;
+}
 
-    #activeTitle {
-      font-size: 32px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin: 8px 0;
-    }
+/* Hover Effect: Lift and Shadow */
+.tile.text-tile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
 
-    #activeDesc {
-      font-size: 15px;
-      max-width: 400px;
-      opacity: 0.85;
-      line-height: 1.5;
-    }
+.tile.text-tile h3 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
 
-    .nav-col {
-      height: 360px;
-      position: relative;
-      overflow: hidden;
-      padding-right: 20px;
-    }
+.tile.text-tile p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
-    .nav-track {
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.7s cubic-bezier(0.45, 0, 0.55, 1);
-    }
+/* ============================
+       IMAGE TILES & OVERLAY EFFECT
+       ============================ */
+.tile.image-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  transform: scale(1);
+}
 
-    .nav-item {
-      height: 120px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0 30px;
-      opacity: 0.2;
-      filter: blur(1px);
-      transform: scale(0.9);
-      transform-origin: left center;
-      transition: all 0.5s ease;
-    }
+/* The Overlay - Using manual RGBA */
+.tile.image-tile::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.4s ease;
+  z-index: 2;
+}
 
-    .nav-item.active {
-      opacity: 1;
-      filter: blur(0);
-      transform: scale(1.1);
-      border-left: 4px solid gray;
-    }
+/* Hover Effect: Zoom and Overlay Darken */
+.tile.image-tile:hover img {
+  transform: scale(1.08);
+}
 
-    .nav-item h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin: 0;
-      white-space: nowrap;
-    }
+.tile.image-tile:hover::after {
+  background-color: rgba(0, 0, 0, 0.35);
+}
 
-    .nav-icon {
-      font-size: 28px;
-    }
+/* ============================
+       Responsive (Stacking)
+       ============================ */
+@media (max-width: 1024px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    height: 320px;
+  }
+}
