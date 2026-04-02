@@ -1,23 +1,39 @@
-.experience-hero {
-  position: relative;
+
+:root {
+  --lux-bg: #ffffff;
+  --lux-gold: #b68555;
+  --lux-dark: #121212;
+  --lux-off: #ffffff;
 }
 
+body.discover {
+  background-color: var(--lux-bg);
+}
+
+.experience-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  overflow: hidden;
+}
 
 .experience-hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(34, 33, 33, 0.7);
+  background: rgba(34, 33, 33, 0.7);
   z-index: 2;
 }
 
-
 .experience-hero img {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
-
 
 .experience-heads {
   position: absolute;
@@ -27,144 +43,294 @@
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .experience-heads h2 {
-  font-size: 55px;
+  font-size: clamp(38px, 6vw, 75px);
+  text-transform: none;
+  font-weight: 300;
+  letter-spacing: -1px;
 }
 
-.experience-heads p {
-  letter-spacing: 1px;
-  margin-top: 10px;
-}
-
-.exp-intro-inner {
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-  padding-top: 40px;
-}
-
-.exp-intro-title {
-  font-size: 35px;
-  font-weight: normal;
-  margin-bottom: 13px;
-}
-
-.exp-intro-text {
-  font-size: 14px;
-  color: #333;
-  letter-spacing: 0.1px;
-  line-height: 18px;
-}
-
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  margin: 0;
-}
-
-.tile {
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.lux-experience-section {
+  background: var(--lux-bg);
   position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* ============================
-       TEXT TILES & EFFECT
-       ============================ */
-.tile.text-tile {
-  padding: 40px;
-  z-index: 1;
+.lux-experience-section::before,
+.lux-experience-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20%;
+  z-index: 5;
+  pointer-events: none;
 }
 
-/* Manual Background: Dark (Tailwind Gray-950 equivalent) */
-.tile.bg-black {
-  background-color: #030712;
-  color: #f9fafb;
+.lux-experience-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--lux-bg), transparent);
 }
 
-/* Manual Background: White */
-.tile.bg-white {
-  background-color: #ffffff;
-  color: #111827;
+.lux-experience-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--lux-bg), transparent);
 }
 
-/* Hover Effect: Lift and Shadow */
-.tile.text-tile:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+.lux-exp-header {
+  max-width: 800px;
+  margin: 0 auto 100px;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
   z-index: 10;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.tile.text-tile h3 {
-  font-size: 1.4rem;
+.lux-exp-title {
+  font-size: 35px;
+  font-weight: 300;
+  color: var(--lux-dark);
+  margin-bottom: 45px;
+  /* Increased to make room for line */
+  position: relative;
+  display: inline-block;
   text-transform: uppercase;
-  margin-bottom: 15px;
-  font-weight: 700;
+  letter-spacing: 4px;
 }
 
-.tile.text-tile p {
-  font-size: 0.95rem;
-  line-height: 1.6;
+.lux-exp-title::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--lux-gold);
 }
 
-/* ============================
-       IMAGE TILES & OVERLAY EFFECT
-       ============================ */
-.tile.image-tile img {
+.lux-exp-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 4vw 80px;
+  scrollbar-width: none;
+}
+
+.lux-exp-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.exp-gallery-item {
+  position: relative;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 1px;
+  transition: all 0.4s ease;
+}
+
+.exp-gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
-  transform: scale(1);
 }
 
-/* The Overlay - Using manual RGBA */
-.tile.image-tile::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+/* ORGANIC GALLERY SIZES - ESSENTIAL FOR STYLING */
+.exp-tall {
+  width: 230px;
+  height: 340px;
+}
+
+.exp-wide {
+  width: 340px;
+  height: 210px;
+}
+
+.exp-med {
+  width: 270px;
+  height: 270px;
+}
+
+/* Desktop Scaling */
+@media (min-width: 1600px) {
+  .exp-tall {
+    width: 260px;
+    height: 380px;
+  }
+
+  .exp-wide {
+    width: 380px;
+    height: 240px;
+  }
+
+  .exp-med {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* --- MAGAZINE BREAKERS --- */
+.exp-magazine-breaker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  opacity: 0.8;
+}
+
+.exp-magazine-breaker::before,
+.exp-magazine-breaker::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(to right, transparent, var(--lux-gold), transparent);
+  max-width: 250px;
+}
+
+.exp-magazine-breaker span {
+  font-size: 10px;
+  letter-spacing: 0.6em;
+  color: var(--lux-gold);
+  text-transform: uppercase;
+  padding: 0 30px;
+}
+
+/* --- MAGAZINE LIST GRID --- */
+.exp-list-section {
+  background: var(--lux-bg);
+}
+
+.exp-list-row {
+  display: flex;
+  position: relative;
+  align-items: stretch;
+  padding: 0 6vw;
+}
+
+.exp-list-row.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.exp-col {
+  flex: 1;
+}
+
+.row-double .exp-col {
+  flex: 0 0 33.33%;
+}
+
+.row-single .exp-col {
+  flex: 0 0 50%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.lux-parallax {
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: background-color 0.4s ease;
+  height: 110%;
+  object-fit: cover;
+  display: block;
+}
+
+.exp-text-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 60px;
   z-index: 2;
 }
 
-/* Hover Effect: Zoom and Overlay Darken */
-.tile.image-tile:hover img {
-  transform: scale(1.08);
+.exp-text-inner {
+  max-width: 420px;
+  text-align: left;
 }
 
-.tile.image-tile:hover::after {
-  background-color: rgba(0, 0, 0, 0.35);
+.row-double .exp-text-inner {
+  text-align: center;
 }
 
-/* ============================
-       Responsive (Stacking)
-       ============================ */
+.exp-number {
+  font-size: 12px;
+  color: var(--lux-gold);
+  letter-spacing: 0.4em;
+  margin-bottom: 25px;
+  display: block;
+  text-transform: uppercase;
+}
+
+.exp-title {
+  font-size: 42px;
+  line-height: 1.1;
+  color: var(--lux-dark);
+  margin-bottom: 25px;
+}
+
+.exp-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--lux-gold);
+  margin-bottom: 30px;
+}
+
+.row-double .exp-divider {
+  margin: 0 auto 30px;
+}
+
+.exp-description {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #666;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.casa-btn-simple {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--lux-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--lux-gold);
+  padding-bottom: 6px;
+  transition: all 0.4s ease;
+}
+
+.casa-btn-simple:hover {
+  color: var(--lux-gold);
+  padding-left: 10px;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
-  .experience-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
+  .exp-list-row {
+    flex-direction: column !important;
   }
 
-  .tile {
-    height: 320px;
+  .exp-col {
+    width: 100% !important;
+    flex: 0 0 auto;
+    height: 400px;
+  }
+
+  .exp-text-col {
+    padding: 40px 20px;
+    height: auto;
+  }
+
+  .exp-tall,
+  .exp-wide,
+  .exp-med {
+    width: 85vw;
+    height: 350px;
   }
 }

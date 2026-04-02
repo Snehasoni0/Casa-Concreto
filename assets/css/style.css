@@ -210,7 +210,6 @@ nav {
   padding: 60px 5% 120px;
   background-color: white;
   overflow: hidden;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .casa-about-wrapper {
@@ -252,7 +251,7 @@ nav {
   width: 45%;
   z-index: 3;
   border: 10px solid #f9f9f9;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .casa-img-sub {
@@ -273,18 +272,18 @@ nav {
   z-index: 4;
 }
 
-.casa-badge-num { 
-  font-size: 32px; 
-  font-weight: 700; 
-  color: #c5a059; 
-  display: block; 
+.casa-badge-num {
+  font-size: 32px;
+  font-weight: 700;
+  color: #c5a059;
+  display: block;
 }
 
-.casa-badge-text { 
-  font-size: 11px; 
-  text-transform: uppercase; 
-  letter-spacing: 2px; 
-  line-height: 1.4; 
+.casa-badge-text {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.4;
 }
 
 /* Content Section */
@@ -308,7 +307,6 @@ nav {
 }
 
 .casa-italic-title {
-  font-family: Georgia, serif;
   font-style: italic;
   font-weight: 400;
   color: #888;
@@ -347,16 +345,16 @@ nav {
   vertical-align: middle;
 }
 
-.casa-feature-text h4 { 
-  margin: 0 0 5px 0; 
-  color: #2d2d2d; 
+.casa-feature-text h4 {
+  margin: 0 0 5px 0;
+  color: #2d2d2d;
   font-size: 18px;
 }
 
-.casa-feature-text p { 
+.casa-feature-text p {
   margin: 0;
-  font-size: 14px; 
-  color: #888; 
+  font-size: 14px;
+  color: #888;
 }
 
 /* Button & Footer */
@@ -381,40 +379,40 @@ nav {
   border-radius: 15px;
 }
 
-.casa-btn-modern svg { 
-  width: 20px; 
-  transition: all 0.4s ease; 
+.casa-btn-modern svg {
+  width: 20px;
+  transition: all 0.4s ease;
 }
 
-.casa-btn-modern:hover { 
-  background: #c5a059; 
+.casa-btn-modern:hover {
+  background: #c5a059;
 }
 
-.casa-btn-modern:hover svg { 
-  transform: translateX(5px); 
+.casa-btn-modern:hover svg {
+  transform: translateX(5px);
 }
 
-.casa-trust-tags { 
-  display: flex; 
-  flex-direction: column; 
-  gap: 8px; 
+.casa-trust-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.casa-tag { 
-  font-size: 12px; 
-  text-transform: uppercase; 
-  letter-spacing: 1px; 
-  color: #999; 
-  display: flex; 
-  align-items: center; 
-  gap: 8px; 
+.casa-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.casa-dot { 
-  width: 6px; 
-  height: 6px; 
-  background: #c5a059; 
-  border-radius: 50%; 
+.casa-dot {
+  width: 6px;
+  height: 6px;
+  background: #c5a059;
+  border-radius: 50%;
 }
 
 
@@ -741,93 +739,119 @@ nav {
 
 
 #lux-gallery {
-  padding: 60px;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* Full screen height */
+  min-height: 700px;
+  display: flex;
+  /* Flexbox use karenge centering ke liye */
+  align-items: center;
+  /* Vertically center */
+  justify-content: center;
+  /* Horizontally center */
+  overflow: hidden;
+  background: #8a8787;
 }
 
-.gallery-inner {
-  max-width: 1150px;
-  margin: auto;
+/* Background image moving effect */
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/home/banner-image-home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Main scroll effect yahan se aayega */
+  z-index: 1;
+  opacity: 0.15;
 }
 
-.gallery-headings {
+/* Isse content block hamesha beech mein rahega */
+.gallery-center-content {
+  position: relative;
+  z-index: 20;
+  /* Floating images ke upar rakhne ke liye */
   text-align: center;
-  margin-bottom: 50px;
+  max-width: 800px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.gallery-headings h2 {
-  font-size: 35px;
-  letter-spacing: 3px;
-  margin-bottom: 5px;
+
+.floating-images-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.gallery-headings p {
-  color: #777;
-  font-size: 15px;
-  margin-top: 10px;
+.floating-img {
+  position: absolute;
+  /* Base size ko badha diya hai */
+  width: 300px;
+  height: auto;
+  /* Height auto taaki image stretch na ho */
+  max-height: 350px;
+  aspect-ratio: 3/4;
+  /* Ya 4/5 vertical look ke liye */
+  object-fit: cover;
+  border: 8px solid white;
+  /* Border thoda thick kiya hai badi image ke liye */
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  will-change: transform;
+  z-index: 5;
+}
+
+.floating-img.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+.gallery-center-logo {
+  height: 90px;
+  display: block;
+}
+
+.gallery-center-content h2 {
+  font-size: 52px;
+  letter-spacing: 6px;
+  margin: 0;
+  line-height: 1.2;
+  color: #fff;
 }
 
 .gallery-line {
   width: 80px;
-  height: 2px;
-  background-color: black;
+  height: 1.5px;
+  background: #b68a55;
+  margin: 10px 0;
 }
 
-.gallery-item {
-  position: relative;
-  height: 240px;
-  overflow: hidden;
-  transform: translateY(40px);
-  opacity: 0;
-  cursor: pointer;
-  border-radius: 10px;
-  animation: fadeUp .8s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .6s ease;
-}
-
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, .35);
-  display: flex;
-  align-items: flex-end;
-  padding: 25px;
-  transform: translateY(40px);
-  opacity: 0;
-  transition: .4s ease;
-}
-
-.gallery-overlay h4 {
-  color: white;
-  letter-spacing: 2px;
-  font-weight: 300;
+.gallery-center-content p {
   font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 40px;
+  max-width: 500px;
+  /* Text ko clean rakhne ke liye */
 }
 
-.gallery-item:hover img {
-  transform: scale(1.08);
+/* Native Horizontal Scroll for Mobile */
+.mobile-gallery-scroll {
+  display: none; /* Hide on desktop for 'no-touch' desktop */
 }
 
-.gallery-item:hover .gallery-overlay {
-  transform: translateY(0);
-  opacity: 1;
-}
+
 
 .owl-carousel,
 .owl-carousel .owl-item {
@@ -848,7 +872,7 @@ nav {
   right: -30px;
 }
 
-.owl-dots{
+.owl-dots {
   display: none !important;
 }
 
