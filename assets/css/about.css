@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("https://res.cloudinary.com/dxaj4o4xh/image/upload/v1772713208/about-hero-bg_aizsyq.jpg");
+  background-image: url("https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775125552/about-hero-bg_bv3hux.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -291,7 +291,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("https://casaconcreto.in/wp-content/uploads/2024/01/7.-Kids-friendly.jpeg") center/cover no-repeat;
+  background: url("https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775128025/about-guest-bg_taptwb.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

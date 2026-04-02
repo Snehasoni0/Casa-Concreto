@@ -369,8 +369,8 @@ nav {
   background: #2d2d2d;
   color: #ffffff;
   padding: 18px 35px;
-  border-radius: 0;
-  display: flex;
+  display: inline-flex;
+  /* changed from flex to prevent full-width stretch */
   align-items: center;
   gap: 15px;
   transition: all 0.4s ease;
@@ -428,158 +428,257 @@ nav {
   display: block;
 }
 
-
 #themed-rooms {
-  padding: 100px 70px 50px 70px;
+  padding: 140px 5% 100px 5%;
+  /* Increased top padding */
   background-color: white;
+  min-height: 850px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.theme-headings {
+.themed-rooms-container {
+  max-width: 1200px;
+  width: 100%;
+  height: 750px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rooms-center-content {
+  text-align: center;
+  z-index: 20;
+  padding: 50px 40px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 30px;
+  justify-content: center;
+  border-radius: 4px;
+  transform: translateY(30px);
+  /* Lowering the content slightly */
 }
 
-.section-title {
-  color: rgb(59, 58, 58);
+.rooms-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.1;
+  /* Faded effect */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.rooms-watermark img {
+  width: 60%;
+  max-width: 800px;
+  filter: grayscale(100%);
+}
+
+.rooms-center-logo {
+  display: none; /* Hidden on desktop */
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.rooms-center-content h2 {
+  font-size: 30px;
+  color: #1a1a1a;
   letter-spacing: 4px;
-  font-weight: 700;
   margin-bottom: 10px;
-  text-align: center;
+  font-weight: 700;
 }
 
-.theme-line {
-  width: 60px;
+.theme-line{
+  width: 80px;
   height: 2px;
-  background-color: black;
+  background: #000;
 }
 
-.rooms-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 2fr;
-  grid-auto-rows: 260px;
-  gap: 20px;
-  margin-top: 20px;
+.rooms-center-content p {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0 25px;
+  line-height: 1.6;
 }
 
-.rooms-grid img {
-  border-radius: 12px;
+.dark-btn {
+  background: #1a1a1a !important;
+  color: white !important;
+  font-size: 13px !important;
+  padding: 14px 28px !important;
 }
 
-.room-col-grid-first,
-.room-col-grid-second {
-  display: grid;
-  height: 100%;
-  gap: 15px;
-  grid-auto-rows: 1fr;
+.dark-btn:hover {
+  background: #c5a059 !important;
 }
 
-.room-col-grid-first {
-  grid-template-columns: 1.3fr 1fr;
-}
-
-.room-col-grid-second {
-  grid-template-columns: 1fr 2fr;
-}
-
-.room-card {
-  position: relative;
-  overflow: hidden;
+/* Upsized Compact Memory Frame Aesthetic */
+.room-item {
+  position: absolute;
+  width: 250px;
+  height: 330px;
+  padding: 12px 12px 55px 12px;
+  /* Bigger bottom space for name */
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  transition: all 0.5s ease;
+  z-index: 10;
   cursor: pointer;
-  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.room-card-large {
-  grid-row: span 2;
-}
-
-.room-card img {
+.room-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
 }
 
-.room-overlay {
+.room-item-overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  inset: 12px 12px 55px 12px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transition: opacity 0.4s ease;
-  z-index: 1;
+  z-index: 15;
 }
 
-.room-content {
+.room-item h3 {
   position: absolute;
-  bottom: 30px;
-  left: 30px;
-  right: 30px;
-  z-index: 2;
-  color: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  /* Matches bottom padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #1a1a1a;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-.room-content h4 {
+.room-item-overlay h4 {
   font-size: 18px;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-
-.room-line {
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #fff;
-  margin: 10px 0;
-  transition: width 0.4s ease;
-}
-
-.room-content a {
-  display: inline-block;
-  color: #fff;
-  font-size: 13px;
-  text-decoration: none;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-}
-
-.room-card:hover img {
-  transform: scale(1.1);
-}
-
-.room-card:hover .room-overlay {
-  opacity: 1;
-}
-
-.room-card:hover .room-line {
-  width: 100%;
-}
-
-.room-card:hover .room-content a {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.room-content a:hover {
-  background: #fff;
-  color: #000;
-  border-radius: 20px;
-  padding: 10px 16px;
-}
-
-.room-content a i {
-  margin-left: 5px;
-  font-size: 12px;
-  vertical-align: middle;
   color: white;
+  margin-bottom: 15px;
 }
 
-.room-content a:hover i {
-  color: black;
+.explore-room-btn {
+  padding: 10px 22px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
+/* Hover States */
+.room-item:hover {
+  z-index: 30;
+  transform: scale(1.08) rotate(0deg) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+}
+
+.room-item:hover .room-item-overlay {
+  opacity: 1;
+}
+
+.explore-room-btn:hover {
+  background: white;
+  color: #1a1a1a;
+}
+
+/* Balanced Positions around content */
+.room-1 {
+  top: 10px;
+  left: 80px;
+  transform: rotate(-10deg);
+}
+
+.room-2 {
+  top: -85px;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(8deg);
+  z-index: 15;
+}
+
+.room-3 {
+  top: 15px;
+  right: 80px;
+  transform: rotate(12deg);
+}
+
+.room-4 {
+  bottom: 10px;
+  left: 100px;
+  transform: rotate(8deg);
+}
+
+.room-5 {
+  bottom: 10px;
+  right: 100px;
+  transform: rotate(-10deg);
+}
+
+/* Ensure room-2 stays centered on hover */
+.room-2:hover {
+  transform: translate(-50%, 0) scale(1.08) rotate(0deg) !important;
+}
+
+
+/* Aesthetic Breaker Line */
+.elegant-line-breaker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto 20px;
+  opacity: 0.8;
+}
+
+.elegant-line-breaker .line-left,
+.elegant-line-breaker .line-right {
+  flex-grow: 1;
+  height: 1px;
+}
+
+.elegant-line-breaker .line-left {
+  background: linear-gradient(to right, transparent, #c5a059);
+}
+
+.elegant-line-breaker .line-right {
+  background: linear-gradient(to left, transparent, #c5a059);
+}
+
+.elegant-line-breaker .diamond {
+  width: 6px;
+  height: 6px;
+  background-color: #c5a059;
+  transform: rotate(45deg);
+  margin: 0 15px;
+}
 
 .experience-section {
   width: 100%;
@@ -696,7 +795,7 @@ nav {
 
 
 .hover-btn {
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 15px 40px;
   background: black;
   cursor: pointer;
@@ -737,195 +836,197 @@ nav {
   font-weight: bold;
 }
 
-
 #lux-gallery {
+  padding: 80px 0;
+  background-color: #fff;
   position: relative;
-  width: 100%;
-  height: 100vh;
-  /* Full screen height */
-  min-height: 700px;
-  display: flex;
-  /* Flexbox use karenge centering ke liye */
-  align-items: center;
-  /* Vertically center */
-  justify-content: center;
-  /* Horizontally center */
   overflow: hidden;
-  background: #8a8787;
 }
 
-/* Background image moving effect */
-.parallax-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/home/banner-image-home.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  /* Main scroll effect yahan se aayega */
-  z-index: 1;
-  opacity: 0.15;
+.gallery-container {
+  max-width: 1400px;
+  /* restored to original wide layout */
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
-/* Isse content block hamesha beech mein rahega */
-.gallery-center-content {
-  position: relative;
-  z-index: 20;
-  /* Floating images ke upar rakhne ke liye */
+.gallery-headings {
   text-align: center;
-  max-width: 800px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 50px;
 }
 
-
-.floating-images-container {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.floating-img {
-  position: absolute;
-  /* Base size ko badha diya hai */
-  width: 300px;
-  height: auto;
-  /* Height auto taaki image stretch na ho */
-  max-height: 350px;
-  aspect-ratio: 3/4;
-  /* Ya 4/5 vertical look ke liye */
-  object-fit: cover;
-  border: 8px solid white;
-  /* Border thoda thick kiya hai badi image ke liye */
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  transition: opacity 1.5s ease;
-  will-change: transform;
-  z-index: 5;
-}
-
-.floating-img.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-
-.gallery-center-logo {
-  height: 90px;
-  display: block;
-}
-
-.gallery-center-content h2 {
-  font-size: 52px;
-  letter-spacing: 6px;
-  margin: 0;
-  line-height: 1.2;
-  color: #fff;
+.gallery-headings h2 {
+  font-size: 36px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
 }
 
 .gallery-line {
-  width: 80px;
-  height: 1.5px;
-  background: #b68a55;
-  margin: 10px 0;
+  width: 60px;
+  height: 2px;
+  background: #c5a059;
+  margin: 0 auto 20px;
 }
 
-.gallery-center-content p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #fff;
-  margin-bottom: 40px;
-  max-width: 500px;
-  /* Text ko clean rakhne ke liye */
+.gallery-headings p {
+  font-size: 16px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Native Horizontal Scroll for Mobile */
-.mobile-gallery-scroll {
-  display: none; /* Hide on desktop for 'no-touch' desktop */
+/* Owl Carousel Styling */
+.gallery-carousel {
+  margin-bottom: 50px;
+  /* Restored original gap */
 }
 
+.gallery-item-wrap {
+  padding: 5px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
 
+.gallery-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  height: 380px;
+  /* Shortened card height */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
 
-.owl-carousel,
-.owl-carousel .owl-item {
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item-wrap h4 {
+  margin-top: 15px;
+  font-size: 15px;
   text-align: center;
-  font-size: 35px;
-  color: #c19b76;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.owl-prev span {
+.gallery-hover {
   position: absolute;
-  left: -30px;
-  top: 35%;
-}
-
-.owl-next span {
-  position: absolute;
-  top: 35%;
-  right: -30px;
-}
-
-.owl-dots {
-  display: none !important;
-}
-
-
-#galleryModal {
-  position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, .75);
+  background: rgba(197, 160, 89, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  pointer-events: none;
-  transition: .3s ease;
-  z-index: 99999;
+  transition: opacity 0.4s ease;
 }
 
-#galleryModal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-#modalImage {
-  max-width: 80%;
-  max-height: 80vh;
-}
-
-#galleryModal img {
-  max-width: 85%;
-  max-height: 85%;
-  object-fit: contain;
-  animation: zoomIn .4s ease;
-  border-radius: 8px;
-}
-
-.close-modal {
-  position: absolute;
-  top: 25px;
-  right: 35px;
-  font-size: 35px;
+.gallery-hover i {
   color: white;
-  cursor: pointer;
-  transition: .3s;
+  font-size: 32px;
+  transform: scale(0.5);
+  transition: transform 0.4s ease;
 }
 
-.close-modal:hover {
-  transform: rotate(90deg);
+.gallery-item-wrap:hover .gallery-image img {
+  transform: scale(1.1);
+}
+
+.gallery-item-wrap:hover .gallery-hover {
+  opacity: 1;
+}
+
+.gallery-item-wrap:hover .gallery-hover i {
+  transform: scale(1);
+}
+
+.gallery-item-wrap:hover h4 {
+  color: #c5a059;
+}
+
+/* Custom Nav Dots & Arrows */
+.gallery-carousel .owl-nav button {
+  position: absolute;
+  top: 42%;
+  /* Slightly above middle to center on image only */
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: white !important;
+  border-radius: 50% !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  line-height: 45px;
+  /* Ensures vertical icon centering */
+}
+
+.gallery-carousel .owl-nav button i {
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.gallery-carousel .owl-nav button:hover {
+  background: #c5a059 !important;
+}
+
+.gallery-carousel .owl-nav button:hover i {
+  color: white;
+}
+
+.gallery-carousel .owl-nav button.owl-prev {
+  left: -15px;
+}
+
+.gallery-carousel .owl-nav button.owl-next {
+  right: -15px;
 }
 
 
-@keyframes zoomIn {
+.gallery-carousel .owl-dots {
+  display: none !important;
+  /* hidden completely */
+}
+
+.gallery-footer {
+  text-align: center;
+}
+
+/* Modal Styling */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  /* Use flex for absolute centering */
+  display: none;
+  /* JS toggles block/none, but I'll update main.js next */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-content {
+  display: block;
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  animation: zoomModal 0.4s;
+}
+
+@keyframes zoomModal {
   from {
-    transform: scale(.7);
+    transform: scale(0.8);
     opacity: 0;
   }
 
@@ -934,6 +1035,34 @@ nav {
     opacity: 1;
   }
 }
+
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 60px;
+  font-weight: 200;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #c5a059;
+  transform: rotate(90deg);
+}
+
+#modalCaption {
+  text-align: center;
+  color: #ccc;
+  padding: 20px 0;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+/* Gallery styles cleaned and restored */
 
 
 .cuisine-section {
@@ -1080,7 +1209,7 @@ nav {
   width: 100%;
   padding: 60px;
   text-align: center;
-  background-image: url('../../assets/images/home/home-testimonial-bg.jpg');
+  background-image: url('https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123928/home-testimonial-bg_yrnxdo.jpg');
   color: white;
 }
 

@@ -30,7 +30,7 @@ function handleNavbar() {
       navbar.classList.remove("scrolled");
     }
   } else {
-    navbar.classList.add("scrolled");
+    if(navbar) navbar.classList.add("scrolled");
   }
 }
 
@@ -118,7 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // AOS Init
-  AOS.init({ duration: 1000, once: false, easing: "ease-in-out" });
+  if (typeof AOS !== 'undefined') {
+    AOS.init({ duration: 1000, once: false, easing: "ease-in-out" });
+  }
 
   // Experience Slider
   const bg = document.querySelector(".experience-bg");
@@ -147,18 +149,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-// --- BOTTOM SCOPE (Immediate Initialization) ---
-// Note: We use jQuery's shorthand here to match original site logic for carousels
-$(document).ready(function() {
-  if ($(".owl-carousel").not('.reels-grid').length) {
-    $(".owl-carousel").not('.reels-grid').owlCarousel({
-      items: 3, loop: true, margin: 15, nav: true, dots: true, autoplay: true,
-      responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 3 } }
+  // Gallery Carousel Initialization
+  if (window.jQuery && $(".gallery-carousel").length) {
+    $(".gallery-carousel").owlCarousel({
+      items: 3,
+      loop: true,
+      margin: 30,
+      nav: true,
+      dots: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      smartSpeed: 800,
+      navText: ["<i class='fa-solid fa-chevron-left'></i>", "<i class='fa-solid fa-chevron-right'></i>"],
+      responsive: {
+        0: { items: 1, margin: 15 },
+        768: { items: 2, margin: 20 },
+        1024: { items: 3, margin: 30 }
+      }
     });
   }
 
-  if ($('.reels-grid').length) {
+  // Gallery Modal Logic
+  const modal = document.getElementById("galleryModal");
+  const modalImg = document.getElementById("modalImg");
+  const captionText = document.getElementById("modalCaption");
+  const closeBtnModal = document.querySelector(".close-modal");
+
+  if(window.jQuery) {
+    $(".gallery-item-wrap").on("click", function() {
+      const imgSrc = $(this).data("img");
+      const title = $(this).data("title");
+      
+      if(modal && modalImg) {
+        modal.style.display = "flex";
+        modalImg.src = imgSrc;
+        captionText.innerHTML = title;
+        document.body.style.overflow = "hidden";
+      }
+    });
+  }
+
+  if(closeBtnModal) {
+    closeBtnModal.onclick = function() {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  // Other Carousels (Reels)
+  if (window.jQuery && $('.reels-grid').length) {
     $('.reels-grid').owlCarousel({
       loop: true,
       margin: 20,
@@ -174,13 +220,15 @@ $(document).ready(function() {
       }
     });
   }
-});
 
   // Anchor smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const targetSelection = this.getAttribute('href');
+      if(targetSelection === "#") return;
+      
+      const target = document.querySelector(targetSelection);
       if (target) {
         if (typeof lenis !== 'undefined' && lenis) {
           lenis.scrollTo(target, { offset: -80 });
@@ -194,78 +242,3 @@ $(document).ready(function() {
     });
   });
 });
-
-// --- GALLERY FLOATING IMAGES LOGIC ---
-let imageIndex = 0;
-const galleryImages = [
-  './assets/images/home/home-gallery-pool.jpg',
-  './assets/images/home/home-gallery-bedroom.jpg',
-  './assets/images/home/home-gallery-living-area.jpg',
-  './assets/images/home/home-gallery-lounge.jpg',
-  './assets/images/home/home-gallery-bar.jpg',
-  './assets/images/home/home-gallery-kids.jpg',
-  './assets/images/home/home-gallery-food-plate.jpg',
-  './assets/images/home/home-gallery-staff.jpg'
-];
-
-function createFloatingImage() {
-  if (window.innerWidth < 768) return;
-  const container = document.getElementById('floatingContainer');
-  if (!container) return;
-  const existingImgs = document.querySelectorAll('.floating-img');
-  if (existingImgs.length > 4) return;
-
-  const img = document.createElement('img');
-  img.src = galleryImages[imageIndex];
-  imageIndex = (imageIndex + 1) % galleryImages.length;
-  img.className = 'floating-img';
-
-  let posX, posY, isOverlapping = true, attempts = 0;
-  while (isOverlapping && attempts < 15) {
-    const side = Math.floor(Math.random() * 4);
-    if (side === 0) { // Left
-      posX = Math.random() * 10; 
-      posY = 5 + Math.random() * 60; 
-    }
-    else if (side === 1) { // Right
-      posX = 70 + Math.random() * 15; 
-      posY = 5 + Math.random() * 60; 
-    }
-    else if (side === 2) { // Top
-      posX = 15 + Math.random() * 60; 
-      posY = 2 + Math.random() * 15; 
-    }
-    else { // Bottom (Keep it visible)
-      posX = 15 + Math.random() * 60; 
-      posY = 55 + Math.random() * 10; 
-    }
-    
-    isOverlapping = Array.from(existingImgs).some(exImg => {
-      const exLeft = parseFloat(exImg.style.left);
-      const exTop = parseFloat(exImg.style.top);
-      return Math.abs(exLeft - posX) < 30 && Math.abs(exTop - posY) < 30;
-    });
-    attempts++;
-  }
-
-  // Adjusted sizing: Smaller icons at the bottom to ensure visibility
-  const baseWidth = posY > 50 ? 240 + Math.random() * 60 : 300 + Math.random() * 80;
-  img.style.width = `${baseWidth}px`;
-
-  img.style.left = `${posX}%`;
-  img.style.top = `${posY}%`;
-  img.style.transform = `rotate(${(Math.random() - 0.5) * 15}deg)`;
-  container.appendChild(img);
-  setTimeout(() => img.classList.add('active'), 100);
-  setTimeout(() => {
-    img.classList.remove('active');
-    setTimeout(() => img.remove(), 1500);
-  }, 4500);
-}
-
-if (document.getElementById('floatingContainer')) {
-  setInterval(createFloatingImage, 2500);
-}
-
-
-

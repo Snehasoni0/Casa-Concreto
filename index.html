@@ -76,12 +76,12 @@
             DISCOVER
             <ul class="dropdown">
               <li><a href="./pages/discover/Amenities.html">Amenities</a></li>
-              <li><a href="./pages/discover/Experience.html">Experience</a></li>
+              <li><a href="./pages/gallery.html">Gallery</a></li>
               <li><a href="./pages/discover/blog.html">Blog</a></li>
             </ul>
           </li>
 
-          <li><a href="./pages/gallery.html">GALLERY</a></li>
+          <li><a href="./pages/discover/Experience.html">EXPERIENCE</a></li>
           <li><a href="./pages/faq.html">FAQS</a></li>
           <li><a href="./pages/contactus.html">CONTACT</a></li>
 
@@ -99,7 +99,8 @@
   </a>
   <section data-aos="fade-in" data-aos-duration="1000" id="hero-banner">
     <video autoplay muted loop playsinline class="hero-video">
-      <source src="./assets/videos/villa-hero.mp4" type="video/mp4">
+      <source src="https://res.cloudinary.com/dxaj4o4xh/video/upload/v1775123771/villa-hero_koa52e.mp4" alt="villa"
+        type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
   </section>
@@ -107,19 +108,21 @@
 
 
   <!-- about section started -->
-  <section class="casa-about-section">
+  <section class="casa-about-section" id="about">
     <div class="casa-about-wrapper">
 
       <div data-aos="fade-right" data-aos-duration="1000" class="casa-about-visuals">
         <div class="casa-img-large-wrap">
-          <img src="./assets/images/home/about-img-1.jpg" alt="Casa Concreto Architecture" class="casa-img-main">
+          <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123919/about-img-1_hgcwxs.jpg"
+            alt="Casa Concreto Architecture" class="casa-img-main">
           <div class="casa-experience-badge">
             <span class="casa-badge-num">12+</span>
             <span class="casa-badge-text">Years of <br>Hospitality</span>
           </div>
         </div>
         <div class="casa-img-small-wrap">
-          <img src="./assets/images/home/about-img-2.jpg" alt="Luxury Pool" class="casa-img-sub">
+          <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123917/about-img-2_vzgpe0.jpg"
+            alt="Luxury Pool" class="casa-img-sub">
         </div>
       </div>
 
@@ -153,8 +156,8 @@
         </div>
 
         <div class="casa-about-footer">
-          <a href="#" class="casa-btn-modern">
-            <span>Explore The Villa</span>
+          <a href="./pages/about.html" class="casa-btn-modern">
+            <span>Explore More</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -175,79 +178,83 @@
 
   <!-- image banner section started -->
   <section data-aos="fade-in" data-aos-duration="1000" id="image-banner">
-    <img src="./assets/images/home/banner-image-home.jpg" alt="banner-image" loading="lazy">
+    <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123917/banner-image-home_gbeii8.jpg"
+      alt="banner-image" loading="lazy">
   </section>
   <!-- image banner section ended -->
 
   <!-- themed rooms section started-->
+  <section id="themed-rooms">
+    <div class="themed-rooms-container">
 
-  <section data-aos="fade-up" data-aos-duration="1000" id="themed-rooms">
-    <div class="theme-headings">
-      <h2 class="section-title">THEMED ROOMS</h2>
-      <div class="theme-line"></div>
-    </div>
-
-    <div class="rooms-grid">
-
-      <div data-aos="fade-right" data-aos-duration="1000" class="room-card room-card-large">
-        <img src="./assets/images/home/insitu.jpg" alt="insitu-room" loading="lazy">
-        <div class="room-overlay"></div>
-        <div class="room-content">
-          <h4>IN SITU</h4>
-          <span class="room-line"></span>
-          <a href="./pages/rooms/insitu.html">DETAILS <i class="bi bi-arrow-right"></i></a>
-        </div>
+      <!-- Background Watermark -->
+      <div class="rooms-watermark">
+        <img src="./assets/images/casa-concreto-logo-black.png" alt="Watermark">
       </div>
 
-      <div data-aos="fade-left" data-aos-duration="1000" class="room-col-grid-first">
-        <div class="room-card">
-          <img src="./assets/images/home/black-stone.jpg" alt="black-stone-room" loading="lazy">
-          <div class="room-overlay"></div>
-          <div class="room-content">
-            <h4>BLACK STONE</h4>
-            <span class="room-line"></span>
-            <a href="./pages/rooms/black-stone.html">DETAILS <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <div class="room-card">
-          <img src="./assets/images/home/stamping.jpg" alt="stamping-room" loading="lazy">
-          <div class="room-overlay"></div>
-          <div class="room-content">
-            <h4>STAMPING</h4>
-            <span class="room-line"></span>
-            <a href="./pages/rooms/stamping.html">DETAILS <i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
+      <!-- Center Content -->
+      <div class="rooms-center-content">
+        <img src="./assets/images/casa-concreto-logo-black.png" class="rooms-center-logo" alt="Logo">
+        <h2 class="section-title">THEMED ROOMS</h2>
+        <div class="theme-line"></div>
+        <p>Uniquely crafted spaces where raw architecture meets curated comfort.</p>
+        <a href="./pages/rooms/insitu.html" class="casa-btn-modern dark-btn">
+          <span>Explore All</span>
+        </a>
       </div>
 
-      <div data-aos="fade-left" data-aos-duration="1000" class="room-col-grid-second">
-        <div class="room-card">
-          <img src="./assets/images/home/wabi-sabi.jpg" alt="wabi-sabi-room" loading="lazy">
-          <div class="room-overlay"></div>
-          <div class="room-content">
-            <h4>WABI SABI</h4>
-            <span class="room-line"></span>
-            <a href="./pages/rooms/wabisabi.html">DETAILS <i class="bi bi-arrow-right"></i></a>
-          </div>
+      <!-- 5 images around content - Always visible labels -->
+      <div class="room-item room-1">
+        <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123927/insitu_hll86f.jpg" alt="Insitu">
+        <div class="room-item-overlay">
+          <a href="./pages/rooms/insitu.html" class="explore-room-btn">Explore Room</a>
         </div>
+        <h3>INSITU</h3>
+      </div>
 
-        <div class="room-card">
-          <img src="./assets/images/home/woods-log.jpg" alt="woodlogs-room" loading="lazy">
-          <div class="room-overlay"></div>
-          <div class="room-content">
-            <h4>WOOD LOGS</h4>
-            <span class="room-line"></span>
-            <a href="./pages/rooms/woodlogs.html">DETAILS <i class="bi bi-arrow-right"></i></a>
-          </div>
+      <div class="room-item room-2">
+        <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123918/black-stone_yly6lq.jpg"
+          alt="Black Stone">
+        <div class="room-item-overlay">
+          <a href="./pages/rooms/black-stone.html" class="explore-room-btn">Explore Room</a>
         </div>
+        <h3>BLACK STONE</h3>
+      </div>
+
+      <div class="room-item room-3">
+        <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123928/stamping_idyuxf.jpg" alt="Stamping">
+        <div class="room-item-overlay">
+          <a href="./pages/rooms/stamping.html" class="explore-room-btn">Explore Room</a>
+        </div>
+        <h3>STAMPING</h3>
+      </div>
+
+      <div class="room-item room-4">
+        <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123928/wabi-sabi_rr4cax.jpg" alt="Wabi Sabi">
+        <div class="room-item-overlay">
+          <a href="./pages/rooms/wabisabi.html" class="explore-room-btn">Explore Room</a>
+        </div>
+        <h3>WABI SABI</h3>
+      </div>
+
+      <div class="room-item room-5">
+        <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123929/woods-log_cj5eth.jpg" alt="Wood Logs">
+        <div class="room-item-overlay">
+          <a href="./pages/rooms/woodlogs.html" class="explore-room-btn">Explore Room</a>
+        </div>
+        <h3>WOOD LOGS</h3>
       </div>
 
     </div>
-
   </section>
-
   <!-- themed rooms section ended -->
+
+  <!-- Aesthetic Breaker Line -->
+  <div class="elegant-line-breaker" data-aos="fade-up">
+    <div class="line-left"></div>
+    <div class="diamond"></div>
+    <div class="line-right"></div>
+  </div>
 
   <!-- Experience section started -->
   <section data-aos="fade-in" data-aos-duration="1000" class="experience-section">
@@ -275,14 +282,17 @@
           <div class="swiper-slide">
             <div class="experience-content">
               <div class="experience-image">
-                <img src="./assets/images/experience/workshop.jpg" alt="Concrete Sculpting">
+                <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775124403/new-floating-tray_1_zfckx3.jpg"
+                  alt="Floating tray">
               </div>
               <div class="experience-text">
-                <h2>Concrete Sculpting</h2>
+                <h2>Floating Tray Breakfast</h2>
                 <div class="theme-line"></div>
                 <p>
-                  Create unique art pieces in guided hands-on workshops where creativity meets craftsmanship.
-                  Experience the beauty of shaping concrete into expressive designs under expert guidance.
+                  Start your morning with a floating tray filled
+                  with fresh, tasty bites as you relax in the pool.
+                  Swim or sit back, themoment feels easy and a
+                  little special.
                 </p>
                 <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
               </div>
@@ -293,14 +303,15 @@
           <div class="swiper-slide">
             <div class="experience-content">
               <div class="experience-image">
-                <img src="./assets/images/experience/barbeque.jpg" alt="Barbecue Nights">
+                <img src="./assets/images/experience/barbeque.jpg" alt="Barbecue">
               </div>
               <div class="experience-text">
-                <h2>Barbecue Nights</h2>
+                <h2>Barbecue Garden</h2>
                 <div class="theme-line"></div>
                 <p>
-                  Enjoy live grills and warm outdoor dining experiences in a beautifully curated setting.
-                  Savor smoky flavors, soft music, and unforgettable evenings under open skies.
+                  Enjoy a warm, easy evening by the fire with a
+                  fresh, sizzling spread. Good food, calm vibes,
+                  and moments that feel right in every season.
                 </p>
                 <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
               </div>
@@ -311,14 +322,17 @@
           <div class="swiper-slide">
             <div class="experience-content">
               <div class="experience-image">
-                <img src="./assets/images/experience/3-luxury-setup-scaled.jpg" alt="Luxury Moments">
+                <img src="https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775124402/8.-Yoga-scaled_reuiea.jpg"
+                  alt="Yoga Bliss">
               </div>
               <div class="experience-text">
-                <h2>Luxury Moments</h2>
+                <h2>Casa Concreto Yoga Bliss</h2>
                 <div class="theme-line"></div>
                 <p>
-                  Indulge in curated comfort with personalized villa services designed to elevate your stay.
-                  From elegant setups to thoughtful hospitality, every detail speaks of refined luxury.
+                  Enjoy a calming one hour session at Casa
+                  Concreto with a trained instructor. Focus on
+                  breath, simple movements, and quiet moments
+                  that refresh your soul.
                 </p>
                 <button class="hover-btn"><a href="./pages/discover/Experience.html">All Experiences</a></button>
               </div>
@@ -357,40 +371,118 @@
 
   <!-- Gallery section started  -->
   <section id="lux-gallery">
-    <div class="parallax-bg" id="parallaxBg"></div>
-    <div class="floating-images-container" id="floatingContainer"></div>
+    <div class="gallery-container">
+      <div class="gallery-headings" data-aos="fade-up">
+        <h2>Our Gallery</h2>
+        <div class="gallery-line"></div>
+        <p>A visual journey through curated spaces and luxury moments.</p>
+      </div>
 
-    <div class="gallery-center-content">
-      <img src="./assets/images/casa-concreto-logo.png" class="gallery-center-logo" alt="Logo">
-      <h2>Our Gallery</h2>
-      <div class="gallery-line"></div>
-      <p>Discover Casa Concreto through our curated spaces and luxury moments.</p>
-      <a href="./pages/gallery.html" class="casa-btn-modern">
-        <span>Explore More</span>
-      </a>
+      <div class="owl-carousel gallery-carousel" data-aos="fade-up">
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-pool.jpg"
+          data-title="Serene Pool Area">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-pool.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>Serene Pool Area</h4>
+        </div>
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-bedroom.jpg"
+          data-title="Luxury Suites">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-bedroom.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>Luxury Suites</h4>
+        </div>
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-living-area.jpg"
+          data-title="Curated Living Spaces">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-living-area.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>Curated Living Spaces</h4>
+        </div>
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-lounge.jpg"
+          data-title="Relaxing Lounge">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-lounge.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>Relaxing Lounge</h4>
+        </div>
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-bar.jpg"
+          data-title="The Bar Experience">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-bar.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>The Bar Experience</h4>
+        </div>
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-kids.jpg" data-title="Fun Kids Area">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-kids.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>Fun Kids Area</h4>
+        </div>
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-food-plate.jpg"
+          data-title="Authentic Flavours">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-food-plate.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>Authentic Flavours</h4>
+        </div>
+
+        <div class="gallery-item-wrap" data-img="./assets/images/home/home-gallery-staff.jpg"
+          data-title="Bespoke Hospitality">
+          <div class="gallery-image">
+            <img src="./assets/images/home/home-gallery-staff.jpg" alt="Gallery">
+            <div class="gallery-hover">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+          <h4>Bespoke Hospitality</h4>
+        </div>
+
+      </div>
+
+      <div class="gallery-footer" data-aos="fade-up">
+        <a href="./pages/gallery.html" class="casa-btn-modern dark-btn">
+          <span>View Full Gallery</span>
+        </a>
+      </div>
     </div>
-
-    <!-- Mobile Native Scroll Gallery (Hidden on Desktop) -->
-    <div class="mobile-gallery-scroll">
-      <div class="scroll-item">
-        <img src="./assets/images/home/home-gallery-pool.jpg" alt="Pool Area">
-        <span>Serene Pool Area</span>
-      </div>
-      <div class="scroll-item">
-        <img src="./assets/images/home/home-gallery-bedroom.jpg" alt="Luxury Suite">
-        <span>Luxury Suites</span>
-      </div>
-      <div class="scroll-item">
-        <img src="./assets/images/home/home-gallery-living-area.jpg" alt="Living Area">
-        <span>Curated Living Spaces</span>
-      </div>
-      <div class="scroll-item">
-        <img src="./assets/images/home/home-gallery-lounge.jpg" alt="Lounge Area">
-        <span>Relaxing Lounge</span>
-      </div>
-    </div>
-
   </section>
+
+  <!-- Gallery Modal structure -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+    <div id="modalCaption"></div>
+  </div>
 
   <!-- Gallery section ended  -->
 
@@ -437,7 +529,7 @@
 
         <div class="reel-card">
           <video autoplay muted loop playsinline>
-            <source src="./assets/videos/reels-1.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dxaj4o4xh/video/upload/v1775123761/reels-1_qnx0ty.mp4" type="video/mp4">
           </video>
 
           <div class="reel-overlay">
@@ -462,7 +554,7 @@
         </div>
         <div class="reel-card">
           <video autoplay muted loop playsinline>
-            <source src="./assets/videos/reels-2.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dxaj4o4xh/video/upload/v1775123762/reels-2_lf2d6r.mp4" type="video/mp4">
           </video>
 
           <div class="reel-overlay">
@@ -488,7 +580,7 @@
 
         <div class="reel-card">
           <video autoplay muted loop playsinline>
-            <source src="./assets/videos/reels-3.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dxaj4o4xh/video/upload/v1775123764/reels-3_cxyf2j.mp4" type="video/mp4">
           </video>
 
           <div class="reel-overlay">
@@ -514,7 +606,7 @@
 
         <div class="reel-card">
           <video autoplay muted loop playsinline>
-            <source src="./assets/videos/reels-4.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dxaj4o4xh/video/upload/v1775123762/reels-4_jjrwap.mp4" type="video/mp4">
           </video>
 
           <div class="reel-overlay">
@@ -540,7 +632,7 @@
 
         <div class="reel-card">
           <video autoplay muted loop playsinline>
-            <source src="./assets/videos/reels-5.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/dxaj4o4xh/video/upload/v1775123762/reels-5_ldbgba.mp4" type="video/mp4">
           </video>
 
           <div class="reel-overlay">
@@ -858,9 +950,9 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-  <script src="./assets/js/main.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
