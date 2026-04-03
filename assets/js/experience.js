@@ -1,13 +1,13 @@
 const experiences = [
-  { title: "Concrete Sculpting", icon: "fa-solid fa-hammer", desc: "Unleash your creativity with hands-on concrete sculpting sessions.", image: "../../assets/images/experience/workshop.jpg" },
-  { title: "Barbecue Oracle", icon: "fa-solid fa-fire-burner", desc: "Indulge yourself in warm flames and sizzling delicacies.", image: "../../assets/images/experience/barbeque.jpg" },
-  { title: "Luxury Stay", icon: "fa-solid fa-crown", desc: "Designed to elevate your retreat with curated luxury moments.", image: "../../assets/images/experience/3-luxury-setup-scaled.jpg" },
-  { title: "Bonfire Nights", icon: "fa-solid fa-fire", desc: "Enjoy cozy evenings around a glowing bonfire in our garden.", image: "../../assets/images/experience/6.-Bonfire-scaled.jpg" },
-  { title: "Floating Breakfast", icon: "fa-solid fa-water", desc: "Begin your morning with gourmet delights by the pool.", image: "../../assets/images/experience/new-floating-tray (1).jpg" },
-  { title: "Langa & Live Music", icon: "fa-solid fa-music", desc: "Immerse yourself in enchanting tunes of traditional Langa music.", image: "../../assets/images/experience/langa.jpg" },
-  { title: "Village Safari", icon: "fa-solid fa-jeep", desc: "Explore the rustic charm of nearby villages with guided safaris.", image: "../../assets/images/experience/village-1280.jpg" },
-  { title: "Yoga Bliss", icon: "fa-solid fa-spa", desc: "Reconnect with your inner self through guided yoga sessions.", image: "../../assets/images/experience/8.-Yoga-scaled.jpg" },
-  { title: "Bird Watching", icon: "fa-solid fa-binoculars", desc: "Spot native species while enjoying the tranquil environment.", image: "../../assets/images/experience/bird.jpg" }
+  { title: "Concrete Sculpting", icon: "fa-solid fa-hammer", desc: "Unleash your creativity with hands-on concrete sculpting sessions.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199411/workshop_gmy77h.jpg" },
+  { title: "Barbecue Oracle", icon: "fa-solid fa-fire-burner", desc: "Indulge yourself in warm flames and sizzling delicacies.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199410/barbeque_ici6y6.jpg" },
+  { title: "Luxury Stay", icon: "fa-solid fa-crown", desc: "Designed to elevate your retreat with curated luxury moments.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199409/3-luxury-setup-scaled_ft49ef.jpg" },
+  { title: "Bonfire Nights", icon: "fa-solid fa-fire", desc: "Enjoy cozy evenings around a glowing bonfire in our garden.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199410/6.-Bonfire-scaled_vbqi80.jpg" },
+  { title: "Floating Breakfast", icon: "fa-solid fa-water", desc: "Begin your morning with gourmet delights by the pool.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199411/new-floating-tray_1_krm2tt.jpg" },
+  { title: "Langa & Live Music", icon: "fa-solid fa-music", desc: "Immerse yourself in enchanting tunes of traditional Langa music.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199411/langa_xxi99y.jpg" },
+  { title: "Village Safari", icon: "fa-solid fa-jeep", desc: "Explore the rustic charm of nearby villages with guided safaris.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199411/village-1280_mct134.jpg" },
+  { title: "Yoga Bliss", icon: "fa-solid fa-spa", desc: "Reconnect with your inner self through guided yoga sessions.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199410/8.-Yoga-scaled_iipkhj.jpg" },
+  { title: "Bird Watching", icon: "fa-solid fa-binoculars", desc: "Spot native species while enjoying the tranquil environment.", image: "https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199410/bird_fhprlw.jpg" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {

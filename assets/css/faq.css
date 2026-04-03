@@ -2,7 +2,7 @@
 .faq-hero {
   position: relative;
   height: 80vh;
-  background: url('../images/experience/bird.jpg') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775199410/bird_fhprlw.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url("../images/contactus/contact-hero-bg.jpg");
+  background-image: url("https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775200096/contact-hero-bg_sfxyv7.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -37,7 +37,7 @@
 }
 
 .contact-wrapper {
-  background: url("../images/contactus/contact-main-bg.jpg") center/cover;
+  background: url("https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775200046/contact-main-bg_vaijw4.jpg") center/cover;
   padding: 50px 8%;
   position: relative;
 }
@@ -225,4 +225,14 @@ button {
 
 button:active{
   scale: 1.05;
+}
+
+/* Form Validation Styles */
+.form-error {
+  border: 1.5px solid #ff4d4d !important;
+  background: #fffafa !important;
+}
+
+.form-error::placeholder {
+  color: #ff9999;
 }

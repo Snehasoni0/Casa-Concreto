@@ -149,6 +149,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // --- THEMED ROOMS ROTATION & FLOATING EFFECT ---
+  const rooms = document.querySelectorAll('.room-item');
+  if (rooms.length > 0 && window.innerWidth > 991) {
+    // 1. Initial Data Capture
+    let roomData = Array.from(rooms).map(room => ({
+      img: room.querySelector('img').src,
+      title: room.querySelector('h3').textContent,
+      link: room.querySelector('.explore-room-btn').getAttribute('href'),
+      alt: room.querySelector('img').getAttribute('alt')
+    }));
+
+    // 2. Continuous Floating Animation
+    rooms.forEach((room, i) => {
+      gsap.to(room, {
+        y: `+=${15 + i * 2}`,
+        x: `+=${i % 2 === 0 ? 5 : -5}`,
+        rotation: i % 2 === 0 ? "+=2" : "-=2", // Subtle floating rotation
+        duration: 2.5 + i * 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+    });
+
+    // 3. Professional Rotation Sequence
+    function rotateRooms() {
+      const tl = gsap.timeline();
+
+      // Staggered fade out (sequential)
+      tl.to(rooms, {
+        opacity: 0,
+        scale: 0.97,
+        duration: 0.6,
+        stagger: 0.1, // Creates the sequential look
+        ease: "power2.in"
+      });
+
+      // Swap content while invisible
+      tl.add(() => {
+        roomData.push(roomData.shift());
+        rooms.forEach((room, index) => {
+          const data = roomData[index];
+          room.querySelector('img').src = data.img;
+          room.querySelector('img').alt = data.alt || "";
+          room.querySelector('h3').textContent = data.title;
+          room.querySelector('.explore-room-btn').setAttribute('href', data.link);
+        });
+      });
+
+      // Staggered fade in (sequential)
+      tl.to(rooms, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out"
+      });
+    }
+
+    // Run the sequence every 4.5 seconds (including transition time)
+    setInterval(rotateRooms, 4500);
+  }
+
   // Gallery Carousel Initialization
   if (window.jQuery && $(".gallery-carousel").length) {
     $(".gallery-carousel").owlCarousel({
@@ -241,4 +304,66 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- CONTACT FORM VALIDATION ---
+  const contactForm = document.querySelector('.form-box form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      let isValid = true;
+      const name = contactForm.querySelector('input[name="name"]');
+      const email = contactForm.querySelector('input[name="email"]');
+      const phone = contactForm.querySelector('input[name="phone"]');
+      const subject = contactForm.querySelector('input[name="subject"]');
+      const message = contactForm.querySelector('textarea[name="message"]');
+
+      // Helper to set error
+      const setError = (el, condition) => {
+        if (condition) {
+          el.classList.add('form-error');
+          isValid = false;
+        } else {
+          el.classList.remove('form-error');
+        }
+      };
+
+      // Name: Min 2 chars
+      setError(name, name.value.trim().length < 2);
+
+      // Email: Basic Regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      setError(email, !emailRegex.test(email.value.trim()));
+
+      // Phone: Exactly 10 digits
+      const phoneClean = phone.value.replace(/\D/g, '');
+      setError(phone, phoneClean.length !== 10);
+      
+      // If phone field is inside a wrapper, color the wrapper too
+      const phoneField = contactForm.querySelector('.phone-field');
+      if (phoneField) {
+        if (phoneClean.length !== 10) phoneField.classList.add('form-error');
+        else phoneField.classList.remove('form-error');
+      }
+
+      // Subject: Min 3 chars
+      setError(subject, subject.value.trim().length < 3);
+
+      // Message: Min 10 chars
+      setError(message, message.value.trim().length < 10);
+
+      if (!isValid) {
+        e.preventDefault();
+        // Option: Show a small alert or just rely on CSS
+        alert("Please fill all fields correctly. Phone must be 10 digits.");
+      }
+    });
+
+    // Clear error on input
+    contactForm.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => {
+        el.classList.remove('form-error');
+        const phoneField = contactForm.querySelector('.phone-field');
+        if (phoneField && el.name === 'phone') phoneField.classList.remove('form-error');
+      });
+    });
+  }
 });

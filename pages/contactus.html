@@ -120,11 +120,11 @@
       </div>
 
       <div data-aos="fade-in" data-aos-duration="1000" class="form-box">
-        <form action="https://formsubmit.co/baberwalsneha1@gmail.com" method="POST">
+        <form id="contactForm">
 
           <div class="row">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="text" name="name" id="name" placeholder="Name" required minlength="2">
+            <input type="email" name="email" id="email" placeholder="E-mail" required>
           </div>
 
           <div class="phone-field">
@@ -132,16 +132,13 @@
               <img src="https://flagcdn.com/w20/in.png" alt="India" loading="lazy">
               <span>+91</span>
             </div>
-            <input type="text" name="phone" placeholder="Phone" required>
+            <input type="tel" name="phone" id="phone" placeholder="Phone" required pattern="[0-9]{10}" maxlength="10">
           </div>
 
-          <input type="text" name="subject" placeholder="Subject" required>
+          <input type="text" name="subject" id="subject" placeholder="Subject" required minlength="3">
 
-          <textarea name="message" placeholder="Message" required></textarea>
+          <textarea name="message" id="message" placeholder="Message" required minlength="10"></textarea>
 
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="New Contact Form Submission - Casa Concreto">
-          <input type="hidden" name="_next" value="https://snehasoni0.github.io/Casa-Concreto/pages/Thankyou.html">
           <button type="submit">SEND MESSAGE</button>
 
         </form>
@@ -210,6 +207,7 @@
   <!-- footer section ended -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/contact.js"></script>
 </body>
 
 </html>
