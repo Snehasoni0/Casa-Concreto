@@ -4,7 +4,7 @@
 let lenis;
 if (typeof Lenis !== 'undefined') {
   lenis = new Lenis({
-    lerp: 0.12,
+    lerp: 0.15,
     wheelMultiplier: 1.1,
     gestureOrientation: 'vertical',
     smoothWheel: true,
@@ -85,20 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // AOS Init
+  // AOS Init (Removed artificial delay for instant hero animations)
   if (typeof AOS !== 'undefined') {
     AOS.init({ 
-      duration: 600,
-      once: true, 
-      easing: "ease-out-quad",
+      duration: 600, 
+      once: false, 
+      easing: "ease-out",
       disable: 'mobile',
-      offset: 100,
-      throttleDelay: 99,
-      debounceDelay: 50
-    });
-    
-    window.addEventListener('load', () => {
-      AOS.refresh();
+      offset: 50, 
+      throttleDelay: 99, 
+      debounceDelay: 50 
     });
   }
 

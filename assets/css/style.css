@@ -15,6 +15,22 @@
 
 /* Conflicting scroll-behavior: smooth; removed for better Lenis compatibility */
 
+/* AOS Horizontal Glitch Fix: "Micro-slide" approach for buttery smooth frames */
+[data-aos^="fade"] {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition-timing-function: cubic-bezier(.215,.61,.355,1) !important;
+}
+
+[data-aos="fade-right"] { transform: translate3d(-15px, 0, 0) !important; }
+[data-aos="fade-left"] { transform: translate3d(15px, 0, 0) !important; }
+
+/* Final state: forcing stable transform3d */
+[data-aos].aos-animate {
+  transform: translate3d(0, 0, 0) !important;
+}
+
 body {
   font-family: "Ethereal";
   overflow-x: hidden;
@@ -22,11 +38,7 @@ body {
 
 section {
   overflow: hidden;
-  /* Jitter-free hardware acceleration */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
+  position: relative; /* Added for better layout stability */
 }
 
 /* Exclude Hero Sections and Footer from GPU containment if needed */
