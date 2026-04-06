@@ -1,29 +1,21 @@
-// --- GSAP & LENIS SMOOTH SCROLL INITIALIZATION ---
+// --- LENIS SMOOTH SCROLL INITIALIZATION ---
 
 // 1. Initialize Lenis Smooth Scroll (Only if library is loaded)
 let lenis;
 if (typeof Lenis !== 'undefined') {
   lenis = new Lenis({
-    lerp: 0.1, // Softer interpolation for better stability
-    wheelMultiplier: 0.9, // Slightly slower scroll to prevent rendering lag
+    lerp: 0.12,
+    wheelMultiplier: 1.1,
     gestureOrientation: 'vertical',
     smoothWheel: true,
     infinite: false,
   });
 
-  // Use GSAP ticker if available for smoother synchronization, otherwise fallback to standard raf
-  if (typeof gsap !== 'undefined') {
-    gsap.ticker.add((time) => {
-      lenis.raf(time);
-    });
-    gsap.ticker.lagSmoothing(0);
-  } else {
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+  function raf(time) {
+    lenis.raf(time);
     requestAnimationFrame(raf);
   }
+  requestAnimationFrame(raf);
 }
 
 // Global Variables
@@ -61,56 +53,9 @@ function handleNavbar() {
 window.addEventListener("scroll", handleNavbar, { passive: true });
 handleNavbar();
 
-// --- GLOBAL SITE-WIDE ANIMATIONS ---
+// --- GLOBAL SITE-WIDE LOGIC ---
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  // Register ScrollTrigger & Animations (Only if GSAP is loaded)
-  if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Ensure accurate metrics
-    ScrollTrigger.config({ limitCallbacks: true });
-
-    // Connect ScrollTrigger to Lenis if available
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update);
-    }
-
-    // Site-wide Reveal (Fade Up)
-    const revealElements = document.querySelectorAll('.lux-exp-header, .exp-list-row, .experience-grid');
-    revealElements.forEach((el) => {
-      gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-        opacity: 0,
-        y: 50,
-        duration: 1.2,
-        ease: "power2.out"
-      });
-    });
-
-    // Parallax Hero Zoom
-    if (hero) {
-      const heroImg = hero.querySelector('img') || hero.querySelector('video');
-      if (heroImg) {
-        gsap.to(heroImg, {
-          scrollTrigger: {
-            trigger: hero,
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-          },
-          scale: 1.1,
-          y: 50,
-          ease: "none"
-        });
-      }
-    }
-  }
 
   // Navigation Logic
   const hamburger = document.querySelector('.hamburger');
@@ -143,19 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // AOS Init
   if (typeof AOS !== 'undefined') {
     AOS.init({ 
-      duration: 600, // Faster duration
+      duration: 600,
       once: true, 
       easing: "ease-out-quad",
       disable: 'mobile',
-      offset: 100, // Trigger sooner
-      throttleDelay: 99, // Performance boost
-      debounceDelay: 50 // Performance boost
+      offset: 100,
+      throttleDelay: 99,
+      debounceDelay: 50
     });
     
-    // Refresh AOS when everything is loaded
     window.addEventListener('load', () => {
       AOS.refresh();
-      if(typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
     });
   }
 
@@ -186,10 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- THEMED ROOMS ROTATION & FLOATING EFFECT ---
+  // --- THEMED ROOMS LOGIC (Static fallback) ---
   const rooms = document.querySelectorAll('.room-item');
   if (rooms.length > 0 && window.innerWidth > 991) {
-    // 1. Initial Data Capture
     let roomData = Array.from(rooms).map(room => ({
       img: room.querySelector('img').src,
       title: room.querySelector('h3').textContent,
@@ -197,55 +139,18 @@ document.addEventListener('DOMContentLoaded', () => {
       alt: room.querySelector('img').getAttribute('alt')
     }));
 
-    // 2. Continuous Floating Animation
-    rooms.forEach((room, i) => {
-      gsap.to(room, {
-        y: `+=${15 + i * 2}`,
-        x: `+=${i % 2 === 0 ? 5 : -5}`,
-        rotation: i % 2 === 0 ? "+=2" : "-=2", // Subtle floating rotation
-        duration: 2.5 + i * 0.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-    });
-
-    // 3. Professional Rotation Sequence
     function rotateRooms() {
-      const tl = gsap.timeline();
-
-      // Staggered fade out (sequential)
-      tl.to(rooms, {
-        opacity: 0,
-        scale: 0.97,
-        duration: 0.6,
-        stagger: 0.1, // Creates the sequential look
-        ease: "power2.in"
-      });
-
-      // Swap content while invisible
-      tl.add(() => {
-        roomData.push(roomData.shift());
-        rooms.forEach((room, index) => {
-          const data = roomData[index];
-          room.querySelector('img').src = data.img;
-          room.querySelector('img').alt = data.alt || "";
-          room.querySelector('h3').textContent = data.title;
-          room.querySelector('.explore-room-btn').setAttribute('href', data.link);
-        });
-      });
-
-      // Staggered fade in (sequential)
-      tl.to(rooms, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power2.out"
+      roomData.push(roomData.shift());
+      rooms.forEach((room, index) => {
+        const data = roomData[index];
+        room.querySelector('img').src = data.img;
+        room.querySelector('img').alt = data.alt || "";
+        room.querySelector('h3').textContent = data.title;
+        room.querySelector('.explore-room-btn').setAttribute('href', data.link);
       });
     }
 
-    // Run the sequence every 4.5 seconds (including transition time)
+    // Still rotating content, but without GSAP transition
     setInterval(rotateRooms, 4500);
   }
 

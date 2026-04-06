@@ -13,9 +13,7 @@
   text-decoration: none;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* Conflicting scroll-behavior: smooth; removed for better Lenis compatibility */
 
 body {
   font-family: "Ethereal";
