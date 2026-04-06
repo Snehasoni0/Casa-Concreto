@@ -140,14 +140,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
 
     function rotateRooms() {
-      roomData.push(roomData.shift());
-      rooms.forEach((room, index) => {
-        const data = roomData[index];
-        room.querySelector('img').src = data.img;
-        room.querySelector('img').alt = data.alt || "";
-        room.querySelector('h3').textContent = data.title;
-        room.querySelector('.explore-room-btn').setAttribute('href', data.link);
+      // 1. Fade out sequential
+      rooms.forEach((room, i) => {
+        setTimeout(() => {
+          room.style.opacity = "0";
+        }, i * 200); // Increased stagger for better visual effect
       });
+
+      // 2. Swap content after fade-out transition
+      setTimeout(() => {
+        roomData.push(roomData.shift());
+        rooms.forEach((room, index) => {
+          const data = roomData[index];
+          room.querySelector('img').src = data.img;
+          room.querySelector('img').alt = data.alt || "";
+          room.querySelector('h3').textContent = data.title;
+          const btn = room.querySelector('.explore-room-btn');
+          if (btn) btn.setAttribute('href', data.link);
+        });
+
+        // 3. Fade in sequential
+        rooms.forEach((room, i) => {
+          setTimeout(() => {
+            room.style.opacity = "1";
+          }, i * 200); // Increased stagger for better visual effect
+        });
+      }, 1000); 
     }
 
     // Still rotating content, but without GSAP transition
