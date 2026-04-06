@@ -131,7 +131,7 @@
     align-items: center;
   }
 
-  .elegant-line-breaker{
+  .elegant-line-breaker {
     margin: 10px 0px;
   }
 
@@ -151,10 +151,13 @@
   .rooms-center-content {
     order: -1;
     position: static;
-    margin: 0 auto 10px;
     transform: none !important;
     padding: 30px 15px;
     max-width: 100%;
+  }
+
+  .themed-rooms-container {
+    gap: 0px !important;
   }
 
   .room-item {
@@ -163,15 +166,16 @@
     height: auto !important;
     transform: none !important;
     margin-bottom: 25px;
-    padding: 0 !important; /* No padding for card look */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 0 !important;
+    /* No padding for card look */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     background: #fff;
     cursor: default;
     display: block !important;
     border-radius: 8px;
     overflow: hidden;
     /* Remove all hover and click effects for mobile */
-    pointer-events: auto !important; 
+    pointer-events: auto !important;
     transition: none !important;
   }
 
@@ -179,7 +183,7 @@
   .room-item:hover {
     transform: none !important;
     scale: 1 !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
     z-index: 10 !important;
   }
 
@@ -188,7 +192,8 @@
     height: 300px !important;
     object-fit: cover;
     border-radius: 0;
-    transform: none !important; /* Disable any image hover zoom */
+    transform: none !important;
+    /* Disable any image hover zoom */
   }
 
   /* No overlay, just direct info at bottom */
@@ -219,7 +224,8 @@
     color: #fff !important;
     border: none !important;
     border-radius: 4px;
-    width: 100%; /* Full width button on mobile */
+    width: 100%;
+    /* Full width button on mobile */
     text-align: center;
     margin-top: 10px;
     transition: none !important;
@@ -237,7 +243,8 @@
     width: 100% !important;
     height: auto !important;
     letter-spacing: 2px !important;
-    order: -1; /* Name above button */
+    order: -1;
+    /* Name above button */
     transform: none !important;
   }
 
@@ -626,10 +633,12 @@
 
 
 @media(max-width:768px) {
+
   /* Updated Gallery handling via Owl Carousel in style.css */
   #lux-gallery {
     padding: 0px 15px;
   }
+
   .gallery-headings h2 {
     font-size: 28px;
     letter-spacing: 2px;

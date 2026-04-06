@@ -1647,3 +1647,25 @@ nav {
   40% {transform: translateY(-10px);}
   60% {transform: translateY(-5px);}
 }
+
+/* Mobile Reset for Themed Rooms - Keeping it static */
+@media (max-width: 991px) {
+  .rooms-watermark {
+    display: none !important;
+  }
+  .rooms-center-logo {
+    display: none !important;
+  }
+  .room-item {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    margin: 20px auto !important;
+    display: block !important;
+  }
+}
