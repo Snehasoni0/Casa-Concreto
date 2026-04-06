@@ -5,7 +5,7 @@
   }
 
 
-  .gallery-content {
+  .gallery-content, #gallery-content {
     max-width: 900px;
     margin: 60px auto;
     text-align: center;
@@ -16,11 +16,11 @@
     align-items: center;
   }
 
-  .gallery-content h2 {
+  .gallery-content h2, #gallery-content h2 {
     margin-bottom: 10px;
   }
 
-  .gallery-content p {
+  .gallery-content p, #gallery-content p {
     color: #777;
     line-height: 1.6;
     padding-top: 10px;
@@ -34,6 +34,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 220px;
     gap: 10px;
+    grid-auto-flow: dense;
   }
 
   .gallery-grid img {

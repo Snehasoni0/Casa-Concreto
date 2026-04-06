@@ -38,6 +38,8 @@ let currentIndex = 0;
 images.forEach((img, index) => {
   const image = document.createElement("img");
   image.src = img;
+  image.setAttribute("data-aos", "fade-up");
+  image.setAttribute("data-aos-duration", "800");
 
   image.addEventListener("click", () => {
     openModal(index);
@@ -45,6 +47,11 @@ images.forEach((img, index) => {
 
   grid.appendChild(image);
 });
+
+// Refresh AOS to detect dynamic elements
+if (window.AOS) {
+    AOS.refresh();
+}
 
 
 function openModal(index) {

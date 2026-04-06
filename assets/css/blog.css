@@ -1,28 +1,8 @@
 .blog-hero {
-  height: 80vh !important;
   background-image: url('../images/blog/blog-banner-bg.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: center;
-  text-align: center;
-  padding-bottom: 70px;
 }
 
-.blog-hero h1 {
-  font-size: 50px;
-}
-
-.blog-hero p {
-  letter-spacing: 1px;
-  padding-top: 10px;
-}
-
-.blog-wrapper {
+.blog-wrapper, #blog-wrapper {
   max-width: 1200px;
   margin: auto;
   padding: 80px 20px;

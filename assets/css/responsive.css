@@ -131,8 +131,12 @@
     align-items: center;
   }
 
+  .elegant-line-breaker{
+    margin: 10px 0px;
+  }
+
   #themed-rooms {
-    padding: 60px 15px;
+    padding: 0px 15px;
     min-height: auto;
   }
 
@@ -166,6 +170,17 @@
     display: block !important;
     border-radius: 8px;
     overflow: hidden;
+    /* Remove all hover and click effects for mobile */
+    pointer-events: auto !important; 
+    transition: none !important;
+  }
+
+  /* Force static state even on touch/hover for mobile */
+  .room-item:hover {
+    transform: none !important;
+    scale: 1 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    z-index: 10 !important;
   }
 
   .room-item img {
@@ -173,6 +188,7 @@
     height: 300px !important;
     object-fit: cover;
     border-radius: 0;
+    transform: none !important; /* Disable any image hover zoom */
   }
 
   /* No overlay, just direct info at bottom */
@@ -187,6 +203,11 @@
     justify-content: center;
     visibility: visible !important;
     pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  .room-item:hover .room-item-overlay {
+    opacity: 1 !important;
   }
 
   .explore-room-btn {
@@ -201,6 +222,7 @@
     width: 100%; /* Full width button on mobile */
     text-align: center;
     margin-top: 10px;
+    transition: none !important;
   }
 
   /* Position name normally below image */
@@ -216,6 +238,7 @@
     height: auto !important;
     letter-spacing: 2px !important;
     order: -1; /* Name above button */
+    transform: none !important;
   }
 
   @media (max-width: 600px) {
@@ -605,7 +628,7 @@
 @media(max-width:768px) {
   /* Updated Gallery handling via Owl Carousel in style.css */
   #lux-gallery {
-    padding: 60px 15px;
+    padding: 0px 15px;
   }
   .gallery-headings h2 {
     font-size: 28px;
@@ -631,7 +654,7 @@
 
 
   #lux-gallery {
-    padding: 60px 15px;
+    padding: 0px 15px 30px;
   }
 
   .gallery-grid {
@@ -990,7 +1013,6 @@
 @media (max-width: 1200px) {
   #themed-rooms {
     min-height: auto;
-    padding: 60px 5%;
   }
 
   .themed-rooms-container {
@@ -1005,7 +1027,6 @@
     grid-column: span 2;
     order: -1;
     position: static;
-    margin: 0 auto 50px;
     box-shadow: none;
   }
 
