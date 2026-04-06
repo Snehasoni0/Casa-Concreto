@@ -14,7 +14,7 @@ if (typeof Lenis !== 'undefined') {
   // Use GSAP ticker if available for smoother synchronization, otherwise fallback to standard raf
   if (typeof gsap !== 'undefined') {
     gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
+      lenis.raf(time);
     });
     gsap.ticker.lagSmoothing(0);
   } else {
