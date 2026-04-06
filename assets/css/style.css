@@ -553,10 +553,21 @@ nav {
   /* Bigger bottom space for name */
   background: #fff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-  transition: opacity 0.6s ease, box-shadow 0.5s ease;
+  transition: opacity 0.6s ease, box-shadow 0.6s ease, transform 0.6s ease;
   z-index: 10;
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.05);
+
+  /* Variables for float sync */
+  --rot: 0deg;
+  --tx: 0%;
+  transform: translate(var(--tx), 0) rotate(var(--rot));
+  animation: floatingRoom 4s ease-in-out infinite;
+}
+
+@keyframes floatingRoom {
+  0%, 100% { transform: translate(var(--tx), 0px) rotate(var(--rot)); }
+  50% { transform: translate(var(--tx), 15px) rotate(var(--rot)); }
 }
 
 .room-item img {
@@ -615,10 +626,12 @@ nav {
 }
 
 /* Hover States */
+/* Hover States */
 .room-item:hover {
   z-index: 30;
-  transform: scale(1.08) rotate(0deg) !important;
+  transform: translate(var(--tx), 0) scale(1.08) rotate(0deg) !important;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+  animation-play-state: paused;
 }
 
 .room-item:hover .room-item-overlay {
@@ -631,40 +644,46 @@ nav {
 }
 
 /* Balanced Positions around content */
+/* Balanced Positions around content */
 .room-1 {
   top: 10px;
   left: 80px;
-  transform: rotate(-10deg);
+  --rot: -10deg;
+  animation-duration: 4.2s;
 }
 
 .room-2 {
   top: -85px;
   left: 50%;
-  transform: translate(-50%, 0) rotate(8deg);
+  --tx: -50%;
+  --rot: 8deg;
   z-index: 15;
+  animation-duration: 3.8s;
+  animation-delay: 0.2s;
 }
 
 .room-3 {
   top: 15px;
   right: 80px;
-  transform: rotate(12deg);
+  --rot: 12deg;
+  animation-duration: 4.5s;
+  animation-delay: 0.5s;
 }
 
 .room-4 {
-  bottom: 10px;
+  bottom: 0; /* Adjusted for better bottom float */
   left: 100px;
-  transform: rotate(8deg);
+  --rot: 8deg;
+  animation-duration: 4.1s;
+  animation-delay: 0.3s;
 }
 
 .room-5 {
-  bottom: 10px;
-  right: 100px;
-  transform: rotate(-10deg);
-}
-
-/* Ensure room-2 stays centered on hover */
-.room-2:hover {
-  transform: translate(-50%, 0) scale(1.08) rotate(0deg) !important;
+  bottom: 0; /* Adjusted for better bottom float */
+  right: 120px;
+  --rot: -10deg;
+  animation-duration: 4.2s;
+  animation-delay: 0.3s;
 }
 
 
