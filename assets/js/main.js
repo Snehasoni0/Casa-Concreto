@@ -33,7 +33,7 @@ if (hero) {
 let scrollTimeout;
 function handleNavbar() {
   if (scrollTimeout) return;
-  
+
   scrollTimeout = requestAnimationFrame(() => {
     if (heroHeight > 0) {
       if (window.scrollY > heroHeight - 100) {
@@ -42,9 +42,9 @@ function handleNavbar() {
         navbar.classList.remove("scrolled");
       }
     } else if (navbar && window.scrollY > 50) {
-        navbar.classList.add("scrolled");
+      navbar.classList.add("scrolled");
     } else {
-        navbar.classList.remove("scrolled");
+      navbar.classList.remove("scrolled");
     }
     scrollTimeout = null;
   });
@@ -79,22 +79,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- DROPDOWN LOGIC FIXED (Sync with CSS classes) ---
   dropdownParents.forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      
+      // Close other dropdowns
+      dropdownParents.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+        }
+      });
+
+      // Toggle current dropdown
       item.classList.toggle('open');
     });
   });
 
+  // Global click away listener to reset dropdowns
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.has-dropdown')) {
+      dropdownParents.forEach(item => {
+        item.classList.remove('open');
+      });
+    }
+  });
+
   // AOS Init (Removed artificial delay for instant hero animations)
   if (typeof AOS !== 'undefined') {
-    AOS.init({ 
-      duration: 600, 
-      once: false, 
+    AOS.init({
+      duration: 600,
+      once: false,
       easing: "ease-out",
       disable: 'mobile',
-      offset: 50, 
-      throttleDelay: 99, 
-      debounceDelay: 50 
+      offset: 50,
+      throttleDelay: 99,
+      debounceDelay: 50
     });
   }
 
@@ -161,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             room.style.opacity = "1";
           }, i * 200); // Increased stagger for better visual effect
         });
-      }, 1000); 
+      }, 1000);
     }
 
     // Still rotating content, but without GSAP transition
@@ -194,12 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const captionText = document.getElementById("modalCaption");
   const closeBtnModal = document.querySelector(".close-modal");
 
-  if(window.jQuery) {
-    $(".gallery-item-wrap").on("click", function() {
+  if (window.jQuery) {
+    $(".gallery-item-wrap").on("click", function () {
       const imgSrc = $(this).data("img");
       const title = $(this).data("title");
-      
-      if(modal && modalImg) {
+
+      if (modal && modalImg) {
         modal.style.display = "flex";
         modalImg.src = imgSrc;
         captionText.innerHTML = title;
@@ -208,14 +228,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if(closeBtnModal) {
-    closeBtnModal.onclick = function() {
+  if (closeBtnModal) {
+    closeBtnModal.onclick = function () {
       modal.style.display = "none";
       document.body.style.overflow = "auto";
     }
   }
 
-  window.onclick = function(event) {
+  window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
       document.body.style.overflow = "auto";
@@ -245,8 +265,8 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       const targetSelection = this.getAttribute('href');
-      if(targetSelection === "#") return;
-      
+      if (targetSelection === "#") return;
+
       const target = document.querySelector(targetSelection);
       if (target) {
         if (typeof lenis !== 'undefined' && lenis) {
@@ -292,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Phone: Exactly 10 digits
       const phoneClean = phone.value.replace(/\D/g, '');
       setError(phone, phoneClean.length !== 10);
-      
+
       // If phone field is inside a wrapper, color the wrapper too
       const phoneField = contactForm.querySelector('.phone-field');
       if (phoneField) {

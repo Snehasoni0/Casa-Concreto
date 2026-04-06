@@ -634,11 +634,6 @@
 
 @media(max-width:768px) {
 
-  /* Updated Gallery handling via Owl Carousel in style.css */
-  #lux-gallery {
-    padding: 0px 15px;
-  }
-
   .gallery-headings h2 {
     font-size: 28px;
     letter-spacing: 2px;
@@ -663,7 +658,7 @@
 
 
   #lux-gallery {
-    padding: 0px 15px 30px;
+    padding: 30px 15px 30px;
   }
 
   .gallery-grid {
