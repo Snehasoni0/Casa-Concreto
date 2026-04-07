@@ -111,10 +111,16 @@ document.addEventListener('DOMContentLoaded', () => {
       duration: 600,
       once: false,
       easing: "ease-out",
-      disable: 'mobile',
       offset: 50,
       throttleDelay: 99,
       debounceDelay: 50
+    });
+  }
+
+  // Refresh AOS when Lenis scrolls to ensure timing is correct
+  if (lenis) {
+    lenis.on('scroll', () => {
+      AOS.refresh();
     });
   }
 
