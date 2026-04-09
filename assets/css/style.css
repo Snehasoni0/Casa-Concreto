@@ -1652,16 +1652,8 @@ nav {
   z-index: 0;
 }
 
-/* Response Fix for Hero Titles */
-@media (max-width: 768px) {
-  .page-hero h1 {
-    font-size: 2.5rem !important;
-  }
+/* Response Fix for Hero Titles Moved to responsive.css */
 
-  .page-hero {
-    height: 50vh !important;
-  }
-}
 
 .scroll-down {
   position: absolute;
@@ -1694,26 +1686,4 @@ nav {
   }
 }
 
-/* Mobile Reset for Themed Rooms - Keeping it static */
-@media (max-width: 991px) {
-  .rooms-watermark {
-    display: none !important;
-  }
-
-  .rooms-center-logo {
-    display: none !important;
-  }
-
-  .room-item {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    animation: none !important;
-    opacity: 1 !important;
-    margin: 20px auto !important;
-    display: block !important;
-  }
-}
+/* Mobile Reset for Themed Rooms Moved to responsive.css */

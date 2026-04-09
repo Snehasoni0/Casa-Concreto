@@ -27,15 +27,78 @@
 
 .room-hero .hero-content {
   position: absolute;
-  bottom: 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
   text-align: center;
   color: #fff;
+  width: 100%;
+}
+
+.hero-title-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  font-size: min(100px, 12vw);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+  white-space: nowrap;
+  z-index: -1;
+  pointer-events: none;
+  letter-spacing: 15px;
+  opacity: 0.6;
+  text-align: center;
+  user-select: none;
+  animation: bgFadeIn 2s ease forwards;
+}
+
+@keyframes bgFadeIn {
+  from { opacity: 0; transform: translateY(-50%) scale(1.1); }
+  to { opacity: 0.6; transform: translateY(-50%) scale(1); }
 }
 
 .room-hero .hero-content h1 {
-  font-size: 60px;
-  letter-spacing: 2px;
+  font-size: clamp(40px, 6vw, 85px);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.hero-line {
+  width: 0;
+  height: 2px;
+  background: #fff;
+  margin: 30px auto 0;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.room-hero.aos-animate .hero-line {
+  width: 120px;
 }
 
 
@@ -269,3 +332,5 @@
 .modal-close:hover{
   transform: rotate(90deg);
 }
+
+/* Responsive Moved to responsive.css */

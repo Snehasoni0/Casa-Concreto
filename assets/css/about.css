@@ -210,7 +210,8 @@
 .video-hero {
   width: 100%;
   height: 100vh;
-  padding: 0 !important; /* Force remove global padding */
+  padding: 0 !important;
+  /* Force remove global padding */
 }
 
 .video-hero iframe {
@@ -349,3 +350,210 @@
 .guest-box button:hover {
   opacity: .8;
 }
+
+/* Awards & Featured In Sections */
+.awards-featured {
+  padding: 80px 8%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.awards-top {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.awards-main-title {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.awards-main-title h2 {
+  font-size: 52px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.small-accent-line {
+  width: 60px;
+  height: 2px;
+  background-color: #000;
+  margin: 0 auto 10px;
+}
+
+
+.awards-main-title p {
+  font-size: 20px;
+  color: #666;
+  font-weight: 300;
+}
+
+.awards-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.awards-label {
+  border-left: 4px solid #000;
+  padding: 15px 0 15px 35px;
+  min-width: 320px;
+}
+
+.awards-label h3 {
+  font-size: 38px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.awards-cards {
+  display: flex;
+  gap: 40px;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.award-card {
+  text-align: center;
+  width: 300px;
+}
+
+.award-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 25px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
+  border-radius: 4px;
+}
+
+.award-card:hover img {
+  transform: translateY(-10px);
+}
+
+.award-info h4 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.award-info p {
+  color: #777;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.section-divider {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 30px auto;
+  max-width: 1300px;
+}
+
+.featured-bottom {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.magazine-img {
+  width: 100%;
+  max-width: 850px;
+  position: relative;
+  margin: 0 auto;
+  transition: transform 0.4s ease;
+}
+
+.magazine-img:hover {
+  transform: scale(1.02);
+}
+
+
+
+.magazine-img img {
+  width: 100%;
+}
+
+.featured-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.journal-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.journal-logo {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #000;
+}
+
+.design-box {
+  background: #000;
+  color: #fff;
+  padding: 2px 8px;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.journal-subtitle {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-top: 5px;
+  color: #000;
+}
+
+.featured-footer p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+  max-width: 500px;
+  font-weight: 400;
+}
+
+
+.featured-info-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.featured-label-centered {
+  margin-top: 20px;
+  padding: 10px 0;
+  border-top: 4px solid #000;
+  display: inline-block;
+  min-width: 200px;
+}
+
+.featured-label-centered h3 {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+
+/* Responsiveness Moved to responsive.css */

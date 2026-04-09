@@ -158,23 +158,8 @@ body.discover {
   height: 270px;
 }
 
-/* Desktop Scaling */
-@media (min-width: 1600px) {
-  .exp-tall {
-    width: 260px;
-    height: 380px;
-  }
+/* Desktop Scaling Moved to responsive.css */
 
-  .exp-wide {
-    width: 380px;
-    height: 240px;
-  }
-
-  .exp-med {
-    width: 300px;
-    height: 300px;
-  }
-}
 
 /* --- MAGAZINE BREAKERS --- */
 .exp-magazine-breaker {
@@ -310,27 +295,4 @@ body.discover {
   padding-left: 10px;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .exp-list-row {
-    flex-direction: column !important;
-  }
-
-  .exp-col {
-    width: 100% !important;
-    flex: 0 0 auto;
-    height: 400px;
-  }
-
-  .exp-text-col {
-    padding: 40px 20px;
-    height: auto;
-  }
-
-  .exp-tall,
-  .exp-wide,
-  .exp-med {
-    width: 85vw;
-    height: 350px;
-  }
-}
+/* Responsive Moved to responsive.css */

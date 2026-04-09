@@ -102,9 +102,4 @@
   transform: rotate(45deg);
 }
 
-@media (max-width: 991px) {
-  .faq-section {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-}
+/* Responsive Moved to responsive.css */
