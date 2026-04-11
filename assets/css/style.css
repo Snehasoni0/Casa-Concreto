@@ -36,9 +36,19 @@
   transform: translate3d(0, 0, 0) !important;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Ethereal";
   overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 section {
@@ -1383,7 +1393,7 @@ nav {
 
 .home-blogs {
   padding: 80px 5%;
-  background: #f8f8f8;
+  background: white;
 }
 
 .home-blog-inner {
@@ -1466,7 +1476,7 @@ nav {
 
 
 .featured-section {
-  padding: 120px 5%;
+  padding: 30px 5% 80px;
   background: radial-gradient(circle at center, #1e1e1e 0%, #0a0a0a 100%);
   text-align: center;
   position: relative;
@@ -1497,7 +1507,6 @@ nav {
 }
 
 .featured-headings h2 {
-  font-family: 'Playfair Display', serif;
   font-size: 38px;
   letter-spacing: 8px;
   margin-bottom: 0;
@@ -1561,15 +1570,51 @@ nav {
   transform: scale(1.1);
 }
 
+/* Light Theme Variation for About Page */
+.featured-section.light-theme {
+  background: #fff;
+  padding: 30px 0 80px;
+}
+
+.featured-section.light-theme::before {
+  display: none; /* Hide ambient text for cleaner light look */
+}
+
+.featured-section.light-theme .featured-headings h2 {
+  color: #1a1a1a;
+  font-weight: bold;
+}
+
+.featured-section.light-theme .featured-headings p {
+  color: #666;
+}
+
+.featured-section.light-theme .brand-item {
+  background: #111;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.featured-section.light-theme .brand-item img {
+  filter: brightness(1.2); /* Enhance white logo visibility */
+}
+
+.featured-section.light-theme .brand-item:hover {
+  background: #1a1a1a;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 768px) {
   .featured-brands {
-    gap: 40px;
+    gap: 30px;
   }
-
+  .brand-item {
+    width: 200px;
+    height: 90px;
+  }
   .brand-item img {
-    height: 40px;
+    max-width: 80%;
   }
-
   .featured-headings h2 {
     font-size: 26px;
   }

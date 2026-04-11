@@ -1299,14 +1299,56 @@
       border-width: 1px !important;
   }
 
+  .mb-cover-logo {
+      width: 40px !important;
+      margin-bottom: 10px !important;
+  }
+
+  .mb-page-inside {
+      padding: 10px !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+  }
+
+  .mb-page-inside .mb-logo {
+      width: 25px !important;
+      margin-bottom: 8px !important;
+  }
+
+  .mb-page-inside h3 {
+      font-size: 8px !important;
+      letter-spacing: 2px !important;
+  }
+
+  /* Reduced Shadows for Mobile Depth */
+  .mb-page {
+      box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  .mb-page.flipped {
+      box-shadow: -2px 5px 15px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .mb-page.mb-cover {
+      box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.15) !important;
+  }
+
   .mb-hint {
       display: none !important;
   }
 
   .magazine-3d-showcase {
-      padding: 20px 0px 50px;
+      padding: 20px 0px;
       overflow-x: hidden;
   }
+
+  .awards-featured {
+    padding: 50px 0px;
+  }
+
   .awards-main-title h2 {
       font-size: 38px;
   }
@@ -1334,6 +1376,7 @@
   }
   .journal-footer-desc {
       font-size: 13px;
+      margin: 0px;
   }
   .featured-line-end {
       width: 150px;
