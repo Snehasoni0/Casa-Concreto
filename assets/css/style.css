@@ -524,7 +524,7 @@ nav {
 .rooms-grid-container {
   display: flex;
   gap: 10px;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   flex: 1;
   min-height: 0;
@@ -876,7 +876,7 @@ nav {
 
 
 .gallery-container {
-  max-width: 1400px;
+  max-width: 1600px;
   /* restored to original wide layout */
   margin: 0 auto;
   padding: 0 5%;
@@ -1597,6 +1597,50 @@ nav {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.journal-brand-wrap {
+  width: auto !important;
+  min-width: 380px;
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(197, 160, 89, 0.6) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 
+              0 0 25px rgba(197, 160, 89, 0.3);
+  transform: scale(1.06) translateY(-20px); /* Stronger lift and depth */
+}
+
+.journal-brand-wrap:hover {
+  border-color: rgba(197, 160, 89, 0.8) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 
+              0 0 25px rgba(197, 160, 89, 0.4);
+  transform: scale(1.08) translateY(-5px) !important;
+}
+
+.journal-brand {
+  text-align: center;
+}
+
+.journal-logo {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.design-box {
+  background: #c5a059;
+  color: #fff;
+  padding: 2px 8px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.journal-subtitle {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ccc;
 }
 
 .featured-section.light-theme .brand-item img {

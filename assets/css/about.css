@@ -397,6 +397,7 @@
   min-width: 380px;
 }
 
+
 .awards-label-aside h2 {
   font-size: 32px;
   font-weight: 700;
@@ -461,7 +462,7 @@
 }
 
 .featured-magazine-display {
-  flex: 1;
+  flex: 1.5; /* Give slightly more room to the image */
   display: flex;
   justify-content: flex-start;
 }
@@ -472,18 +473,27 @@
   height: auto;
 }
 
-.right-aside {
-  flex-direction: row;
-  justify-content: flex-end;
+.featured-right-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   text-align: right;
 }
 
+.right-aside {
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.right-aside .accent-bar {
+  height: 50px;
+}
+
 .awards-journal-footer {
-  text-align: center;
-  margin-top: 60px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: right;
+  margin-top: 30px;
+  max-width: 550px;
 }
 
 .awards-journal-footer .journal-brand {
@@ -877,39 +887,7 @@
 }
 
 /* Responsive Adjustments for Modern Awards Section */
-@media (max-width: 1100px) {
-  .awards-row-flex, .featured-row-flex {
-    flex-direction: column;
-    gap: 50px;
-    padding: 0 5%;
-  }
 
-  .awards-label-aside {
-    min-width: unset;
-    justify-content: center;
-    flex-direction: row; /* Keep bar next to text */
-  }
-
-  .right-aside {
-    text-align: center;
-    justify-content: center;
-    flex-direction: row; /* Keep bar next to text */
-  }
-
-  .awards-items {
-    justify-content: center;
-  }
-
-  .featured-magazine-display {
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 30px;
-  }
-
-  .awards-center-divider {
-    margin: 60px auto;
-  }
-}
 
 @media (max-width: 768px) {
   .brand-title {
@@ -987,24 +965,40 @@
   .awards-label-aside {
     min-width: unset;
     justify-content: center;
-    flex-direction: row; /* Keep bar next to text */
+    flex-direction: row;
   }
 
   .right-aside {
-    text-align: center;
     justify-content: center;
-    flex-direction: row; /* Keep bar next to text */
+    flex-direction: row;
   }
 
   .featured-magazine-display {
     justify-content: center;
     width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .featured-right-content {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .awards-journal-footer {
+    text-align: center;
+    max-width: 100%;
+    margin-top: 20px;
   }
 
   .awards-items {
     justify-content: center;
     flex-wrap: wrap;
     gap: 40px;
+  }
+
+  .awards-center-divider {
+    margin: 40px auto;
   }
 }
 
