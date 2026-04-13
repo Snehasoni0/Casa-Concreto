@@ -1,3 +1,9 @@
+.custom-navbar {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
 .blog-preview{
   padding:80px 20px;
 }
@@ -70,7 +76,9 @@
   width:28px;
   height:28px;
   border-radius:50%;
-  background:#ddd;
+  background: white url('../images/casa-concreto-logo-black.png') no-repeat center;
+  background-size: 70%;
+  border: 1px solid #eee;
 }
 
 .pill{
