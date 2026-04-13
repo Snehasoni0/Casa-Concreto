@@ -1572,49 +1572,64 @@ nav {
 
 /* Light Theme Variation for About Page */
 .featured-section.light-theme {
-  background: #fff;
-  padding: 30px 0 80px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://res.cloudinary.com/dxaj4o4xh/image/upload/v1775123917/banner-image-home_gbeii8.jpg") center/cover no-repeat fixed;
+  padding: 120px 0;
 }
 
 .featured-section.light-theme::before {
-  display: none; /* Hide ambient text for cleaner light look */
+  display: none;
+  /* Hide ambient text for cleaner light look */
 }
 
 .featured-section.light-theme .featured-headings h2 {
-  color: #1a1a1a;
+  color: #fff;
   font-weight: bold;
 }
 
 .featured-section.light-theme .featured-headings p {
-  color: #666;
+  color: #ccc;
 }
 
 .featured-section.light-theme .brand-item {
-  background: #111;
-  border: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .featured-section.light-theme .brand-item img {
-  filter: brightness(1.2); /* Enhance white logo visibility */
+  filter: brightness(1.2);
+  /* Enhance white logo visibility */
 }
 
 .featured-section.light-theme .brand-item:hover {
-  background: #1a1a1a;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  background: transparent;
+  box-shadow: none;
+  border-color: transparent;
+  transform: translateY(-5px);
+}
+
+.featured-section.light-theme .brand-item:hover img {
+  filter: brightness(1.5);
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
   .featured-brands {
     gap: 30px;
   }
+
   .brand-item {
     width: 200px;
     height: 90px;
   }
+
   .brand-item img {
     max-width: 80%;
   }
+
   .featured-headings h2 {
     font-size: 26px;
   }
