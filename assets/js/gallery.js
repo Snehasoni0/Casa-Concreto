@@ -30,46 +30,90 @@ const images = [
 
 
 const grid = document.getElementById("galleryGrid");
-const galleryModal = document.getElementById("galleryModal");
-const galleryModalImage = document.getElementById("galleryModalImage");
+const modal = document.getElementById("fullGalleryModal");
+const modalImg = document.getElementById("modalFullImage");
+const closeBtn = document.querySelector(".modal-close");
+const prevBtn = document.querySelector(".modal-nav.prev");
+const nextBtn = document.querySelector(".modal-nav.next");
+const currentNum = document.getElementById("currentImgNum");
+const totalNum = document.getElementById("totalImgNum");
+const loader = document.querySelector(".modal-loader");
 
 let currentIndex = 0;
+totalNum.textContent = images.length;
 
+// Generate Grid
 images.forEach((img, index) => {
-  const image = document.createElement("img");
-  image.src = img;
-  image.setAttribute("data-aos", "fade-up");
-  image.setAttribute("data-aos-duration", "800");
+    const image = document.createElement("img");
+    image.src = img;
+    image.alt = "Casa Concreto Gallery Image";
+    image.setAttribute("data-aos", "fade-up");
+    image.setAttribute("data-aos-duration", "800");
 
-  image.addEventListener("click", () => {
-    openModal(index);
-  });
+    image.addEventListener("click", () => {
+        openModal(index);
+    });
 
-  grid.appendChild(image);
+    grid.appendChild(image);
 });
 
-// Refresh AOS to detect dynamic elements
+// Refresh AOS
 if (window.AOS) {
     AOS.refresh();
 }
 
-
 function openModal(index) {
-  currentIndex = index;
-  galleryModal.classList.add("active");
-  galleryModalImage.src = images[index];
+    currentIndex = index;
+    updateModalImage();
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden"; // Native scroll lock
+    if (window.lenis) lenis.stop(); // Lenis scroll lock
 }
 
-document.querySelector(".close").onclick = () => {
-  galleryModal.classList.remove("active");
-};
+function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+    if (window.lenis) lenis.start();
+}
 
-document.querySelector(".next").onclick = () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  galleryModalImage.src = images[currentIndex];
-};
+function updateModalImage() {
+    loader.style.display = "block";
+    modalImg.style.opacity = "0";
+    
+    const tempImg = new Image();
+    tempImg.src = images[currentIndex];
+    tempImg.onload = () => {
+        modalImg.src = images[currentIndex];
+        modalImg.style.opacity = "1";
+        loader.style.display = "none";
+    };
+    
+    currentNum.textContent = currentIndex + 1;
+}
 
-document.querySelector(".prev").onclick = () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  galleryModalImage.src = images[currentIndex];
-};
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateModalImage();
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateModalImage();
+}
+
+// Event Listeners
+closeBtn.onclick = closeModal;
+nextBtn.onclick = nextImage;
+prevBtn.onclick = prevImage;
+
+// Click overlay to close
+document.querySelector(".modal-overlay").onclick = closeModal;
+
+// Keyboard Navigation
+document.addEventListener("keydown", (e) => {
+    if (!modal.classList.contains("active")) return;
+    
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+    if (e.key === "Escape") closeModal();
+});

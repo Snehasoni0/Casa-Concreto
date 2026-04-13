@@ -10,6 +10,7 @@ if (typeof Lenis !== 'undefined') {
     smoothWheel: true,
     infinite: false,
   });
+  window.lenis = lenis;
 
   function raf(time) {
     lenis.raf(time);
@@ -214,39 +215,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Gallery Modal Logic
+  // Gallery Modal Logic (Homepage)
   const modal = document.getElementById("galleryModal");
   const modalImg = document.getElementById("modalImg");
   const captionText = document.getElementById("modalCaption");
   const closeBtnModal = document.querySelector(".close-modal");
 
-  if (window.jQuery) {
+  if (window.jQuery && modal) {
     $(".gallery-item-wrap").on("click", function () {
       const imgSrc = $(this).data("img");
       const title = $(this).data("title");
 
-      if (modal && modalImg) {
+      if (modalImg) {
         modal.style.display = "flex";
         modalImg.src = imgSrc;
-        captionText.innerHTML = title;
+        if (captionText) captionText.innerHTML = title;
         document.body.style.overflow = "hidden";
+        if (window.lenis) lenis.stop();
       }
     });
   }
 
   if (closeBtnModal) {
     closeBtnModal.onclick = function () {
-      modal.style.display = "none";
+      if (modal) modal.style.display = "none";
       document.body.style.overflow = "auto";
+      if (window.lenis) lenis.start();
     }
   }
 
-  window.onclick = function (event) {
-    if (event.target == modal) {
+  window.addEventListener('click', (event) => {
+    if (modal && event.target == modal) {
       modal.style.display = "none";
       document.body.style.overflow = "auto";
+      if (window.lenis) lenis.start();
     }
-  }
+  });
 
   // Other Carousels (Reels)
   if (window.jQuery && $('.reels-grid').length) {

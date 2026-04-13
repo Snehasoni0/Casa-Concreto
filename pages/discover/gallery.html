@@ -50,7 +50,7 @@
     <h2>Our Gallery</h2>
     <div class="theme-line"></div>
     <p>
-      Explore moments captured across Casa Concreto óù where raw architecture,
+      Explore moments captured across Casa Concreto where raw architecture,
       natural light and curated spaces come together to create a truly immersive stay.
     </p>
   </section>
@@ -59,18 +59,16 @@
 
   <section data-aos="fade-up" data-aos-duration="1000" class="gallery-grid" id="galleryGrid"></section>
 
-  <!-- MODAL -->
-
-  <div id="galleryModal">
-
-    <span class="close">&times;</span>
-
-    <i class="fa-solid fa-chevron-left nav prev"></i>
-
-    <img id="galleryModalImage" alt="GalleryImage" loading="lazy">
-
-    <i class="fa-solid fa-chevron-right nav next"></i>
-
+  <div id="fullGalleryModal" class="full-gallery-modal">
+    <div class="modal-overlay"></div>
+    <span class="modal-close">&times;</span>
+    <div class="modal-content">
+      <div class="modal-loader"></div>
+      <i class="fa-solid fa-chevron-left modal-nav prev"></i>
+      <img id="modalFullImage" src="" alt="Gallery Image">
+      <i class="fa-solid fa-chevron-right modal-nav next"></i>
+    </div>
+    <div class="modal-counter"><span id="currentImgNum">1</span> / <span id="totalImgNum">29</span></div>
   </div>
 
 
