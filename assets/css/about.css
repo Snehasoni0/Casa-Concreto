@@ -518,6 +518,7 @@
     font-weight: 300;
     letter-spacing: 2px;
     margin-bottom: 5px;
+    color: #1a1a1a; /* Overriding white text from main style for visibility */
 }
 
 .design-box {
