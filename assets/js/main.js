@@ -58,6 +58,16 @@ handleNavbar();
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Preloader Logic
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('global-preloader');
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 500); // 500ms delay so user can see it finish
+    }
+  });
+
   // Navigation Logic
   const hamburger = document.querySelector('.hamburger');
   const closeBtn = document.querySelector('.close-menu');

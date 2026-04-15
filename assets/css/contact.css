@@ -51,11 +51,20 @@
 
 .info-bar {
   position: relative;
-  background: transparent;
-  padding: 40px;
+  background: white;
+  padding: 80px 8%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .info-bar {
+    grid-template-columns: 1fr;
+    padding: 60px 5%;
+    gap: 30px;
+  }
 }
 
 .info-item {
@@ -83,15 +92,15 @@
 
 .info-item h4 {
   margin: 0;
-  color: white;
+  color: #333;
 }
 
-.info-item a{
-  color: white;
+.info-item a {
+  color: #333;
 }
 
 .info-item p {
-  color: #e0e0e0;
+  color: #666;
   font-size: 14px;
   letter-spacing: 0.1px;
   padding-top: 10px;
@@ -119,7 +128,7 @@
 .left-content h1 {
   font-size: 55px;
   margin: 0;
-  color:white;
+  color: white;
 }
 
 .left-content h3 {
@@ -128,21 +137,25 @@
   padding-bottom: 10px;
 }
 
-.line{
+.line {
   width: 100%;
   height: 1px;
   background-color: white;
   margin-bottom: 30px;
 }
 
-.left-content p{
+.left-content p {
   color: white;
 }
 
 .form-box {
-  background: rgba(255, 255, 255, .9);
-  border-radius: 18px;
-  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .row {
@@ -218,7 +231,11 @@ button {
   cursor: pointer;
 }
 
-button:active{
+button:hover{
+  background-color: #b18a55;
+}
+
+button:active {
   scale: 1.05;
 }
 

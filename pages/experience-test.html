@@ -134,6 +134,12 @@
 </head>
 
 <body>
+  <div id="global-preloader" class="global-preloader">
+    <div class="loader-logo-wrapper">
+      <img loading="lazy" src="../assets/images/Casaconcreto-blacklogo.png" class="loader-logo-bg" alt="Loading">
+      <img loading="lazy" src="../assets/images/Casaconcreto-blacklogo.png" class="loader-logo-fill" alt="Loading">
+    </div>
+  </div>
   <section class="experience-section">
     <div class="experience-grid" id="experience-grid">
     </div>
@@ -174,7 +180,7 @@
         imgIdx++;
         return `
       <div class="tile image-tile">
-        <img src="${data.image}" alt="${data.title}">
+        <img loading="lazy" src="${data.image}" alt="${data.title}">
       </div>`;
       } else {
         // We alternate content based on textIdx
@@ -191,6 +197,16 @@
 
     grid.innerHTML = html;
   </script>
+
+  <!-- Floating Contact Icons -->
+  <div class="floating-contact-icons">
+    <a href="https://wa.me/918233545060" class="floating-icon floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Us">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+918233545060" class="floating-icon floating-call" aria-label="Call Us">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+  </div>
 </body>
 
 </html>
@@ -201,7 +217,7 @@
 
       <div class="content-col">
         <div class="stage-frame">
-          <img id="activeImg" src="" alt="Experience">
+          <img loading="lazy" id="activeImg" src="" alt="Experience">
           <div class="stage-overlay">
             <span id="activeNum">01</span>
             <h2 id="activeTitle"></h2>

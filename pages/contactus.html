@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us - Casa Concreto</title>
   <link rel="icon" type="image/png" href="../assets/images/casa-concreto-logo.png">
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/contact.css">
@@ -14,22 +14,49 @@
 </head>
 
 <body class="contact">
+  <div id="global-preloader" class="global-preloader">
+    <div class="loader-logo-wrapper">
+      <img loading="lazy" src="../assets/images/Casaconcreto-blacklogo.png" class="loader-logo-bg" alt="Loading">
+      <img loading="lazy" src="../assets/images/Casaconcreto-blacklogo.png" class="loader-logo-fill" alt="Loading">
+    </div>
+  </div>
+
   <!-- header section started -->
   <header class="custom-navbar">
     <nav>
       <div class="logo">
         <a href="../index.html">
-          <img src="../assets/images/casa-concreto-logo.png" alt="logo">
+          <img loading="lazy" src="../assets/images/casa-concreto-logo.png" alt="logo">
         </a>
       </div>
 
       <div class="hamburger">&#9776;</div>
       <div class="close-menu">&#10005;</div>
 
-      <div class='menu'><ul><li><a href='./about.html'>ABOUT</a></li><li class='has-dropdown'>THEMED ROOMS <ul class='dropdown'><li><a href='./rooms/insitu.html'>Insitu</a></li><li><a href='./rooms/woodlogs.html'>Wood Logs</a></li><li><a href='./rooms/wabisabi.html'>Wabi-Sabi</a></li><li><a href='./rooms/stamping.html'>Stamping</a></li><li><a href='./rooms/black-stone.html'>Black Stone</a></li></ul></li><li class='has-dropdown'>DISCOVER <ul class='dropdown'><li><a href='./discover/Amenities.html'>Amenities</a></li><li><a href='./discover/gallery.html'>Gallery</a></li><li><a href='./discover/blog.html'>Blog</a></li></ul></li><li><a href='./Experience.html'>EXPERIENCE</a></li><li><a href='./faq.html'>FAQS</a></li><li><a href='./contactus.html'>CONTACT</a></li></ul></div>
+      <div class='menu'>
+        <ul>
+          <li><a href='./about.html'>ABOUT</a></li>
+          <li class='has-dropdown'>THEMED ROOMS <ul class='dropdown'>
+              <li><a href='./rooms/insitu.html'>Insitu</a></li>
+              <li><a href='./rooms/woodlogs.html'>Wood Logs</a></li>
+              <li><a href='./rooms/wabisabi.html'>Wabi-Sabi</a></li>
+              <li><a href='./rooms/stamping.html'>Stamping</a></li>
+              <li><a href='./rooms/black-stone.html'>Black Stone</a></li>
+            </ul>
+          </li>
+          <li class='has-dropdown'>DISCOVER <ul class='dropdown'>
+              <li><a href='./discover/Amenities.html'>Amenities</a></li>
+              <li><a href='./discover/gallery.html'>Gallery</a></li>
+              <li><a href='./discover/blog.html'>Blog</a></li>
+            </ul>
+          </li>
+          <li><a href='./Experience.html'>EXPERIENCE</a></li>
+          <li><a href='./faq.html'>FAQS</a></li>
+          <li><a href='./contactus.html'>CONTACT</a></li>
+        </ul>
+      </div>
 
     </nav>
-
   </header>
   <!-- header section ended -->
 
@@ -38,52 +65,46 @@
     <h1 data-aos="fade-up" data-aos-duration="1000">Contact Us</h1>
   </section>
 
-
-  <section data-aos="fade-in" data-aos-duration="1000" class="contact-wrapper">
-
-    <div class="info-bar">
-
-      <div data-aos="fade-down" data-aos-duration="2000" class="info-item">
-        <i class="fa-solid fa-envelope"></i>
-        <div>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@casaconcreto.in" target="_blank">
-            <h4>Email Us</h4>
-            <span>info@casaconcreto.in</span>
-            <p>Reach out to inquire about availability, themed rooms, or special requests.</p>
-          </a>
-        </div>
+  <div class="info-bar">
+    <div data-aos="fade-down" data-aos-duration="2000" class="info-item">
+      <i class="fa-solid fa-envelope"></i>
+      <div>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@casaconcreto.in" target="_blank">
+          <h4>Email Us</h4>
+          <span>info@casaconcreto.in</span>
+          <p>Reach out to inquire about availability, themed rooms, or special requests.</p>
+        </a>
       </div>
-
-      <div data-aos="fade-down" data-aos-duration="2000" class="info-item">
-        <i class="fa-solid fa-phone"></i>
-        <div>
-          <a href="tel:+918233545060">
-            <h4>Call Us</h4>
-            <span>+91 82335 45060</span>
-            <p>Call us for immediate assistance and personalized guidance.</p>
-          </a>
-        </div>
-      </div>
-
-      <div data-aos="fade-down" data-aos-duration="2000" class="info-item">
-        <i class="fa-solid fa-location-dot"></i>
-        <div>
-          <a href="https://maps.app.goo.gl/bkMDakupE1zTUw7t9">
-            <h4>Visit Us</h4>
-            <p>K.No-1920/6 Near HP Petrol Pump, Jhanwar Rd, Rajasthan 342001</p>
-          </a>
-        </div>
-      </div>
-
     </div>
 
-    <div data-aos="fade-in" data-aos-duration="1000" class="contact-card">
+    <div data-aos="fade-down" data-aos-duration="2000" class="info-item">
+      <i class="fa-solid fa-phone"></i>
+      <div>
+        <a href="tel:+918233545060">
+          <h4>Call Us</h4>
+          <span>+91 82335 45060</span>
+          <p>Call us for immediate assistance and personalized guidance.</p>
+        </a>
+      </div>
+    </div>
 
+    <div data-aos="fade-down" data-aos-duration="2000" class="info-item">
+      <i class="fa-solid fa-location-dot"></i>
+      <div>
+        <a href="https://maps.app.goo.gl/bkMDakupE1zTUw7t9">
+          <h4>Visit Us</h4>
+          <p>K.No-1920/6 Near HP Petrol Pump, Jhanwar Rd, Rajasthan 342001</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section data-aos="fade-in" data-aos-duration="1000" class="contact-wrapper">
+    <div data-aos="fade-in" data-aos-duration="1000" class="contact-card">
       <div data-aos="fade-in" data-aos-duration="1000" class="left-content">
         <h1>Contact Us</h1>
         <div class="line"></div>
         <h3>Get In Touch With Us</h3>
-
         <p>
           Have questions or need assistance? Fill out the form, and our team will get back to you as soon as possible.
         </p>
@@ -91,7 +112,6 @@
 
       <div data-aos="fade-in" data-aos-duration="1000" class="form-box">
         <form id="contactForm">
-
           <div class="row">
             <input type="text" name="name" id="name" placeholder="Name" required minlength="2">
             <input type="email" name="email" id="email" placeholder="E-mail" required>
@@ -99,41 +119,29 @@
 
           <div class="phone-field">
             <div class="country-code">
-              <img src="https://flagcdn.com/w20/in.png" alt="India" loading="lazy">
+              <img loading="lazy" src="https://flagcdn.com/w20/in.png" alt="India">
               <span>+91</span>
             </div>
             <input type="tel" name="phone" id="phone" placeholder="Phone" required pattern="[0-9]{10}" maxlength="10">
           </div>
 
           <input type="text" name="subject" id="subject" placeholder="Subject" required minlength="3">
-
           <textarea name="message" id="message" placeholder="Message" required minlength="10"></textarea>
-
           <button type="submit">SEND MESSAGE</button>
-
         </form>
-
       </div>
-
     </div>
-
   </section>
-
-
-
 
   <!-- footer section started -->
   <footer id="site-footer">
     <div class="footer-inner">
-
       <div class="footer-col">
-        <img src="../assets/images/casa-concreto-logo.png" class="footer-logo" alt="logo">
-
+        <img loading="lazy" src="../assets/images/casa-concreto-logo.png" class="footer-logo" alt="logo">
         <p class="footer-address">
           info@casaconcreto.in<br>
           +91-8233545060
         </p>
-
         <div class="footer-social">
           <a href="https://www.facebook.com/casaconcretojdh"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/casaconcretojodhpur/"><i class="fa-brands fa-instagram"></i></a>
@@ -162,26 +170,31 @@
 
       <div class="footer-col">
         <h4>Find Us</h4>
-
         <iframe
           src="https://maps.google.com/maps?q=K.No.-1920/6,%20Near%20HP%20Petrol%20Pump,%20Doli,%20Jhanwar%20Rd,%20Jhanwar,%20Rajasthan%20342001&t=&z=15&ie=UTF8&iwloc=&output=embed"
           frameborder="0" allowfullscreen>
         </iframe>
       </div>
-
     </div>
-
-
     <div class="footer-brand">CASA CONCRETO</div>
   </footer>
   <!-- footer section ended -->
+
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="../assets/js/main.js"></script>
   <script src="../assets/js/contact.js"></script>
+
+  <!-- Floating Contact Icons -->
+  <div class="floating-contact-icons">
+    <a href="https://wa.me/918233545060" class="floating-icon floating-whatsapp" target="_blank" rel="noopener noreferrer"
+      aria-label="WhatsApp Us">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="tel:+918233545060" class="floating-icon floating-call" aria-label="Call Us">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+  </div>
 </body>
 
 </html>
-
-
-
