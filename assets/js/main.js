@@ -118,12 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Refresh AOS when Lenis scrolls to ensure timing is correct
-  if (lenis) {
-    lenis.on('scroll', () => {
-      AOS.refresh();
-    });
-  }
+  // AOS is initialized and handles scroll natively. Do not refresh it on every scroll frame.
 
   // Experience Slider
   const bg = document.querySelector(".experience-bg");
