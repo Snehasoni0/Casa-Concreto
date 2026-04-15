@@ -363,24 +363,7 @@
   margin: 0 auto;
 }
 
-.awards-top-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
 
-.brand-title {
-  font-size: 52px;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.brand-subtitle {
-  font-size: 22px;
-  color: #888;
-  font-weight: 300;
-}
 
 .awards-row-flex, .featured-row-flex {
   display: flex;
@@ -404,6 +387,17 @@
   line-height: 1.1;
   letter-spacing: 2px;
   color: #1a1a1a;
+  text-transform: uppercase;
+}
+
+.awards-source {
+  font-size: 16px;
+  font-weight: 300;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 10px;
+  text-transform: none; /* Keeps the 'by' and brand names with their original casing */
 }
 
 .accent-bar {

@@ -525,11 +525,8 @@ nav {
 .rooms-grid-container {
   display: flex;
   gap: 10px;
-  max-width: 1600px;
-  margin: 0 auto;
   flex: 1;
   min-height: 0;
-  /* Important for flex child scaling */
 }
 
 .rooms-col-main {

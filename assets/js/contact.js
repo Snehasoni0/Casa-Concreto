@@ -1,6 +1,6 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbx3ZCRKzNrZWtxnBS447eZ9xAbdxrvAtmnCyFPpC_qOHNYOhWZKEtPCyNcRLzPCAFv4BQ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwZOAduDOS0Gv9Eku1gkOiNyuT7bfT7Y7cC8PBadzug06Ghj0l9VKf6o24VH2TVLitz/exec";
 
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const formData = {
