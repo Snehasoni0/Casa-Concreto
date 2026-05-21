@@ -64,7 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
     if (preloader) {
       setTimeout(() => {
         preloader.classList.add('hidden');
-      }, 500); // 500ms delay so user can see it finish
+
+        // Initialize or Refresh AOS after preloader is gone
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 600,
+            once: false,
+            easing: "ease-out",
+            offset: 50,
+            throttleDelay: 99,
+            debounceDelay: 50
+          });
+          // Explicit refresh to catch elements already in view
+          AOS.refresh();
+        }
+      }, 500);
+    } else {
+      // Fallback if no preloader
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 600,
+          once: false,
+          easing: "ease-out",
+          offset: 50,
+          throttleDelay: 99,
+          debounceDelay: 50
+        });
+      }
     }
   });
 
@@ -94,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   dropdownParents.forEach(item => {
     item.addEventListener('click', (e) => {
       e.stopPropagation();
-      
+
       // Close other dropdowns
       dropdownParents.forEach(other => {
         if (other !== item) {
@@ -115,18 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-
-  // AOS Init (Removed artificial delay for instant hero animations)
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      duration: 600,
-      once: false,
-      easing: "ease-out",
-      offset: 50,
-      throttleDelay: 99,
-      debounceDelay: 50
-    });
-  }
 
   // AOS is initialized and handles scroll natively. Do not refresh it on every scroll frame.
 
@@ -357,4 +371,65 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+
+  loadContactDetails();
 });
+
+
+const CONTACT_API = "https://script.google.com/macros/s/AKfycbwXVN46NZ7AZA7E-09EkVDHa77FHgvc7c-3vvVUf1-1CF6RbZvPDrwtrVzjQVR4oH9y/exec?sheet=contact";
+
+async function loadContactDetails() {
+  try {
+    const res = await fetch(CONTACT_API);
+    const data = await res.json();
+
+    // EMAIL
+    document.querySelectorAll(".dynamic-email").forEach(el => {
+      el.textContent = data.email;
+      el.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${data.email}`;
+    });
+
+    // PHONE
+    document.querySelectorAll(".dynamic-phone").forEach(el => {
+      // Only set text if the element is empty or has no HTML children (preserving icons)
+      if (el.children.length === 0) {
+        el.textContent = `+91 ${data.phone}`;
+      }
+      el.href = `tel:+91${data.phone}`;
+    });
+
+    // WHATSAPP
+    const defaultMessage = encodeURIComponent("Hey! I have some queries can you please help?");
+    document.querySelectorAll(".dynamic-whatsapp").forEach(el => {
+      el.href = `https://wa.me/${data.whatsapp}?text=${defaultMessage}`;
+    });
+
+    // ADDRESS
+    document.querySelectorAll(".dynamic-address").forEach(el => {
+      el.textContent = data.address;
+    });
+
+    document.querySelectorAll(".dynamic-instagram").forEach(el => {
+      el.href = data.instagram;
+    });
+
+    document.querySelectorAll(".dynamic-facebook").forEach(el => {
+      el.href = data.facebook;
+    });
+
+    document.querySelectorAll(".dynamic-youtube").forEach(el => {
+      el.href = data.youtube;
+    });
+
+    document.querySelectorAll(".dynamic-map").forEach(el => {
+      el.src = data.map;
+    });
+
+  } catch (error) {
+    console.error("Contact load error:", error);
+  }
+}
+
+// 🚀 call function
+loadContactDetails();

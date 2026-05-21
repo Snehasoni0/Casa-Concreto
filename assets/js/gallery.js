@@ -1,7 +1,6 @@
 let images = [];
 
-const cloudName = "dx1jbyib2";
-const tagName = "gallery";
+const API_URL = "https://script.google.com/macros/s/AKfycbwXVN46NZ7AZA7E-09EkVDHa77FHgvc7c-3vvVUf1-1CF6RbZvPDrwtrVzjQVR4oH9y/exec?sheet=gallery";
 
 const grid = document.getElementById("galleryGrid");
 const modal = document.getElementById("fullGalleryModal");
@@ -15,12 +14,12 @@ const loader = document.querySelector(".modal-loader");
 
 let currentIndex = 0;
 
+// 🚀 LOAD IMAGES FROM GOOGLE SHEET
 async function loadGalleryImages() {
   try {
     grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center;">Loading images...</p>`;
 
-    const url = `https://res.cloudinary.com/${cloudName}/image/list/${tagName}.json`;
-    const res = await fetch(url);
+    const res = await fetch(API_URL);
 
     if (!res.ok) {
       throw new Error(`Failed to fetch images: ${res.status}`);
@@ -28,14 +27,12 @@ async function loadGalleryImages() {
 
     const data = await res.json();
 
-    if (!data.resources || !Array.isArray(data.resources)) {
-      throw new Error("Invalid Cloudinary response");
+    if (!Array.isArray(data)) {
+      throw new Error("Invalid API response");
     }
 
-    images = data.resources.map((item) => {
-      if (item.secure_url) return item.secure_url;
-      return `https://res.cloudinary.com/${cloudName}/image/upload/${item.public_id}.${item.format}`;
-    });
+    // ✅ Extract image URLs
+    images = data.map(item => item.imageUrl).filter(Boolean);
 
     totalNum.textContent = images.length;
     grid.innerHTML = "";
@@ -63,6 +60,7 @@ async function loadGalleryImages() {
     if (window.AOS) {
       AOS.refresh();
     }
+
   } catch (error) {
     console.error("Gallery load error:", error);
     grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; color:red;">Unable to load gallery images.</p>`;
@@ -70,6 +68,7 @@ async function loadGalleryImages() {
   }
 }
 
+// 🔍 MODAL FUNCTIONS
 function openModal(index) {
   if (!images.length) return;
 
@@ -123,6 +122,7 @@ function prevImage() {
   updateModalImage();
 }
 
+// 🎮 EVENTS
 if (closeBtn) closeBtn.onclick = closeModal;
 if (nextBtn) nextBtn.onclick = nextImage;
 if (prevBtn) prevBtn.onclick = prevImage;
@@ -138,4 +138,5 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModal();
 });
 
+// 🚀 INIT
 loadGalleryImages();

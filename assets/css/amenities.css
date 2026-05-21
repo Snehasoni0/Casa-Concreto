@@ -5,7 +5,7 @@
 .amenities-section {
   width: 90%;
   max-width: 1400px;
-  margin: 100px auto;
+  margin: 40px auto 100px;
 }
 
 .amenities-headings {
@@ -20,8 +20,15 @@
   letter-spacing: 1px;
 }
 
+.theme-line {
+  width: 60px;
+  height: 2px;
+  background: #c5a059;
+  margin: 5px auto;
+}
+
 .amenities-headings p {
-  padding-top: 10px;
+  padding-top: 5px;
   text-align: center;
 }
 

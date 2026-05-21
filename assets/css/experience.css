@@ -240,8 +240,24 @@ body.discover {
   text-align: left;
 }
 
+.row-double .exp-text-col {
+  padding: 30px 40px;
+  text-align: center;
+}
+
 .row-double .exp-text-inner {
   text-align: center;
+  margin: 0 auto;
+}
+
+.row-double .exp-description {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.row-double .exp-title {
+  margin-bottom: 10px;
 }
 
 .exp-number {

@@ -91,24 +91,35 @@
 }
 
 .info-item h4 {
-  margin: 0;
+  margin: 0 0 10px 0;
   color: #333;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.info-item a {
+.info-item a,
+.info-item span {
+  display: block;
+  color: #b18a55;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-item a:hover {
   color: #333;
 }
 
 .info-item p {
   color: #666;
   font-size: 14px;
+  line-height: 1.6;
   letter-spacing: 0.1px;
   padding-top: 10px;
-}
-
-.info-item span {
-  color: #b18a55;
-  font-weight: 600;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 .contact-card {
@@ -231,7 +242,7 @@ button {
   cursor: pointer;
 }
 
-button:hover{
+button:hover {
   background-color: #b18a55;
 }
 

@@ -67,7 +67,54 @@ section {
   contain: none;
 }
 
+/* --- GLOBAL PAGE HERO HEADINGS --- */
+.page-hero h1, 
+.contact-hero h1,
+.experience-hero h1,
+.about-hero h1,
+.faq-hero h1,
+.amenities-hero h1,
+.blog-hero h1,
+.gallery-hero h1 {
+  position: relative !important;
+  color: white !important;
+  font-size: clamp(3rem, 8vw, 5rem) !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  z-index: 5 !important;
+  margin: 0 !important;
+  display: block !important;
+}
 
+.page-hero h1::after,
+.contact-hero h1::after,
+.experience-hero h1::after,
+.about-hero h1::after,
+.faq-hero h1::after,
+.amenities-hero h1::after,
+.blog-hero h1::after,
+.gallery-hero h1::after {
+  content: "" !important;
+  display: block !important;
+  width: 0 !important;
+  height: 3px !important;
+  background: white !important;
+  margin: 15px auto 0 !important;
+  transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.8s !important;
+}
+
+.page-hero h1.aos-animate::after,
+.contact-hero h1.aos-animate::after,
+.experience-hero h1.aos-animate::after,
+.about-hero h1.aos-animate::after,
+.faq-hero h1.aos-animate::after,
+.amenities-hero h1.aos-animate::after,
+.blog-hero h1.aos-animate::after,
+.gallery-hero h1.aos-animate::after {
+  width: 120px !important;
+}
+
+.home-hero,
 
 .home .custom-navbar {
   background: transparent;
@@ -904,8 +951,8 @@ nav {
 
 .gallery-headings p {
   font-size: 16px;
+  line-height: 1.8;
   color: #666;
-  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -1220,11 +1267,7 @@ nav {
 }
 
 .reels-grid {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+  margin-top: 40px;
 }
 
 .reel-card {
@@ -1290,7 +1333,14 @@ nav {
 
 .testimonial-section h2 {
   font-size: 36px;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
+}
+
+.testimonial-line {
+  width: 80px;
+  height: 2px;
+  background: #c5a059;
+  margin: 0 auto 40px;
 }
 
 .review-top {

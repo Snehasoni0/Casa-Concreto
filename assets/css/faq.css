@@ -4,7 +4,7 @@
 
 .faq-intro {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 20px 0;
   max-width: 800px;
   margin: auto;
   display: flex;
@@ -21,14 +21,14 @@
 
 .faq-intro .underline {
   background-color: #333;
-  margin: 5px auto 15px;
+  margin: 5px auto 5px;
   width: 100px;
   height: 2px;
 }
 
 .faq-section {
   max-width: 1200px;
-  margin: 40px auto 100px;
+  margin: 20px auto 80px;
   padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -46,10 +46,10 @@
 
 .faq-category h3 {
   font-size: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 8px;
   color: #c19b76;
   border-bottom: 2px solid #c19b76;
-  padding-bottom: 8px;
+  padding-bottom: 5px;
   display: inline-block;
   font-weight: 500;
   letter-spacing: 1.5px;
@@ -64,7 +64,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 20px 0;
+  padding: 12px 0;
   text-align: left;
   font-size: 17px;
   color: #444;
@@ -88,7 +88,7 @@
 }
 
 .faq-answer p {
-  padding-bottom: 20px;
+  padding-bottom: 12px;
   line-height: 1.7;
   color: #666;
   font-size: 15px;
