@@ -43,6 +43,9 @@
       </div>
     </div>
     <div class="footer-brand">CASA CONCRETO</div>
+    <div class="footer-credit">
+      Website by <a href="https://shapebytes.com/" target="_blank" rel="noopener noreferrer">ShapeBytes</a>
+    </div>
   </footer>
   <!-- footer section ended -->
 

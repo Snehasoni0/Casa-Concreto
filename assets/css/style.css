@@ -1844,6 +1844,38 @@ nav {
   pointer-events: none;
 }
 
+.footer-credit {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 3;
+  letter-spacing: 1px;
+}
+
+.footer-credit a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .footer-credit {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .footer-address a {
   text-decoration: none;
   color: inherit;
