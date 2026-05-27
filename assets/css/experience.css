@@ -251,13 +251,15 @@ body.discover {
 }
 
 .row-double .exp-description {
-  font-size: 13px;
-  line-height: 1.4;
-  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 40px;
 }
 
 .row-double .exp-title {
-  margin-bottom: 10px;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 25px;
 }
 
 .exp-number {
