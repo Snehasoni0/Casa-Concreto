@@ -72,6 +72,10 @@
   margin-top: 70px;
 }
 
+.amenities-page-grid .amenity-card:nth-child(14) {
+  margin-top: 70px;
+}
+
 .amenity-card img {
   width: 100%;
   height: 100%;

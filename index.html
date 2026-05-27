@@ -14,6 +14,11 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://casaconcreto.in/" />
 
+  <!-- Preload Cuisine Images -->
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dx1jbyib2/image/upload/v1776244979/home-gallery-food-plate_hxwz1a_blrdco.jpg">
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dx1jbyib2/image/upload/v1776169357/IBA00791_mtbdfs.jpg">
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dx1jbyib2/image/upload/v1776169357/IBA00783_mckvkl.jpg">
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dx1jbyib2/image/upload/v1776169357/IBA00790_txetaq.jpg">
   <meta name="theme-color" content="#000000">
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Casa Concreto" />
@@ -953,6 +958,9 @@
         });
 
         gridContainer.innerHTML = blogHTML;
+
+        // Refresh ScrollTrigger after dynamic content changes page height
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
       })
       .catch(err => console.error("Error fetching blogs:", err));
   </script>
@@ -1006,6 +1014,9 @@
             1000: { items: 4 }
           }
         });
+
+        // Refresh ScrollTrigger after dynamic content changes page height
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
       } catch (err) {
         console.error("Error loading reels:", err);
       }
@@ -1018,83 +1029,91 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // LEFT REVEAL
-    gsap.utils.toArray(".reveal-left").forEach((el) => {
-      gsap.from(el, {
-        x: -150,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power3.out",
-
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        }
+    // --- Sync Lenis with ScrollTrigger on desktop ---
+    if (window.lenis) {
+      window._lenisGsapSync = true; // Signal main.js to stop its independent RAF loop
+      window.lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time) => {
+        window.lenis.raf(time * 1000);
       });
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    // --- Responsive GSAP animations via matchMedia ---
+    const mm = gsap.matchMedia();
+
+    // DESKTOP: large cinematic reveals
+    mm.add("(min-width: 1025px)", () => {
+
+      gsap.utils.toArray(".reveal-left").forEach((el) => {
+        gsap.from(el, {
+          x: -150, opacity: 0, duration: 1.5, ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" }
+        });
+      });
+
+      gsap.utils.toArray(".reveal-right").forEach((el) => {
+        gsap.from(el, {
+          x: 150, opacity: 0, duration: 1.5, ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" }
+        });
+      });
+
+      gsap.utils.toArray(".reveal-up").forEach((el) => {
+        gsap.from(el, {
+          y: 100, opacity: 0, duration: 1.2, ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" }
+        });
+      });
+
+      document.querySelectorAll(".stagger-parent").forEach((parent) => {
+        const items = parent.querySelectorAll(".stagger-item");
+        gsap.set(items, { opacity: 0, y: 40 });
+        ScrollTrigger.create({
+          trigger: parent, start: "top 85%",
+          onEnter: () => {
+            gsap.to(items, { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: "power2.out", overwrite: true });
+          },
+          once: true,
+        });
+      });
+
     });
 
-    // RIGHT REVEAL
-    gsap.utils.toArray(".reveal-right").forEach((el) => {
-      gsap.from(el, {
-        x: 150,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power3.out",
+    // MOBILE: lightweight micro-reveals for smooth performance
+    mm.add("(max-width: 1024px)", () => {
 
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        }
-      });
-    });
-
-    // UP REVEAL
-    gsap.utils.toArray(".reveal-up").forEach((el) => {
-      gsap.from(el, {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        }
-      });
-    });
-
-    // LIGHTWEIGHT STAGGER
-
-    document.querySelectorAll(".stagger-parent").forEach((parent) => {
-
-      const items = parent.querySelectorAll(".stagger-item");
-
-      gsap.set(items, {
-        opacity: 0,
-        y: 40,
+      gsap.utils.toArray(".reveal-left").forEach((el) => {
+        gsap.from(el, {
+          x: -30, opacity: 0, duration: 0.6, ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" }
+        });
       });
 
-      ScrollTrigger.create({
-        trigger: parent,
-        start: "top 85%",
+      gsap.utils.toArray(".reveal-right").forEach((el) => {
+        gsap.from(el, {
+          x: 30, opacity: 0, duration: 0.6, ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" }
+        });
+      });
 
-        onEnter: () => {
+      gsap.utils.toArray(".reveal-up").forEach((el) => {
+        gsap.from(el, {
+          y: 25, opacity: 0, duration: 0.5, ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 92%", toggleActions: "play none none none" }
+        });
+      });
 
-          gsap.to(items, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power2.out",
-            overwrite: true,
-          });
-
-        },
-
-        once: true,
+      document.querySelectorAll(".stagger-parent").forEach((parent) => {
+        const items = parent.querySelectorAll(".stagger-item");
+        gsap.set(items, { opacity: 0, y: 20 });
+        ScrollTrigger.create({
+          trigger: parent, start: "top 90%",
+          onEnter: () => {
+            gsap.to(items, { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out", overwrite: true });
+          },
+          once: true,
+        });
       });
 
     });

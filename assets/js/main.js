@@ -1,8 +1,9 @@
 // --- LENIS SMOOTH SCROLL INITIALIZATION ---
+// Bypass Lenis on mobile/touch devices to use native kinetic scrolling
+const isMobileOrTouch = window.innerWidth <= 1024 || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-// 1. Initialize Lenis Smooth Scroll (Only if library is loaded)
 let lenis;
-if (typeof Lenis !== 'undefined') {
+if (typeof Lenis !== 'undefined' && !isMobileOrTouch) {
   lenis = new Lenis({
     lerp: 0.15,
     wheelMultiplier: 1.1,
@@ -12,8 +13,10 @@ if (typeof Lenis !== 'undefined') {
   });
   window.lenis = lenis;
 
+  // Fallback RAF loop — only runs if GSAP hasn't taken over (non-GSAP pages)
+  // Pages with GSAP will set window._lenisGsapSync = true and drive Lenis via gsap.ticker
   function raf(time) {
-    lenis.raf(time);
+    if (!window._lenisGsapSync) lenis.raf(time);
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
@@ -69,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof AOS !== 'undefined') {
           AOS.init({
             duration: 600,
-            once: false,
+            once: true,
             easing: "ease-out",
             offset: 50,
             throttleDelay: 99,
@@ -84,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof AOS !== 'undefined') {
         AOS.init({
           duration: 600,
-          once: false,
+          once: true,
           easing: "ease-out",
           offset: 50,
           throttleDelay: 99,

@@ -252,6 +252,7 @@
     opacity: 0;
     animation: mobileFlip 20s infinite;
     backface-visibility: hidden;
+    will-change: transform, opacity;
   }
 
   .c1 {
@@ -295,6 +296,7 @@
 
     100% {
       opacity: 0;
+      transform: scale(.95);
     }
 
   }
@@ -804,6 +806,10 @@
   }
 
   .amenities-page-grid .amenity-card:nth-child(11) {
+    margin-top: 0px;
+  }
+
+  .amenities-page-grid .amenity-card:nth-child(14) {
     margin-top: 0px;
   }
 
